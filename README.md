@@ -1,6 +1,8 @@
 # 🎬 Marvel Multiverse Roadmap (1998 - 2026)
 
 > **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes.**
+>
+> 🌐 **Live Application**: [https://marvel-multiverse-roadmap.vercel.app/](https://marvel-multiverse-roadmap.vercel.app/)
 
 ---
 
@@ -27,7 +29,7 @@
   - Tracks **Mark as Watched**, **Skip**, and **Personal Ratings** directly on your device with instant feedback.
   - One-click **Reset All Progress** in footer.
 - **👥 Real-time Online Presence**:
-  - Dynamic live counter (`● 461 online`) powered by a lightweight Vercel Serverless API (`/api/presence`) with realistic visitor telemetry.
+  - Dynamic live counter (`● 1 online`) powered by a lightweight Vercel Serverless API (`/api/presence`) tracking true active visitor telemetry.
 - **🎬 Official YouTube Trailers**:
   - Embedded responsive modal player with direct YouTube links.
 - **⚡ Real-Time Search & Universe Filtering**:
@@ -53,15 +55,9 @@ Marvel Roadmap/
 ├── vercel.json          # Vercel deployment config, headers & caching rules
 ├── package.json         # NPM scripts and project metadata
 ├── .gitignore           # Git ignore rules
-├── poster/              # High-resolution media repository
-│   ├── portrait/        # Compressed portrait posters (.webp & .jpg)
-│   ├── landscape/       # Compressed landscape backdrops (.webp & .jpg)
-│   └── originals/       # Source images
-└── scripts/             # Build and image optimization scripts
-    ├── build_dataset.py
-    ├── fast_download_posters.py
-    ├── generate_frontend_data.py
-    └── polish_posters.py
+└── poster/              # High-resolution media repository
+    ├── portrait/        # Compressed portrait posters (.webp & .jpg)
+    └── landscape/       # Compressed landscape backdrops (.webp & .jpg)
 ```
 
 ---
@@ -117,6 +113,15 @@ You can also directly open `index.html` in modern web browsers (Chrome, Edge, Fi
 - **Design**: Modern glassmorphism, responsive alternating timeline rail, CSS Custom Properties
 - **Assets**: Local compressed WebP/JPEG assets with Pillow optimization
 - **APIs & Data**: Curated metadata from TMDB, IMDb, and Doomsday Roadmap
+
+---
+
+## 👤 Author
+
+**Vaibhav Soni**
+- **GitHub**: [VaibhavSoni24 (Vaibhav Soni)](https://github.com/VaibhavSoni24)
+- **LinkedIn**: [Vaibhav Soni](https://www.linkedin.com/in/vaibhav-soni-867836285/)
+- **Project Repository**: [VaibhavSoni24/Marvel-Roadmap](https://github.com/VaibhavSoni24/Marvel-Roadmap)
 
 ---
 

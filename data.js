@@ -186,7 +186,7 @@ const MARVEL_DATA = [
     "watch_time": "1h 53m",
     "rating": "5.8/10",
     "trailer": "https://www.youtube.com/watch?v=A8FqG4gL6Fw",
-    "tmdb_id": 36588,
+    "tmdb_id": 36648,
     "is_tv": false,
     "poster_portrait": "poster/portrait/10.webp",
     "poster_landscape": "poster/landscape/10.webp",

@@ -23,7 +23,6 @@
   let activeHeroLayer = 'A';
   let currentActiveId = 1;
   let presenceInterval = null;
-  let simulatedOnline = 465;
 
   // DOM Elements
   const timelineList = document.getElementById('timelineList');
@@ -322,7 +321,7 @@
             <img 
               class="card-poster-img"
               src="${item.poster_portrait}" 
-              onerror="this.onerror=null; this.src='${item.poster_portrait_fallback || 'poster/originals/portrait_' + item.id + '.jpg'}'"
+              onerror="this.onerror=null; this.src='${item.poster_portrait_fallback || 'poster/portrait/' + item.id + '.jpg'}'"
               alt="${item.title} (${item.year}) poster" 
               loading="lazy" 
               width="145" 
@@ -389,7 +388,7 @@
     if (!item) return;
 
     const landscapeUrl = item.poster_landscape;
-    const fallbackUrl = item.poster_landscape_fallback || `poster/originals/landscape_${id}.jpg`;
+    const fallbackUrl = item.poster_landscape_fallback || `poster/landscape/${id}.jpg`;
 
     // Crossfade between A and B
     if (activeHeroLayer === 'A') {
@@ -758,20 +757,18 @@
       }
     } catch (e) {
       // Local development or offline fallback
-      fallbackPresenceSimulation();
+      fallbackPresence();
     }
   }
 
-  function fallbackPresenceSimulation() {
-    const delta = Math.floor(Math.random() * 5) - 2;
-    simulatedOnline = Math.max(430, Math.min(515, simulatedOnline + delta));
-    onlineCount.textContent = simulatedOnline;
+  function fallbackPresence() {
+    onlineCount.textContent = '1';
   }
 
   function startOnlinePresence() {
     fetchOnlinePresence();
     if (presenceInterval) clearInterval(presenceInterval);
-    presenceInterval = setInterval(fetchOnlinePresence, 12000);
+    presenceInterval = setInterval(fetchOnlinePresence, 15000);
   }
 
   // -------------------------------------------------------------------------

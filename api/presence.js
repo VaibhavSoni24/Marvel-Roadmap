@@ -1,4 +1,4 @@
-// Vercel Serverless Function: Real-time Online Presence
+// Vercel Serverless Function: Real-time True Online Presence
 const activeVisitors = new Map();
 
 module.exports = function handler(req, res) {
@@ -29,14 +29,11 @@ module.exports = function handler(req, res) {
   // Register active heartbeat
   activeVisitors.set(visitorId, now);
 
-  // Dynamic traffic curve based on UTC hour (peaks during afternoon/evening UTC)
-  const hour = new Date().getUTCHours();
-  const baseTraffic = Math.floor(435 + 45 * Math.sin((hour - 5) * Math.PI / 12));
-  const jitter = Math.floor(Math.sin(now / 15000) * 8);
-  const totalOnline = Math.max(410, baseTraffic + activeVisitors.size + jitter);
+  // Exact true active unique visitor sessions
+  const trueCount = Math.max(1, activeVisitors.size);
 
   return res.status(200).json({
-    online: totalOnline,
+    online: trueCount,
     activeSessions: activeVisitors.size,
     timestamp: now
   });
