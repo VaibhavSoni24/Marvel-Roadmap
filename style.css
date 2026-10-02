@@ -686,10 +686,14 @@ body {
   border-radius: var(--radius-lg);
   backdrop-filter: blur(18px);
   display: flex;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
+}
+
+.timeline-item.has-open-popover {
+  z-index: 60;
 }
 
 .timeline-card:hover {
@@ -729,6 +733,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
 .card-poster-img {
@@ -917,39 +922,182 @@ body {
   font-size: 0.75rem;
 }
 
-/* Interactive User Individual Rating */
-.user-rating-box {
+/* Interactive Custom Rating Widget */
+.user-rating-widget {
+  position: relative;
+  display: inline-flex;
+}
+
+.user-rating-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(22, 26, 36, 0.85);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.user-rating-btn:hover {
+  background: rgba(30, 37, 52, 0.95);
+  border-color: rgba(250, 204, 21, 0.4);
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.12);
+}
+
+.user-rating-btn.has-rating {
+  border-color: rgba(250, 204, 21, 0.45);
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.user-rating-prefix {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.4px;
+}
+
+.user-rating-value {
+  font-family: var(--font-brand);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  letter-spacing: 0.2px;
+}
+
+.rating-chevron {
+  color: var(--accent-gold);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-rating-widget.is-open .rating-chevron {
+  transform: rotate(180deg);
+}
+
+.rating-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 240px;
+  background: rgba(14, 17, 24, 0.97);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  z-index: 250;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.88), 0 0 20px rgba(250, 204, 21, 0.12);
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  animation: popoverFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-rating-widget.is-open .rating-popover {
+  display: flex;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.rating-popover-header {
   display: flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(22, 26, 36, 0.7);
-  border: 1px solid var(--border-subtle);
-  padding: 3px 8px;
-  border-radius: var(--radius-sm);
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
 }
 
-.user-rating-label {
+.popover-title {
   font-size: 0.72rem;
+  font-weight: 700;
   color: var(--text-dim);
   text-transform: uppercase;
-  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.user-rating-select {
-  background: transparent;
+.btn-clear-rating {
+  background: none;
   border: none;
-  color: var(--accent-gold);
-  font-family: var(--font-brand);
-  font-size: 0.95rem;
-  font-weight: 800;
-  outline: none;
+  color: #ef4444;
+  font-size: 0.72rem;
+  font-weight: 700;
   cursor: pointer;
-  padding: 0 2px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
 }
 
-.user-rating-select option {
-  background: #12151d;
+.btn-clear-rating:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.rating-num-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 6px 0;
+  font-family: var(--font-brand);
+  font-size: 0.96rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  gap: 2px;
+  transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.rating-num-btn .num-star {
+  font-size: 0.62rem;
+  color: rgba(250, 204, 21, 0.5);
+  transition: color 0.15s;
+}
+
+.rating-num-btn:hover {
+  background: rgba(250, 204, 21, 0.18);
+  border-color: var(--accent-gold);
   color: #fff;
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
+}
+
+.rating-num-btn:hover .num-star {
+  color: var(--accent-gold);
+}
+
+.rating-num-btn.is-selected {
+  background: var(--accent-gold);
+  border-color: #fef08a;
+  color: #0b0d13;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+  transform: scale(1.04);
+}
+
+.rating-num-btn.is-selected .num-star {
+  color: #0b0d13;
 }
 
 /* Card Action Buttons */
@@ -1007,35 +1155,7 @@ body {
   flex: 0 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   Floating Calendar FAB
-   -------------------------------------------------------------------------- */
-.calendar-fab {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 90;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--accent-gold);
-  color: #0c0d12;
-  border: none;
-  font-family: inherit;
-  font-size: 0.92rem;
-  font-weight: 700;
-  padding: 12px 22px;
-  border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(250, 204, 21, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
 
-.calendar-fab:hover {
-  background: #fde047;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(250, 204, 21, 0.55);
-}
 
 /* --------------------------------------------------------------------------
    Modals
@@ -1135,75 +1255,7 @@ body {
   gap: 10px;
 }
 
-/* Calendar Modal specifics */
-.modal-dialog-calendar {
-  width: 540px;
-}
 
-.calendar-modal-body {
-  padding: 24px;
-}
-
-.calendar-hero-stat {
-  text-align: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 20px;
-}
-
-.cal-stat-big {
-  font-family: var(--font-brand);
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--accent-gold);
-  line-height: 1;
-}
-
-.cal-stat-sub {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-top: 6px;
-}
-
-.calendar-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.cal-box {
-  background: rgba(22, 26, 36, 0.7);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 12px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.cal-box-label {
-  font-size: 0.7rem;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.cal-box-val {
-  font-family: var(--font-brand);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #fff;
-  margin-top: 4px;
-}
-
-.cal-info-text {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-  text-align: center;
-}
 
 /* --------------------------------------------------------------------------
    Toasts

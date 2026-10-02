@@ -3,6 +3,9 @@ node_modules/
 .pnp
 .pnp.js
 
+# Vercel
+.vercel
+
 # Testing and temporary files
 __pycache__/
 *.py[cod]
@@ -19,3 +22,5 @@ yarn-error.log*
 # OS Files
 .DS_Store
 Thumbs.db
+
+.vercel

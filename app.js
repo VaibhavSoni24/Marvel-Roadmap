@@ -22,6 +22,8 @@
   let searchQuery = '';
   let activeHeroLayer = 'A';
   let currentActiveId = 1;
+  let presenceInterval = null;
+  let simulatedOnline = 465;
 
   // DOM Elements
   const timelineList = document.getElementById('timelineList');
@@ -51,20 +53,8 @@
   const closeTrailerBtn = document.getElementById('closeTrailerBtn');
   const openExternalTrailerBtn = document.getElementById('openExternalTrailerBtn');
 
-  const calendarFab = document.getElementById('calendarFab');
-  const calendarModal = document.getElementById('calendarModal');
-  const closeCalendarBtn = document.getElementById('closeCalendarBtn');
-  const downloadIcsBtn = document.getElementById('downloadIcsBtn');
-  const calDaysLeft = document.getElementById('calDaysLeft');
-  const calWatchLeft = document.getElementById('calWatchLeft');
-  const calPaceVal = document.getElementById('calPaceVal');
-  const calDoneVal = document.getElementById('calDoneVal');
-
   const shareBtn = document.getElementById('shareBtn');
   const copyLinkBtn = document.getElementById('copyLinkBtn');
-  const exportDataBtn = document.getElementById('exportDataBtn');
-  const importDataBtn = document.getElementById('importDataBtn');
-  const importFileInput = document.getElementById('importFileInput');
   const resetProgressBtn = document.getElementById('resetProgressBtn');
   const toastContainer = document.getElementById('toastContainer');
 
@@ -77,7 +67,7 @@
     renderTimeline();
     updateStats();
     updateContinueButton();
-    startOnlineCounterSimulation();
+    startOnlinePresence();
 
     // Set initial background to #1 or first item
     if (items.length > 0) {
@@ -159,12 +149,6 @@
     hudTotalCount.textContent = totalItems;
     hudDonePct.textContent = `${donePct}%`;
     hudProgressBar.style.width = `${donePct}%`;
-
-    // Update calendar modal stats
-    calDaysLeft.textContent = diffDays;
-    calWatchLeft.textContent = `${hours}h ${mins}m`;
-    calPaceVal.textContent = `${paceHPerDay}h/d`;
-    calDoneVal.textContent = `${watchedCount}/${totalItems} (${donePct}%)`;
   }
 
   // -------------------------------------------------------------------------
@@ -190,6 +174,47 @@
       setTimeout(() => el.classList.remove('is-active'), 2000);
       setBackground(id);
     }
+  }
+
+  // -------------------------------------------------------------------------
+  // Render Custom Rating Popover Widget
+  // -------------------------------------------------------------------------
+  function getRatingWidgetHtml(itemId, userRating, title) {
+    const ratingLabel = userRating ? `${userRating} / 10` : '_ / 10';
+    const hasRatingClass = userRating ? 'has-rating' : '';
+    const clearBtn = userRating ? `<button type="button" class="btn-clear-rating" data-id="${itemId}" title="Clear your rating">Clear</button>` : '';
+
+    let buttonsHtml = '';
+    for (let r = 1; r <= 10; r++) {
+      const isSelected = (userRating == r) ? 'is-selected' : '';
+      buttonsHtml += `
+        <button type="button" class="rating-num-btn ${isSelected}" data-id="${itemId}" data-rating="${r}" title="Rate ${r} out of 10">
+          <span class="num-star">★</span>
+          <span>${r}</span>
+        </button>
+      `;
+    }
+
+    return `
+      <div class="user-rating-widget" data-id="${itemId}">
+        <button type="button" class="user-rating-btn ${hasRatingClass}" data-id="${itemId}" aria-expanded="false" aria-haspopup="dialog" title="Rate ${title} (1-10)">
+          <span class="user-rating-prefix">YOUR RATING:</span>
+          <span class="user-rating-value">${ratingLabel}</span>
+          <svg class="rating-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="rating-popover" role="dialog" aria-hidden="true">
+          <div class="rating-popover-header">
+            <span class="popover-title">Your Rating</span>
+            ${clearBtn}
+          </div>
+          <div class="rating-grid">
+            ${buttonsHtml}
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   // -------------------------------------------------------------------------
@@ -239,7 +264,7 @@
     filteredItems.forEach((item, index) => {
       const isWatched = watchedSet.has(item.id);
       const isSkipped = skippedSet.has(item.id);
-      const userRating = ratingsMap[item.id] || '';
+      const userRating = ratingsMap[item.id] || null;
       const sideClass = (index % 2 === 0) ? 'side-left' : 'side-right';
 
       const li = document.createElement('li');
@@ -286,12 +311,7 @@
         `;
       }
 
-      // User individual rating options (blank from 10 by default)
-      let ratingOptions = '<option value="">_ / 10</option>';
-      for (let r = 10; r >= 1; r--) {
-        const selected = (userRating == r) ? 'selected' : '';
-        ratingOptions += `<option value="${r}" ${selected}>${r}/10</option>`;
-      }
+      const ratingWidgetMarkup = getRatingWidgetHtml(item.id, userRating, item.title);
 
       li.innerHTML = `
         <div class="timeline-node" aria-hidden="true">
@@ -328,12 +348,7 @@
                 <span class="score-sub">Score</span>
               </div>
 
-              <div class="user-rating-box" title="Set your personal rating for this movie or show">
-                <label for="user-rating-${item.id}" class="user-rating-label">Your Rating:</label>
-                <select id="user-rating-${item.id}" name="user-rating" class="user-rating-select" data-id="${item.id}" aria-label="Individual Rating for ${item.title}">
-                  ${ratingOptions}
-                </select>
-              </div>
+              ${ratingWidgetMarkup}
             </div>
 
             <div class="card-actions">
@@ -420,8 +435,9 @@
   // Event Listeners & Interaction Handlers
   // -------------------------------------------------------------------------
   function setupEventListeners() {
-    // Card Actions Delegation
+    // Timeline Card Actions Delegation
     timelineList.addEventListener('click', (e) => {
+      // 1. Watched Button
       const watchedBtn = e.target.closest('.btn-watched');
       if (watchedBtn) {
         const id = parseInt(watchedBtn.dataset.id, 10);
@@ -429,6 +445,7 @@
         return;
       }
 
+      // 2. Skip Button
       const skipBtn = e.target.closest('.btn-skip');
       if (skipBtn) {
         const id = parseInt(skipBtn.dataset.id, 10);
@@ -436,6 +453,7 @@
         return;
       }
 
+      // 3. Trailer Button
       const trailerBtn = e.target.closest('.btn-trailer');
       if (trailerBtn) {
         const url = trailerBtn.dataset.trailer;
@@ -443,22 +461,58 @@
         openTrailer(url, title);
         return;
       }
+
+      // 4. Rating Trigger Button
+      const ratingBtn = e.target.closest('.user-rating-btn');
+      if (ratingBtn) {
+        e.stopPropagation();
+        const widget = ratingBtn.closest('.user-rating-widget');
+        if (!widget) return;
+        const isOpen = widget.classList.contains('is-open');
+
+        // Close all open rating popovers
+        closeAllRatingPopovers();
+
+        // Toggle clicked
+        if (!isOpen) {
+          widget.classList.add('is-open');
+          const tItem = widget.closest('.timeline-item');
+          if (tItem) tItem.classList.add('has-open-popover');
+          ratingBtn.setAttribute('aria-expanded', 'true');
+          const pop = widget.querySelector('.rating-popover');
+          if (pop) pop.setAttribute('aria-hidden', 'false');
+        }
+        return;
+      }
+
+      // 5. Rating Number Selection
+      const numBtn = e.target.closest('.rating-num-btn');
+      if (numBtn) {
+        e.stopPropagation();
+        const id = parseInt(numBtn.dataset.id, 10);
+        const rating = parseInt(numBtn.dataset.rating, 10);
+        if (id && rating) {
+          setPersonalRating(id, rating);
+        }
+        return;
+      }
+
+      // 6. Rating Clear Button
+      const clearBtn = e.target.closest('.btn-clear-rating');
+      if (clearBtn) {
+        e.stopPropagation();
+        const id = parseInt(clearBtn.dataset.id, 10);
+        if (id) {
+          clearPersonalRating(id);
+        }
+        return;
+      }
     });
 
-    // User Rating Select Delegation
-    timelineList.addEventListener('change', (e) => {
-      const select = e.target.closest('.user-rating-select');
-      if (select) {
-        const id = parseInt(select.dataset.id, 10);
-        const val = select.value;
-        if (val) {
-          ratingsMap[id] = parseInt(val, 10);
-          showToast(`Rated #${id} (${val}/10)`);
-        } else {
-          delete ratingsMap[id];
-          showToast(`Cleared rating for #${id}`);
-        }
-        saveStorage();
+    // Close rating popovers when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.user-rating-widget')) {
+        closeAllRatingPopovers();
       }
     });
 
@@ -525,31 +579,66 @@
       if (e.target === trailerModal) closeTrailer();
     });
 
-    // Calendar Modal
-    calendarFab.addEventListener('click', openCalendarModal);
-    closeCalendarBtn.addEventListener('click', closeCalendarModal);
-    calendarModal.addEventListener('click', (e) => {
-      if (e.target === calendarModal) closeCalendarModal();
-    });
-    downloadIcsBtn.addEventListener('click', generateIcsFile);
-
     // Share & Copy Link
     shareBtn.addEventListener('click', handleShare);
     copyLinkBtn.addEventListener('click', handleCopyLink);
 
-    // Data Management
-    exportDataBtn.addEventListener('click', handleExport);
-    importDataBtn.addEventListener('click', () => importFileInput.click());
-    importFileInput.addEventListener('change', handleImport);
+    // Reset All Progress
     resetProgressBtn.addEventListener('click', handleResetProgress);
 
-    // Keyboard ESC to close modals
+    // Keyboard ESC to close modals & popovers
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeTrailer();
-        closeCalendarModal();
+        closeAllRatingPopovers();
       }
     });
+  }
+
+  // -------------------------------------------------------------------------
+  // Rating Actions
+  // -------------------------------------------------------------------------
+  function closeAllRatingPopovers() {
+    document.querySelectorAll('.timeline-item.has-open-popover').forEach(item => {
+      item.classList.remove('has-open-popover');
+    });
+    document.querySelectorAll('.user-rating-widget.is-open').forEach(w => {
+      w.classList.remove('is-open');
+      const btn = w.querySelector('.user-rating-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      const pop = w.querySelector('.rating-popover');
+      if (pop) pop.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  function setPersonalRating(id, rating) {
+    ratingsMap[id] = rating;
+    saveStorage();
+    showToast(`★ Rated #${id} (${rating}/10)`);
+    updateSingleRatingWidget(id);
+  }
+
+  function clearPersonalRating(id) {
+    delete ratingsMap[id];
+    saveStorage();
+    showToast(`Cleared rating for #${id}`);
+    updateSingleRatingWidget(id);
+  }
+
+  function updateSingleRatingWidget(id) {
+    const card = document.getElementById(`title-card-${id}`);
+    if (!card) return;
+    const widget = card.querySelector('.user-rating-widget');
+    if (!widget) return;
+
+    const item = items.find(it => it.id === id);
+    const userRating = ratingsMap[id] || null;
+    const title = item ? item.title : `Title #${id}`;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = getRatingWidgetHtml(id, userRating, title);
+    const newWidget = tempDiv.firstElementChild;
+    widget.replaceWith(newWidget);
   }
 
   // -------------------------------------------------------------------------
@@ -615,53 +704,6 @@
   }
 
   // -------------------------------------------------------------------------
-  // Calendar Modal & ICS Generation
-  // -------------------------------------------------------------------------
-  function openCalendarModal() {
-    updateStats();
-    calendarModal.classList.add('open');
-    calendarModal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeCalendarModal() {
-    calendarModal.classList.remove('open');
-    calendarModal.setAttribute('aria-hidden', 'true');
-  }
-
-  function generateIcsFile() {
-    const totalRemaining = items.filter(it => !watchedSet.has(it.id) && !skippedSet.has(it.id)).length;
-    const now = new Date();
-    const dtStamp = now.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-
-    const icsContent = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Marvel Multiverse Roadmap//EN',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      `UID:marvel-doomsday-${Date.now()}@marvelroadmap.local`,
-      `DTSTAMP:${dtStamp}`,
-      'DTSTART;VALUE=DATE:20261218',
-      'DTEND;VALUE=DATE:20261219',
-      'SUMMARY:Avengers: Doomsday Premiere',
-      `DESCRIPTION:The culmination of your 121-title Marvel Multiverse marathon! Titles remaining: ${totalRemaining}.`,
-      'STATUS:CONFIRMED',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
-
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'Avengers-Doomsday-Schedule.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast('📅 Calendar event (.ics) downloaded!');
-  }
-
-  // -------------------------------------------------------------------------
   // Sharing & Copy Link
   // -------------------------------------------------------------------------
   function handleCopyLink() {
@@ -687,56 +729,8 @@
   }
 
   // -------------------------------------------------------------------------
-  // Export & Import Progress
+  // Reset Progress
   // -------------------------------------------------------------------------
-  function handleExport() {
-    const data = {
-      version: 1,
-      exportedAt: new Date().toISOString(),
-      watched: [...watchedSet],
-      skipped: [...skippedSet],
-      ratings: ratingsMap
-    };
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `marvel-roadmap-progress-${new Date().toISOString().slice(0, 10)}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast('💾 Progress exported successfully!');
-  }
-
-  function handleImport(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      try {
-        const data = JSON.parse(event.target.result);
-        if (Array.isArray(data.watched)) {
-          watchedSet = new Set(data.watched);
-        }
-        if (Array.isArray(data.skipped)) {
-          skippedSet = new Set(data.skipped);
-        }
-        if (typeof data.ratings === 'object') {
-          ratingsMap = data.ratings;
-        }
-        saveStorage();
-        updateStats();
-        updateContinueButton();
-        renderTimeline();
-        showToast('✅ Progress imported successfully!');
-      } catch (err) {
-        showToast('❌ Invalid backup JSON file');
-      }
-    };
-    reader.readAsText(file);
-    e.target.value = '';
-  }
-
   function handleResetProgress() {
     if (confirm('Are you sure you want to reset all your watched, skipped, and rating progress? This cannot be undone.')) {
       watchedSet.clear();
@@ -751,15 +745,33 @@
   }
 
   // -------------------------------------------------------------------------
-  // Simulated Live Online Counter
+  // Live Online Presence (Vercel Serverless Function + Fallback)
   // -------------------------------------------------------------------------
-  function startOnlineCounterSimulation() {
-    let current = 465;
-    setInterval(() => {
-      const delta = Math.floor(Math.random() * 5) - 2;
-      current = Math.max(430, Math.min(520, current + delta));
-      onlineCount.textContent = current;
-    }, 4500);
+  async function fetchOnlinePresence() {
+    try {
+      const res = await fetch('/api/presence', { cache: 'no-store' });
+      if (!res.ok) throw new Error('API status ' + res.status);
+      const data = await res.json();
+      if (data && typeof data.online === 'number') {
+        onlineCount.textContent = data.online;
+        return;
+      }
+    } catch (e) {
+      // Local development or offline fallback
+      fallbackPresenceSimulation();
+    }
+  }
+
+  function fallbackPresenceSimulation() {
+    const delta = Math.floor(Math.random() * 5) - 2;
+    simulatedOnline = Math.max(430, Math.min(515, simulatedOnline + delta));
+    onlineCount.textContent = simulatedOnline;
+  }
+
+  function startOnlinePresence() {
+    fetchOnlinePresence();
+    if (presenceInterval) clearInterval(presenceInterval);
+    presenceInterval = setInterval(fetchOnlinePresence, 12000);
   }
 
   // -------------------------------------------------------------------------

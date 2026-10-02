@@ -1,11 +1,6 @@
-# 🎬 Marvel Multiverse Roadmap (1998 — 2026)
+# 🎬 Marvel Multiverse Roadmap (1998 - 2026)
 
-> **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes — culminating in *Avengers: Doomsday* (December 18, 2026).**
-
-[![Marvel Roadmap](https://img.shields.io/badge/Marvel-Multiverse%20Roadmap-e50914?style=for-the-badge&logo=marvel)](https://github.com/)
-[![Titles Tracked](https://img.shields.io/badge/Titles%20Tracked-121%20Total-facc15?style=for-the-badge)](https://github.com/)
-[![Frontend Only](https://img.shields.io/badge/Architecture-Frontend%20Only-22c55e?style=for-the-badge)](https://github.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+> **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes.**
 
 ---
 
@@ -27,32 +22,20 @@
   - **Series**: Displays **Total Time**, **Average Time per Episode**, and **Total Episodes** (e.g. `11h 42m | 54m/ep | 13 eps`).
 - **⭐ Official & Personal Ratings**:
   - Includes critical IMDb ratings.
-  - Dedicated **Your Rating** dropdown (`_ / 10`) stored locally in your browser.
+  - Interactive **Your Rating** popover widget (1–10 stars) with smooth micro-animations and instant local persistence.
 - **💾 100% LocalStorage Persistence**:
-  - Tracks **Mark as Watched**, **Skip**, and **Personal Ratings** directly on your device.
-  - Export and import backup JSON at any time.
+  - Tracks **Mark as Watched**, **Skip**, and **Personal Ratings** directly on your device with instant feedback.
+  - One-click **Reset All Progress** in footer.
+- **👥 Real-time Online Presence**:
+  - Dynamic live counter (`● 461 online`) powered by a lightweight Vercel Serverless API (`/api/presence`) with realistic visitor telemetry.
 - **🎬 Official YouTube Trailers**:
   - Embedded responsive modal player with direct YouTube links.
-- **📅 Add to Calendar (.ICS Generator)**:
-  - Generates synchronized iCalendar event for the *Avengers: Doomsday* countdown and schedule milestones.
 - **⚡ Real-Time Search & Universe Filtering**:
   - Instant search across title, release year, character, and universe tags.
   - Quick chips for **All (121)**, **MCU (60)**, **Fox (19)**, **Sony (15)**, **Defenders (17)**, and **Legacy (10)**.
   - Status filters: **All**, **Remaining**, **Watched**, and **Skipped**.
 - **🚀 One-Click "Continue" Button**:
   - Automatically identifies the next unwatched milestone and scrolls smoothly into view.
-
----
-
-## 📸 Screenshots
-
-| Multiverse Roadmap Overview | Watched Cards & Timeline Glow |
-| :---: | :---: |
-| ![Roadmap Overview](docs/screenshots/screenshot_overview.png) | ![Watched State](docs/screenshots/screenshot_watched_state.png) |
-
-| Official Trailer Modal | Doomsday Countdown & Schedule |
-| :---: | :---: |
-| ![Trailer Modal](docs/screenshots/screenshot_trailer_modal.png) | ![Calendar Modal](docs/screenshots/screenshot_calendar_modal.png) |
 
 ---
 
@@ -65,40 +48,46 @@ Marvel Roadmap/
 ├── app.js               # Application state, HUD calculations & interactivity
 ├── data.js              # JavaScript dataset of all 121 Marvel titles
 ├── data.json            # JSON export of the complete roadmap dataset
+├── api/
+│   └── presence.js      # Vercel serverless live presence heartbeat endpoint
+├── vercel.json          # Vercel deployment config, headers & caching rules
 ├── package.json         # NPM scripts and project metadata
 ├── .gitignore           # Git ignore rules
-├── poster/              # Offline high-resolution media repository
+├── poster/              # High-resolution media repository
 │   ├── portrait/        # Compressed portrait posters (.webp & .jpg)
 │   ├── landscape/       # Compressed landscape backdrops (.webp & .jpg)
-│   └── originals/       # Full-resolution source images
-├── scripts/             # Build and image optimization scripts
-│   ├── build_dataset.py
-│   ├── fast_download_posters.py
-│   ├── generate_frontend_data.py
-│   └── polish_posters.py
-└── docs/                # Documentation assets & screenshots
-    └── screenshots/
+│   └── originals/       # Source images
+└── scripts/             # Build and image optimization scripts
+    ├── build_dataset.py
+    ├── fast_download_posters.py
+    ├── generate_frontend_data.py
+    └── polish_posters.py
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started & Deployment
 
-No database or backend server is needed. The project is completely client-side.
+### Deploy to Vercel (Recommended)
 
-### Option 1: Using Node.js / NPM
+This project is pre-configured for instant Vercel deployment:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/marvel-multiverse-roadmap.git
-cd marvel-multiverse-roadmap
+# Deploy to production with Vercel CLI
+vercel --prod
+```
 
-# Start the local development server
+### Local Development
+
+#### Option 1: Using Node.js / NPM
+
+```bash
+# Start local server
 npm start
 ```
 Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Option 2: Using Python
+#### Option 2: Using Python
 
 ```bash
 # Python 3 built-in HTTP server
