@@ -1,0 +1,22 @@
+{
+  "name": "marvel-multiverse-roadmap",
+  "version": "1.0.0",
+  "description": "Ultimate Marvel watch order till 2026 leading up to Avengers: Doomsday. Full release-order marathon across MCU, Fox, Sony, Defenders, and Legacy universes.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000",
+    "start": "npx -y serve . -l 3000",
+    "preview": "npx -y serve . -l 3000"
+  },
+  "keywords": [
+    "marvel",
+    "mcu",
+    "doomsday",
+    "avengers-doomsday",
+    "watch-order",
+    "roadmap",
+    "multiverse"
+  ],
+  "author": "",
+  "license": "MIT"
+}
