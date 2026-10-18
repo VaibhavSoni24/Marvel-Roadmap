@@ -65,6 +65,13 @@ check(fs.existsSync(ogImagePath), 'og-image.jpg must exist');
 const manifestPath = path.resolve(__dirname, '../manifest.json');
 check(fs.existsSync(manifestPath), 'manifest.json must exist');
 
+const gscFilePath = path.resolve(__dirname, '../google28ae9fc02e0b86f1.html');
+check(fs.existsSync(gscFilePath), 'google28ae9fc02e0b86f1.html must exist');
+if (fs.existsSync(gscFilePath)) {
+  const gscContent = fs.readFileSync(gscFilePath, 'utf8');
+  check(gscContent.includes('google-site-verification: google28ae9fc02e0b86f1.html'), 'google28ae9fc02e0b86f1.html has incorrect content');
+}
+
 // 3. Validate index.html SEO tags
 const indexHtmlPath = path.resolve(__dirname, '../index.html');
 check(fs.existsSync(indexHtmlPath), 'index.html must exist');
@@ -75,6 +82,7 @@ check(indexHtml.includes('name="description"'), 'index.html missing meta descrip
 check(indexHtml.includes('rel="canonical"'), 'index.html missing canonical URL link');
 check(indexHtml.includes('property="og:image"'), 'index.html missing OpenGraph image tag');
 check(indexHtml.includes('application/ld+json'), 'index.html missing JSON-LD structured data');
+check(indexHtml.includes('name="google-site-verification"'), 'index.html missing google-site-verification meta tag');
 
 // Report
 console.log('');
