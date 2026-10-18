@@ -4,7 +4,7 @@
   "description": "Ultimate Marvel watch order till 2026 leading up to Avengers: Doomsday. Full release-order marathon across MCU, Fox, Sony, Defenders, and Legacy universes.",
   "main": "index.html",
   "scripts": {
-    "build": "node scripts/prerender.js",
+    "prerender": "node scripts/prerender.js",
     "test": "node scripts/prerender.js && node test/validate-data.js",
     "lint": "node --check app.js api/presence.js data.js test/validate-data.js scripts/prerender.js",
     "dev": "npx -y serve . -l 3000",
