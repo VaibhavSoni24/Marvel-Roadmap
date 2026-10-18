@@ -18,7 +18,7 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: 🔍 Lint JavaScript Syntax
         run: npm run lint
@@ -38,27 +38,83 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: 📦 Install Vercel CLI
         run: npm install -g vercel@latest
 
       - name: 🚀 Deploy to Production via Vercel CLI
-        if: env.VERCEL_TOKEN != ''
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::error::Deployment secrets missing! Please verify VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID are configured in repository secrets."
+            exit 1
+          fi
           vercel pull --yes --environment=production --token=$VERCEL_TOKEN
           vercel build --prod --token=$VERCEL_TOKEN
           vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
 
-      - name: ℹ️ Vercel Git Integration Status
-        if: env.VERCEL_TOKEN == ''
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: 🔍 Post-Deployment Production Smoke Test
         run: |
-          echo "Notice: VERCEL_TOKEN secret not set in GitHub repository settings."
-          echo "Vercel automatically triggers production deployment on git push via the connected Vercel GitHub App."
-          echo "To enable direct deployment within this GitHub Action, add VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID to your repository secrets."
+          echo "Waiting 6 seconds for global edge cache update..."
+          sleep 6
+
+          echo "🧪 1. Testing Production Homepage..."
+          PROD_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/)
+
+          # Check Title
+          echo "$PROD_HTML" | grep -Fq "Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)" || {
+            echo "::error::Production homepage title missing or incorrect!"
+            exit 1
+          }
+
+          # Check Card #1 (Blade)
+          echo "$PROD_HTML" | grep -Fq 'id="title-card-1"' || {
+            echo "::error::Card #1 (Blade) missing from production HTML!"
+            exit 1
+          }
+
+          # Check Card #121 (Doomsday)
+          echo "$PROD_HTML" | grep -Fq 'id="title-card-121"' || {
+            echo "::error::Card #121 (Avengers: Doomsday) missing from production HTML!"
+            exit 1
+          }
+
+          # Check Visible FAQ Section
+          echo "$PROD_HTML" | grep -Fq 'id="faq"' || {
+            echo "::error::Visible FAQ section missing from production HTML!"
+            exit 1
+          }
+
+          # Check Google Site Verification Meta Tag
+          echo "$PROD_HTML" | grep -Fq 'name="google-site-verification"' || {
+            echo "::error::Google site verification meta tag missing from production HTML!"
+            exit 1
+          }
+
+          echo "🧪 2. Testing Google Site Verification HTML File..."
+          GSC_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)
+          if [ "$GSC_STATUS" -ne 200 ]; then
+            echo "::error::google28ae9fc02e0b86f1.html returned HTTP $GSC_STATUS instead of 200!"
+            exit 1
+          fi
+          GSC_BODY=$(curl -sSL https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)
+          echo "$GSC_BODY" | grep -Fq "google-site-verification: google28ae9fc02e0b86f1.html" || {
+            echo "::error::google28ae9fc02e0b86f1.html content mismatch!"
+            exit 1
+          }
+
+          echo "🧪 3. Testing Sitemap & Robots.txt..."
+          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/sitemap.xml > /dev/null || {
+            echo "::error::Failed to load production sitemap.xml!"
+            exit 1
+          }
+          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/robots.txt > /dev/null || {
+            echo "::error::Failed to load production robots.txt!"
+            exit 1
+          }
+
+          echo "🎉 All post-deployment smoke tests passed! Live production verified."

@@ -108,6 +108,12 @@ if (jsonLdMatch && jsonLdMatch[1]) {
       check(itemList.itemListElement[120].url.endsWith('#title-card-121'), `Card #121 URL anchor mismatch: ${itemList.itemListElement[120].url}`);
     }
 
+    const webApp = parsed['@graph'].find(g => g['@type'] === 'WebApplication');
+    check(Boolean(webApp), 'JSON-LD missing WebApplication');
+    if (webApp) {
+      check(Boolean(webApp.aggregateRating && webApp.aggregateRating.ratingValue), 'WebApplication missing aggregateRating schema');
+    }
+
     const faqPage = parsed['@graph'].find(g => g['@type'] === 'FAQPage');
     check(Boolean(faqPage && faqPage.mainEntity && faqPage.mainEntity.length >= 3), 'JSON-LD missing valid FAQPage schema');
   } catch (err) {
