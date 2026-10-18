@@ -1,0 +1,19 @@
+{
+  "name": "Marvel Multiverse Roadmap (1998–2026)",
+  "short_name": "Marvel Roadmap",
+  "description": "Complete release-order marathon across MCU, Fox, Sony, and Defenders leading to Avengers: Doomsday.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060709",
+  "theme_color": "#e50914",
+  "orientation": "portrait-primary",
+  "categories": ["entertainment", "movies"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23e50914'/><text x='50' y='68' font-size='55' font-weight='900' fill='white' font-family='sans-serif' text-anchor='middle'>M</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

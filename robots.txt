@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marvel-multiverse-roadmap.vercel.app/sitemap.xml

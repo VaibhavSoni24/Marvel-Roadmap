@@ -4,6 +4,8 @@
   "description": "Ultimate Marvel watch order till 2026 leading up to Avengers: Doomsday. Full release-order marathon across MCU, Fox, Sony, Defenders, and Legacy universes.",
   "main": "index.html",
   "scripts": {
+    "test": "node test/validate-data.js",
+    "lint": "node --check app.js api/presence.js data.js test/validate-data.js",
     "dev": "npx -y serve . -l 3000",
     "start": "npx -y serve . -l 3000",
     "preview": "npx -y serve . -l 3000"
@@ -17,6 +19,14 @@
     "roadmap",
     "multiverse"
   ],
-  "author": "",
+  "author": "Vaibhav Soni (https://github.com/VaibhavSoni24)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VaibhavSoni24/Marvel-Roadmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VaibhavSoni24/Marvel-Roadmap/issues"
+  },
+  "homepage": "https://marvel-multiverse-roadmap.vercel.app/",
   "license": "MIT"
 }

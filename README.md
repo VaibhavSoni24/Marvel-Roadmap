@@ -1,6 +1,11 @@
 # 🎬 Marvel Multiverse Roadmap (1998 - 2026)
 
-> **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes.**
+[![CI/CD Pipeline](https://github.com/VaibhavSoni24/Marvel-Roadmap/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/VaibhavSoni24/Marvel-Roadmap/actions/workflows/ci-cd.yml)
+[![Vercel Deployment](https://img.shields.io/badge/Deployment-Live-22c55e?style=flat&logo=vercel)](https://marvel-multiverse-roadmap.vercel.app/)
+[![Roadmap](https://img.shields.io/badge/Roadmap-121%20Titles-e50914?style=flat&logo=marvel)](https://marvel-multiverse-roadmap.vercel.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+> **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes leading to Avengers: Doomsday.**
 >
 > 🌐 **Live Application**: [https://marvel-multiverse-roadmap.vercel.app/](https://marvel-multiverse-roadmap.vercel.app/)
 
@@ -9,6 +14,7 @@
 ## ✨ Features
 
 - **🎯 Exact 121-Item Multiverse Path**: Complete chronological release marathon from *Blade (1998)* through *Avengers: Doomsday (December 18, 2026)*.
+- **📝 Contextual One-Line Descriptions**: Every single movie and series card includes a concise one-line synopsis detailing what the entry is and its role in the Marvel Multiverse.
 - **📊 Interactive Sticky HUD Rail**:
   - **LEFT**: Live watch hours & minutes remaining across unwatched titles.
   - **PACE**: Calculated hours/day needed to finish before *Avengers: Doomsday* premiere.
@@ -31,9 +37,9 @@
 - **👥 Real-time Online Presence**:
   - Dynamic live counter (`● 1 online`) powered by a lightweight Vercel Serverless API (`/api/presence`) tracking true active visitor telemetry.
 - **🎬 Official YouTube Trailers**:
-  - Embedded responsive modal player with direct YouTube links.
+  - Embedded responsive modal player with direct YouTube links for all titles.
 - **⚡ Real-Time Search & Universe Filtering**:
-  - Instant search across title, release year, character, and universe tags.
+  - Instant search across title, release year, character, universe tags, and descriptions.
   - Quick chips for **All (121)**, **MCU (60)**, **Fox (19)**, **Sony (15)**, **Defenders (17)**, and **Legacy (10)**.
   - Status filters: **All**, **Remaining**, **Watched**, and **Skipped**.
 - **🚀 One-Click "Continue" Button**:
@@ -45,15 +51,25 @@
 
 ```text
 Marvel Roadmap/
-├── index.html           # Semantic HTML5 frontend layout & modals
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml    # GitHub Actions automated CI/CD pipeline
+├── index.html           # Semantic HTML5 layout with rich SEO & JSON-LD
 ├── style.css            # Handcrafted modern Vanilla CSS with dark theme
 ├── app.js               # Application state, HUD calculations & interactivity
 ├── data.js              # JavaScript dataset of all 121 Marvel titles
 ├── data.json            # JSON export of the complete roadmap dataset
 ├── api/
 │   └── presence.js      # Vercel serverless live presence heartbeat endpoint
+├── test/
+│   └── validate-data.js # Automated dataset, media, and SEO test suite
 ├── vercel.json          # Vercel deployment config, headers & caching rules
-├── package.json         # NPM scripts and project metadata
+├── sitemap.xml          # XML sitemap for search engine indexing
+├── robots.txt           # Crawler instructions and sitemap link
+├── manifest.json        # Web App Manifest for PWA and discoverability
+├── og-image.jpg         # High-resolution social media sharing preview card
+├── package.json         # NPM scripts, test commands, and project metadata
+├── CONTRIBUTING.md      # Guidelines for contributors and PR submission
 ├── .gitignore           # Git ignore rules
 └── poster/              # High-resolution media repository
     ├── portrait/        # Compressed portrait posters (.webp & .jpg)
@@ -93,6 +109,32 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Option 3: Direct File Opening
 You can also directly open `index.html` in modern web browsers (Chrome, Edge, Firefox, Safari).
+
+---
+
+## 🧪 Automated Testing & CI/CD Pipeline
+
+The project features a full **Continuous Integration & Continuous Deployment** pipeline powered by GitHub Actions:
+
+- **Lint & Syntax Checks**: Validates all JavaScript files using `node --check`.
+- **Integrity Test Suite**: Runs `npm test` (`test/validate-data.js`) to verify:
+  - Exact 121 sequentially indexed titles.
+  - Presence of all 242 local WebP images.
+  - Validity of release dates, runtimes, and trailer URLs.
+  - SEO readiness (`sitemap.xml`, `robots.txt`, `og-image.jpg`, meta tags).
+- **Automated Deployment**: Automatically deploys the production build to Vercel upon merging or pushing to `main`.
+
+Run tests locally:
+```bash
+npm run lint
+npm test
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, bug reports, and trailer corrections are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) guide before submitting a pull request.
 
 ---
 
