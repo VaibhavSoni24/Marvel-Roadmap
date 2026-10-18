@@ -77,12 +77,43 @@ const indexHtmlPath = path.resolve(__dirname, '../index.html');
 check(fs.existsSync(indexHtmlPath), 'index.html must exist');
 const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-check(indexHtml.includes('<title>Marvel Roadmap'), 'index.html missing targeted SEO <title>');
+check(indexHtml.includes('<title>Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)</title>'), 'index.html missing targeted consistent SEO <title>');
 check(indexHtml.includes('name="description"'), 'index.html missing meta description');
+check(indexHtml.includes('property="og:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)"'), 'index.html missing consistent OpenGraph title');
+check(indexHtml.includes('name="twitter:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)"'), 'index.html missing consistent Twitter title');
 check(indexHtml.includes('rel="canonical"'), 'index.html missing canonical URL link');
 check(indexHtml.includes('property="og:image"'), 'index.html missing OpenGraph image tag');
 check(indexHtml.includes('application/ld+json'), 'index.html missing JSON-LD structured data');
 check(indexHtml.includes('name="google-site-verification"'), 'index.html missing google-site-verification meta tag');
+
+// 4. Validate Pre-rendered HTML Content & Visible FAQ Section
+check(indexHtml.includes('id="title-card-1"'), 'index.html missing pre-rendered card #1');
+check(indexHtml.includes('id="title-card-121"'), 'index.html missing pre-rendered card #121');
+check(indexHtml.includes('id="faq"'), 'index.html missing visible FAQ section');
+check(indexHtml.includes('class="faq-item"'), 'index.html missing visible FAQ items');
+check(indexHtml.includes('class="footer-disclaimer"'), 'index.html missing footer legal disclaimer');
+
+// 5. Validate JSON-LD contains all 121 items and matching anchor links
+const jsonLdMatch = indexHtml.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/);
+check(Boolean(jsonLdMatch && jsonLdMatch[1]), 'Failed to extract JSON-LD structured data script block');
+if (jsonLdMatch && jsonLdMatch[1]) {
+  try {
+    const parsed = JSON.parse(jsonLdMatch[1]);
+    const itemList = parsed['@graph'].find(g => g['@type'] === 'ItemList');
+    check(Boolean(itemList), 'JSON-LD missing ItemList');
+    if (itemList) {
+      check(itemList.numberOfItems === 121, `ItemList declared ${itemList.numberOfItems} items instead of 121`);
+      check(itemList.itemListElement.length === 121, `ItemList has ${itemList.itemListElement.length} elements instead of 121`);
+      check(itemList.itemListElement[0].url.endsWith('#title-card-1'), `Card #1 URL anchor mismatch: ${itemList.itemListElement[0].url}`);
+      check(itemList.itemListElement[120].url.endsWith('#title-card-121'), `Card #121 URL anchor mismatch: ${itemList.itemListElement[120].url}`);
+    }
+
+    const faqPage = parsed['@graph'].find(g => g['@type'] === 'FAQPage');
+    check(Boolean(faqPage && faqPage.mainEntity && faqPage.mainEntity.length >= 3), 'JSON-LD missing valid FAQPage schema');
+  } catch (err) {
+    errors.push(`JSON-LD parse error: ${err.message}`);
+  }
+}
 
 // Report
 console.log('');

@@ -34,13 +34,14 @@
 - **💾 100% LocalStorage Persistence**:
   - Tracks **Mark as Watched**, **Skip**, and **Personal Ratings** directly on your device with instant feedback.
   - One-click **Reset All Progress** in footer.
-- **👥 Real-time Online Presence**:
-  - Dynamic live counter (`● 1 online`) powered by a lightweight Vercel Serverless API (`/api/presence`) tracking true active visitor telemetry.
+- **👥 Real-Time Online Presence Pulse**:
+  - Dynamic live counter (`● 1 online`) powered by a lightweight Vercel Serverless heartbeat endpoint (`/api/presence`) reflecting active concurrent browser sessions on the instance.
+  - *Note on Analytics*: This counter provides a lightweight real-time pulse of active users. For persistent, comprehensive visitor telemetry and traffic source breakdown, integrate a dedicated analytics service such as Vercel Web Analytics or Google Analytics.
 - **🎬 Official YouTube Trailers**:
   - Embedded responsive modal player with direct YouTube links for all titles.
 - **⚡ Real-Time Search & Universe Filtering**:
   - Instant search across title, release year, character, universe tags, and descriptions.
-  - Quick chips for **All (121)**, **MCU (60)**, **Fox (19)**, **Sony (15)**, **Defenders (17)**, and **Legacy (10)**.
+  - Quick chips with exact dataset counts: **All (121)**, **MCU (64)**, **Fox (18)**, **Defenders (16)**, **Sony (13)**, and **Legacy (10)**.
   - Status filters: **All**, **Remaining**, **Watched**, and **Skipped**.
 - **🚀 One-Click "Continue" Button**:
   - Automatically identifies the next unwatched milestone and scrolls smoothly into view.
@@ -140,18 +141,17 @@ Contributions, bug reports, and trailer corrections are welcome! Please read the
 
 ## 📽️ Multiverse Scope (121 Titles)
 
-- **Legacy Marvel Classics (1998–2008)**: *Blade Trilogy, Daredevil, Elektra, Hulk, The Punisher, Ghost Rider*
-- **Fox X-Men Universe (2000–2020)**: *X-Men 1–3, First Class, Days of Future Past, Apocalypse, Logan, Deadpool 1 & 2, Dark Phoenix, The New Mutants*
-- **Sony's Spider-Man Universes (2002–2024)**: *Sam Raimi Trilogy, The Amazing Spider-Man 1 & 2, Into/Across the Spider-Verse, Venom 1–3, Morbius, Madame Web, Kraven*
-- **Marvel Cinematic Universe (2008–2026)**: *Phases 1 through 6, culminating in Avengers: Doomsday*
-- **Marvel Television Defenders Saga**: *Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher*
-- **Marvel Animation**: *What If...? S1–S3, X-Men '97 S1–S2, Your Friendly Neighborhood Spider-Man, Eyes of Wakanda, Marvel Zombies*
+- **Marvel Cinematic Universe (64 titles)**: Phases 1 through 6, culminating in *Avengers: Doomsday (December 18, 2026)*.
+- **Fox X-Men & Fantastic Four (18 titles)**: *X-Men 1–3, First Class, Days of Future Past, Apocalypse, Logan, Deadpool 1 & 2, Dark Phoenix, The New Mutants, Fantastic Four*.
+- **Marvel Television Defenders Saga (16 titles)**: *Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher*.
+- **Sony's Spider-Man Universes (13 titles)**: *Sam Raimi Trilogy, The Amazing Spider-Man 1 & 2, Into/Across the Spider-Verse, Venom 1–3, Morbius, Madame Web, Kraven the Hunter*.
+- **Legacy Marvel Classics (10 titles)**: *Blade Trilogy, Daredevil (2003), Elektra, Hulk (2003), The Punisher (2004), Punisher: War Zone, Ghost Rider 1 & 2*.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Core**: Vanilla HTML5, Vanilla JavaScript (ES6+), Vanilla CSS
+- **Core**: Vanilla HTML5 (Pre-rendered for search crawlers & zero-JS support), Vanilla JavaScript (ES6+), Vanilla CSS
 - **Design**: Modern glassmorphism, responsive alternating timeline rail, CSS Custom Properties
 - **Assets**: Local compressed WebP/JPEG assets with Pillow optimization
 - **APIs & Data**: Curated metadata from TMDB, IMDb, and Doomsday Roadmap
@@ -167,6 +167,16 @@ Contributions, bug reports, and trailer corrections are welcome! Please read the
 
 ---
 
+## ⚖️ Disclaimer & Third-Party Trademark / Asset Rights
+
+This project is an **unofficial, non-commercial open-source fan project** created solely for the Marvel fan community to discover release orders and track movie/series marathon viewing progress.
+
+- **Software Code License**: The custom application code, build and validation scripts, stylesheets, and documentation created for this repository are licensed under the [MIT License](LICENSE).
+- **Trademarks & Copyrights**: Marvel, the Marvel Cinematic Universe (MCU), The Avengers, Spider-Man, X-Men, Fantastic Four, Daredevil, Blade, and all associated characters, logos, titles, poster artworks, backdrops, and video trailers are registered trademarks and copyrights of **Marvel Studios, The Walt Disney Company, Sony Pictures Entertainment, 20th Century Studios**, and their respective affiliates.
+- **Asset Usage**: No ownership of any third-party character names, trademarks, promotional posters, or backdrops is claimed or granted by the open-source software license. All promotional posters, thumbnails, and backdrops are used strictly under fair use principles for identification, educational, and commentary purposes.
+
+---
+
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This software is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

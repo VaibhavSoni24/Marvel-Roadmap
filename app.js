@@ -510,6 +510,14 @@
       }
     });
 
+    // Dynamic background update on card hover (delegated for both SSR and dynamic cards)
+    timelineList.addEventListener('mouseover', (e) => {
+      const itemEl = e.target.closest('.timeline-item');
+      if (itemEl && itemEl.dataset.id) {
+        setBackground(parseInt(itemEl.dataset.id, 10));
+      }
+    });
+
     // Close rating popovers when clicking outside
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.user-rating-widget')) {
