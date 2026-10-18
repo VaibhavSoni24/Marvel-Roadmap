@@ -10,13 +10,14 @@ const MARVEL_DATA = [
     "runtime_mins": 120,
     "watch_time": "2h 00m",
     "rating": "7.1/10",
-    "trailer": "https://www.youtube.com/watch?v=kaU2LP4524U",
+    "trailer": "https://www.youtube.com/watch?v=kaU2A7KyOu4",
     "tmdb_id": 36647,
     "is_tv": false,
     "poster_portrait": "poster/portrait/1.webp",
     "poster_landscape": "poster/landscape/1.webp",
     "poster_portrait_fallback": "poster/portrait/1.jpg",
-    "poster_landscape_fallback": "poster/landscape/1.jpg"
+    "poster_landscape_fallback": "poster/landscape/1.jpg",
+    "description": "Launches modern Marvel cinema, introducing Wesley Snipes' Daywalker and vampire lore."
   },
   {
     "id": 2,
@@ -36,7 +37,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/2.webp",
     "poster_landscape": "poster/landscape/2.webp",
     "poster_portrait_fallback": "poster/portrait/2.jpg",
-    "poster_landscape_fallback": "poster/landscape/2.jpg"
+    "poster_landscape_fallback": "poster/landscape/2.jpg",
+    "description": "Starts Fox's mutant saga, introducing Hugh Jackman's Wolverine and Patrick Stewart's Professor X."
   },
   {
     "id": 3,
@@ -49,13 +51,14 @@ const MARVEL_DATA = [
     "runtime_mins": 117,
     "watch_time": "1h 57m",
     "rating": "6.7/10",
-    "trailer": "https://www.youtube.com/watch?v=4b2bUeHjP1o",
+    "trailer": "https://www.youtube.com/watch?v=vAUB7dcUn8o",
     "tmdb_id": 36586,
     "is_tv": false,
     "poster_portrait": "poster/portrait/3.webp",
     "poster_landscape": "poster/landscape/3.webp",
     "poster_portrait_fallback": "poster/portrait/3.jpg",
-    "poster_landscape_fallback": "poster/landscape/3.jpg"
+    "poster_landscape_fallback": "poster/landscape/3.jpg",
+    "description": "Expands the Daywalker universe with Guillermo del Toro directing Blade against mutant Reapers."
   },
   {
     "id": 4,
@@ -75,7 +78,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/4.webp",
     "poster_landscape": "poster/landscape/4.webp",
     "poster_portrait_fallback": "poster/portrait/4.jpg",
-    "poster_landscape_fallback": "poster/landscape/4.jpg"
+    "poster_landscape_fallback": "poster/landscape/4.jpg",
+    "description": "Ignites Sam Raimi's trilogy, establishing Tobey Maguire's Peter Parker and Green Goblin."
   },
   {
     "id": 5,
@@ -88,13 +92,14 @@ const MARVEL_DATA = [
     "runtime_mins": 103,
     "watch_time": "1h 43m",
     "rating": "5.3/10",
-    "trailer": "https://www.youtube.com/watch?v=LmPRXWptUeg",
+    "trailer": "https://www.youtube.com/watch?v=muPX9Oi7-EE",
     "tmdb_id": 9480,
     "is_tv": false,
     "poster_portrait": "poster/portrait/5.webp",
     "poster_landscape": "poster/landscape/5.webp",
     "poster_portrait_fallback": "poster/portrait/5.jpg",
-    "poster_landscape_fallback": "poster/landscape/5.jpg"
+    "poster_landscape_fallback": "poster/landscape/5.jpg",
+    "description": "Introduces Ben Affleck's blind vigilante Matt Murdock and Jennifer Garner's Elektra."
   },
   {
     "id": 6,
@@ -114,7 +119,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/6.webp",
     "poster_landscape": "poster/landscape/6.webp",
     "poster_portrait_fallback": "poster/portrait/6.jpg",
-    "poster_landscape_fallback": "poster/landscape/6.jpg"
+    "poster_landscape_fallback": "poster/landscape/6.jpg",
+    "description": "Unites the X-Men and Magneto against William Stryker, exploring Wolverine's Weapon X past."
   },
   {
     "id": 7,
@@ -127,13 +133,14 @@ const MARVEL_DATA = [
     "runtime_mins": 138,
     "watch_time": "2h 18m",
     "rating": "5.6/10",
-    "trailer": "https://www.youtube.com/watch?v=xbqNb2PFKKA",
+    "trailer": "https://www.youtube.com/watch?v=2ErnLuJKQA4",
     "tmdb_id": 1927,
     "is_tv": false,
     "poster_portrait": "poster/portrait/7.webp",
     "poster_landscape": "poster/landscape/7.webp",
     "poster_portrait_fallback": "poster/portrait/7.jpg",
-    "poster_landscape_fallback": "poster/landscape/7.jpg"
+    "poster_landscape_fallback": "poster/landscape/7.jpg",
+    "description": "Ang Lee's psychological origin story exploring Bruce Banner's trauma and gamma rage."
   },
   {
     "id": 8,
@@ -146,13 +153,14 @@ const MARVEL_DATA = [
     "runtime_mins": 124,
     "watch_time": "2h 04m",
     "rating": "6.4/10",
-    "trailer": "https://www.youtube.com/watch?v=sW2w2b53j2c",
+    "trailer": "https://www.youtube.com/watch?v=8e0VvW9-M1Q",
     "tmdb_id": 7220,
     "is_tv": false,
     "poster_portrait": "poster/portrait/8.webp",
     "poster_landscape": "poster/landscape/8.webp",
     "poster_portrait_fallback": "poster/portrait/8.jpg",
-    "poster_landscape_fallback": "poster/landscape/8.jpg"
+    "poster_landscape_fallback": "poster/landscape/8.jpg",
+    "description": "Features Thomas Jane as Frank Castle waging a personal war against crime boss Howard Saint."
   },
   {
     "id": 9,
@@ -165,14 +173,15 @@ const MARVEL_DATA = [
     "runtime_mins": 127,
     "watch_time": "2h 07m",
     "rating": "7.5/10",
-    "trailer": "https://www.youtube.com/watch?v=CA5vsCnLm34",
+    "trailer": "https://www.youtube.com/watch?v=kficMW9vu8M",
     "tmdb_id": 558,
     "is_tv": false,
     "ddr_slug": "spider-man-2",
     "poster_portrait": "poster/portrait/9.webp",
     "poster_landscape": "poster/landscape/9.webp",
     "poster_portrait_fallback": "poster/portrait/9.jpg",
-    "poster_landscape_fallback": "poster/landscape/9.jpg"
+    "poster_landscape_fallback": "poster/landscape/9.jpg",
+    "description": "Acclaimed sequel pitting Peter Parker against Doctor Octopus while testing his hero's mantle."
   },
   {
     "id": 10,
@@ -185,13 +194,14 @@ const MARVEL_DATA = [
     "runtime_mins": 113,
     "watch_time": "1h 53m",
     "rating": "5.8/10",
-    "trailer": "https://www.youtube.com/watch?v=A8FqG4gL6Fw",
+    "trailer": "https://www.youtube.com/watch?v=fPcNbsW69Eg",
     "tmdb_id": 36648,
     "is_tv": false,
     "poster_portrait": "poster/portrait/10.webp",
     "poster_landscape": "poster/landscape/10.webp",
     "poster_portrait_fallback": "poster/portrait/10.jpg",
-    "poster_landscape_fallback": "poster/landscape/10.jpg"
+    "poster_landscape_fallback": "poster/landscape/10.jpg",
+    "description": "Concludes Blade's trilogy as the Nightstalkers team up with Blade against Dracula."
   },
   {
     "id": 11,
@@ -204,13 +214,14 @@ const MARVEL_DATA = [
     "runtime_mins": 97,
     "watch_time": "1h 37m",
     "rating": "4.7/10",
-    "trailer": "https://www.youtube.com/watch?v=B7bXkP3_Y0M",
+    "trailer": "https://www.youtube.com/watch?v=3ZWcZrwvoT8",
     "tmdb_id": 9947,
     "is_tv": false,
     "poster_portrait": "poster/portrait/11.webp",
     "poster_landscape": "poster/landscape/11.webp",
     "poster_portrait_fallback": "poster/portrait/11.jpg",
-    "poster_landscape_fallback": "poster/landscape/11.jpg"
+    "poster_landscape_fallback": "poster/landscape/11.jpg",
+    "description": "Follows resurrected assassin Elektra Natchios defending a father and daughter from the Hand."
   },
   {
     "id": 12,
@@ -230,7 +241,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/12.webp",
     "poster_landscape": "poster/landscape/12.webp",
     "poster_portrait_fallback": "poster/portrait/12.jpg",
-    "poster_landscape_fallback": "poster/landscape/12.jpg"
+    "poster_landscape_fallback": "poster/landscape/12.jpg",
+    "description": "Introduces Marvel's First Family, their cosmic-ray origins, and battle against Doctor Doom."
   },
   {
     "id": 13,
@@ -250,7 +262,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/13.webp",
     "poster_landscape": "poster/landscape/13.webp",
     "poster_portrait_fallback": "poster/portrait/13.jpg",
-    "poster_landscape_fallback": "poster/landscape/13.jpg"
+    "poster_landscape_fallback": "poster/landscape/13.jpg",
+    "description": "Concludes the original trilogy with the mutant cure conflict and the destructive Dark Phoenix."
   },
   {
     "id": 14,
@@ -263,13 +276,14 @@ const MARVEL_DATA = [
     "runtime_mins": 110,
     "watch_time": "1h 50m",
     "rating": "5.3/10",
-    "trailer": "https://www.youtube.com/watch?v=u3l3H4q5kX8",
+    "trailer": "https://www.youtube.com/watch?v=nu6R7ypaz5g",
     "tmdb_id": 1250,
     "is_tv": false,
     "poster_portrait": "poster/portrait/14.webp",
     "poster_landscape": "poster/landscape/14.webp",
     "poster_portrait_fallback": "poster/portrait/14.jpg",
-    "poster_landscape_fallback": "poster/landscape/14.jpg"
+    "poster_landscape_fallback": "poster/landscape/14.jpg",
+    "description": "Introduces Nicolas Cage as stunt motorcyclist Johnny Blaze bound to the Spirit of Vengeance."
   },
   {
     "id": 15,
@@ -289,7 +303,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/15.webp",
     "poster_landscape": "poster/landscape/15.webp",
     "poster_portrait_fallback": "poster/portrait/15.jpg",
-    "poster_landscape_fallback": "poster/landscape/15.jpg"
+    "poster_landscape_fallback": "poster/landscape/15.jpg",
+    "description": "Wraps Raimi's trilogy as Peter battles the black symbiote suit, Sandman, and Venom."
   },
   {
     "id": 16,
@@ -309,7 +324,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/16.webp",
     "poster_landscape": "poster/landscape/16.webp",
     "poster_portrait_fallback": "poster/portrait/16.jpg",
-    "poster_landscape_fallback": "poster/landscape/16.jpg"
+    "poster_landscape_fallback": "poster/landscape/16.jpg",
+    "description": "Features the cosmic herald Silver Surfer and planetary devourer Galactus arriving on Earth."
   },
   {
     "id": 17,
@@ -329,7 +345,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/17.webp",
     "poster_landscape": "poster/landscape/17.webp",
     "poster_portrait_fallback": "poster/portrait/17.jpg",
-    "poster_landscape_fallback": "poster/landscape/17.jpg"
+    "poster_landscape_fallback": "poster/landscape/17.jpg",
+    "description": "Introduces Robert Downey Jr. as Tony Stark and officially launches the Marvel Cinematic Universe."
   },
   {
     "id": 18,
@@ -349,7 +366,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/18.webp",
     "poster_landscape": "poster/landscape/18.webp",
     "poster_portrait_fallback": "poster/portrait/18.jpg",
-    "poster_landscape_fallback": "poster/landscape/18.jpg"
+    "poster_landscape_fallback": "poster/landscape/18.jpg",
+    "description": "Establishes Bruce Banner on the run in the early MCU, introducing General Ross and Abomination."
   },
   {
     "id": 19,
@@ -362,13 +380,14 @@ const MARVEL_DATA = [
     "runtime_mins": 103,
     "watch_time": "1h 43m",
     "rating": "5.9/10",
-    "trailer": "https://www.youtube.com/watch?v=f-B6QjT_k0o",
+    "trailer": "https://www.youtube.com/watch?v=liABMxEvPAc",
     "tmdb_id": 13056,
     "is_tv": false,
     "poster_portrait": "poster/portrait/19.webp",
     "poster_landscape": "poster/landscape/19.webp",
     "poster_portrait_fallback": "poster/portrait/19.jpg",
-    "poster_landscape_fallback": "poster/landscape/19.jpg"
+    "poster_landscape_fallback": "poster/landscape/19.jpg",
+    "description": "Presents Ray Stevenson's Frank Castle in a brutal, standalone vigilante war against mobster Jigsaw."
   },
   {
     "id": 20,
@@ -388,7 +407,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/20.webp",
     "poster_landscape": "poster/landscape/20.webp",
     "poster_portrait_fallback": "poster/portrait/20.jpg",
-    "poster_landscape_fallback": "poster/landscape/20.jpg"
+    "poster_landscape_fallback": "poster/landscape/20.jpg",
+    "description": "Explores Logan's past, Weapon X adamantium bonding, and early encounter with Wade Wilson."
   },
   {
     "id": 21,
@@ -408,7 +428,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/21.webp",
     "poster_landscape": "poster/landscape/21.webp",
     "poster_portrait_fallback": "poster/portrait/21.jpg",
-    "poster_landscape_fallback": "poster/landscape/21.jpg"
+    "poster_landscape_fallback": "poster/landscape/21.jpg",
+    "description": "Introduces Scarlett Johansson's Black Widow, Don Cheadle's War Machine, and sets up the Avengers."
   },
   {
     "id": 22,
@@ -428,7 +449,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/22.webp",
     "poster_landscape": "poster/landscape/22.webp",
     "poster_portrait_fallback": "poster/portrait/22.jpg",
-    "poster_landscape_fallback": "poster/landscape/22.jpg"
+    "poster_landscape_fallback": "poster/landscape/22.jpg",
+    "description": "Introduces Chris Hemsworth's God of Thunder and Tom Hiddleston's Loki, opening the MCU to cosmic realms."
   },
   {
     "id": 23,
@@ -441,14 +463,15 @@ const MARVEL_DATA = [
     "runtime_mins": 132,
     "watch_time": "2h 12m",
     "rating": "7.7/10",
-    "trailer": "https://www.youtube.com/watch?v=s3w2b8b9j0c",
+    "trailer": "https://www.youtube.com/watch?v=kyQKi5-k0UU",
     "tmdb_id": 49538,
     "is_tv": false,
     "ddr_slug": "x-men-first-class",
     "poster_portrait": "poster/portrait/23.webp",
     "poster_landscape": "poster/landscape/23.webp",
     "poster_portrait_fallback": "poster/portrait/23.jpg",
-    "poster_landscape_fallback": "poster/landscape/23.jpg"
+    "poster_landscape_fallback": "poster/landscape/23.jpg",
+    "description": "Reboots the mutant saga during the 1962 Cuban Missile Crisis, chronicling Xavier and Magneto's youth."
   },
   {
     "id": 24,
@@ -468,7 +491,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/24.webp",
     "poster_landscape": "poster/landscape/24.webp",
     "poster_portrait_fallback": "poster/portrait/24.jpg",
-    "poster_landscape_fallback": "poster/landscape/24.jpg"
+    "poster_landscape_fallback": "poster/landscape/24.jpg",
+    "description": "Origins of Steve Rogers in WWII, his battle with Red Skull, and the recovery of the Tesseract."
   },
   {
     "id": 25,
@@ -481,13 +505,14 @@ const MARVEL_DATA = [
     "runtime_mins": 96,
     "watch_time": "1h 36m",
     "rating": "4.3/10",
-    "trailer": "https://www.youtube.com/watch?v=ebCawfEnSWU",
+    "trailer": "https://www.youtube.com/watch?v=ZFHyPLaENRE",
     "tmdb_id": 71676,
     "is_tv": false,
     "poster_portrait": "poster/portrait/25.webp",
     "poster_landscape": "poster/landscape/25.webp",
     "poster_portrait_fallback": "poster/portrait/25.jpg",
-    "poster_landscape_fallback": "poster/landscape/25.jpg"
+    "poster_landscape_fallback": "poster/landscape/25.jpg",
+    "description": "Sequel following Johnny Blaze in Eastern Europe protecting a boy from the Devil."
   },
   {
     "id": 26,
@@ -507,7 +532,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/26.webp",
     "poster_landscape": "poster/landscape/26.webp",
     "poster_portrait_fallback": "poster/portrait/26.jpg",
-    "poster_landscape_fallback": "poster/landscape/26.jpg"
+    "poster_landscape_fallback": "poster/landscape/26.jpg",
+    "description": "Culmination of Phase One uniting Earth's Mightiest Heroes against Loki's Chitauri invasion."
   },
   {
     "id": 27,
@@ -520,14 +546,15 @@ const MARVEL_DATA = [
     "runtime_mins": 136,
     "watch_time": "2h 16m",
     "rating": "6.9/10",
-    "trailer": "https://www.youtube.com/watch?v=-tnxzJp54Yg",
+    "trailer": "https://www.youtube.com/watch?v=-tnxzJ0SSOw",
     "tmdb_id": 1930,
     "is_tv": false,
     "ddr_slug": "amazing-spider-man",
     "poster_portrait": "poster/portrait/27.webp",
     "poster_landscape": "poster/landscape/27.webp",
     "poster_portrait_fallback": "poster/portrait/27.jpg",
-    "poster_landscape_fallback": "poster/landscape/27.jpg"
+    "poster_landscape_fallback": "poster/landscape/27.jpg",
+    "description": "Reboots Spider-Man with Andrew Garfield's Peter Parker uncovering secrets about his parents."
   },
   {
     "id": 28,
@@ -547,7 +574,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/28.webp",
     "poster_landscape": "poster/landscape/28.webp",
     "poster_portrait_fallback": "poster/portrait/28.jpg",
-    "poster_landscape_fallback": "poster/landscape/28.jpg"
+    "poster_landscape_fallback": "poster/landscape/28.jpg",
+    "description": "Kicks off Phase Two, exploring Tony Stark's PTSD after New York and battle with Aldrich Killian."
   },
   {
     "id": 29,
@@ -560,14 +588,15 @@ const MARVEL_DATA = [
     "runtime_mins": 126,
     "watch_time": "2h 06m",
     "rating": "6.7/10",
-    "trailer": "https://www.youtube.com/watch?v=th1ZPB2P5e4",
+    "trailer": "https://www.youtube.com/watch?v=toLpchTUYk8",
     "tmdb_id": 76170,
     "is_tv": false,
     "ddr_slug": "the-wolverine",
     "poster_portrait": "poster/portrait/29.webp",
     "poster_landscape": "poster/landscape/29.webp",
     "poster_portrait_fallback": "poster/portrait/29.jpg",
-    "poster_landscape_fallback": "poster/landscape/29.jpg"
+    "poster_landscape_fallback": "poster/landscape/29.jpg",
+    "description": "Follows Logan in Japan confronting his lost healing factor and setting up Days of Future Past."
   },
   {
     "id": 30,
@@ -587,7 +616,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/30.webp",
     "poster_landscape": "poster/landscape/30.webp",
     "poster_portrait_fallback": "poster/portrait/30.jpg",
-    "poster_landscape_fallback": "poster/landscape/30.jpg"
+    "poster_landscape_fallback": "poster/landscape/30.jpg",
+    "description": "Introduces the Reality Stone (Aether) and Thor's battle against Malekith the Dark Elf."
   },
   {
     "id": 31,
@@ -607,7 +637,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/31.webp",
     "poster_landscape": "poster/landscape/31.webp",
     "poster_portrait_fallback": "poster/portrait/31.jpg",
-    "poster_landscape_fallback": "poster/landscape/31.jpg"
+    "poster_landscape_fallback": "poster/landscape/31.jpg",
+    "description": "Critical espionage thriller that dismantles S.H.I.E.L.D., exposes Hydra, and reveals Bucky Barnes."
   },
   {
     "id": 32,
@@ -620,14 +651,15 @@ const MARVEL_DATA = [
     "runtime_mins": 142,
     "watch_time": "2h 22m",
     "rating": "6.6/10",
-    "trailer": "https://www.youtube.com/watch?v=nbp3Ra3YpCE",
+    "trailer": "https://www.youtube.com/watch?v=nbp3Ra3Yp74",
     "tmdb_id": 102382,
     "is_tv": false,
     "ddr_slug": "amazing-spider-man-2",
     "poster_portrait": "poster/portrait/32.webp",
     "poster_landscape": "poster/landscape/32.webp",
     "poster_portrait_fallback": "poster/portrait/32.jpg",
-    "poster_landscape_fallback": "poster/landscape/32.jpg"
+    "poster_landscape_fallback": "poster/landscape/32.jpg",
+    "description": "Pits Andrew Garfield's Spidey against Electro and Green Goblin, leading to Gwen Stacy's tragic climax."
   },
   {
     "id": 33,
@@ -647,7 +679,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/33.webp",
     "poster_landscape": "poster/landscape/33.webp",
     "poster_portrait_fallback": "poster/portrait/33.jpg",
-    "poster_landscape_fallback": "poster/landscape/33.jpg"
+    "poster_landscape_fallback": "poster/landscape/33.jpg",
+    "description": "Groundbreaking crossover bridging original and prequel X-Men casts through time travel."
   },
   {
     "id": 34,
@@ -667,11 +700,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/34.webp",
     "poster_landscape": "poster/landscape/34.webp",
     "poster_portrait_fallback": "poster/portrait/34.jpg",
-    "poster_landscape_fallback": "poster/landscape/34.jpg"
+    "poster_landscape_fallback": "poster/landscape/34.jpg",
+    "description": "Launches the cosmic MCU, introducing Star-Lord's team, the Power Stone, and Thanos' quest."
   },
   {
     "id": 35,
-    "title": "Daredevil \u2014 Season 1",
+    "title": "Daredevil — Season 1",
     "release_date": "2015-04-10",
     "year": 2015,
     "type": "series",
@@ -689,7 +723,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/35.webp",
     "poster_landscape": "poster/landscape/35.webp",
     "poster_portrait_fallback": "poster/portrait/35.jpg",
-    "poster_landscape_fallback": "poster/landscape/35.jpg"
+    "poster_landscape_fallback": "poster/landscape/35.jpg",
+    "description": "Kicks off the gritty Defenders Saga with Charlie Cox as blind attorney Matt Murdock fighting Kingpin."
   },
   {
     "id": 36,
@@ -709,7 +744,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/36.webp",
     "poster_landscape": "poster/landscape/36.webp",
     "poster_portrait_fallback": "poster/portrait/36.jpg",
-    "poster_landscape_fallback": "poster/landscape/36.jpg"
+    "poster_landscape_fallback": "poster/landscape/36.jpg",
+    "description": "Introduces Vision, Wanda, and Quicksilver, while creating Ultron and foreshadowing the Infinity War."
   },
   {
     "id": 37,
@@ -729,7 +765,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/37.webp",
     "poster_landscape": "poster/landscape/37.webp",
     "poster_portrait_fallback": "poster/portrait/37.jpg",
-    "poster_landscape_fallback": "poster/landscape/37.jpg"
+    "poster_landscape_fallback": "poster/landscape/37.jpg",
+    "description": "Introduces Scott Lang, Hank Pym's shrinking technology, and the foundational Quantum Realm."
   },
   {
     "id": 38,
@@ -749,11 +786,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/38.webp",
     "poster_landscape": "poster/landscape/38.webp",
     "poster_portrait_fallback": "poster/portrait/38.jpg",
-    "poster_landscape_fallback": "poster/landscape/38.jpg"
+    "poster_landscape_fallback": "poster/landscape/38.jpg",
+    "description": "A darker sci-fi reimagining of the Four acquiring interdimensional powers via Planet Zero."
   },
   {
     "id": 39,
-    "title": "Jessica Jones \u2014 Season 1",
+    "title": "Jessica Jones — Season 1",
     "release_date": "2015-11-20",
     "year": 2015,
     "type": "series",
@@ -764,13 +802,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "52m / ep",
     "episodes": 13,
     "rating": "7.9/10",
-    "trailer": "https://www.youtube.com/watch?v=s3UYWK21ug0",
+    "trailer": "https://www.youtube.com/watch?v=nWHUjuJ8zxE",
     "tmdb_id": 38472,
     "is_tv": true,
     "poster_portrait": "poster/portrait/39.webp",
     "poster_landscape": "poster/landscape/39.webp",
     "poster_portrait_fallback": "poster/portrait/39.jpg",
-    "poster_landscape_fallback": "poster/landscape/39.jpg"
+    "poster_landscape_fallback": "poster/landscape/39.jpg",
+    "description": "Follows superpowered PI Jessica Jones confronting traumatic abuser Kilgrave."
   },
   {
     "id": 40,
@@ -790,11 +829,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/40.webp",
     "poster_landscape": "poster/landscape/40.webp",
     "poster_portrait_fallback": "poster/portrait/40.jpg",
-    "poster_landscape_fallback": "poster/landscape/40.jpg"
+    "poster_landscape_fallback": "poster/landscape/40.jpg",
+    "description": "Breaks the fourth wall and box-office records with Ryan Reynolds' irreverent, R-rated antihero."
   },
   {
     "id": 41,
-    "title": "Daredevil \u2014 Season 2",
+    "title": "Daredevil — Season 2",
     "release_date": "2016-03-18",
     "year": 2016,
     "type": "series",
@@ -805,14 +845,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "54m / ep",
     "episodes": 13,
     "rating": "8.6/10",
-    "trailer": "https://www.youtube.com/watch?v=2Cw3320_pLA",
+    "trailer": "https://www.youtube.com/watch?v=IMC7H23-sMs",
     "tmdb_id": 61889,
     "is_tv": true,
     "ddr_slug": "daredevil-s2",
     "poster_portrait": "poster/portrait/41.webp",
     "poster_landscape": "poster/landscape/41.webp",
     "poster_portrait_fallback": "poster/portrait/41.jpg",
-    "poster_landscape_fallback": "poster/landscape/41.jpg"
+    "poster_landscape_fallback": "poster/landscape/41.jpg",
+    "description": "Debuts Jon Bernthal's Punisher and Elodie Yung's Elektra on the streets of Hell's Kitchen."
   },
   {
     "id": 42,
@@ -832,7 +873,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/42.webp",
     "poster_landscape": "poster/landscape/42.webp",
     "poster_portrait_fallback": "poster/portrait/42.jpg",
-    "poster_landscape_fallback": "poster/landscape/42.jpg"
+    "poster_landscape_fallback": "poster/landscape/42.jpg",
+    "description": "Fractures the Avengers over the Sokovia Accords while introducing MCU Spider-Man and Black Panther."
   },
   {
     "id": 43,
@@ -845,18 +887,19 @@ const MARVEL_DATA = [
     "runtime_mins": 144,
     "watch_time": "2h 24m",
     "rating": "6.9/10",
-    "trailer": "https://www.youtube.com/watch?v=COvnHv437-o",
+    "trailer": "https://www.youtube.com/watch?v=COvnHv42T-A",
     "tmdb_id": 246655,
     "is_tv": false,
     "ddr_slug": "x-men-apocalypse",
     "poster_portrait": "poster/portrait/43.webp",
     "poster_landscape": "poster/landscape/43.webp",
     "poster_portrait_fallback": "poster/portrait/43.jpg",
-    "poster_landscape_fallback": "poster/landscape/43.jpg"
+    "poster_landscape_fallback": "poster/landscape/43.jpg",
+    "description": "The young X-Men team must rally to defeat En Sabah Nur, the ancient first mutant."
   },
   {
     "id": 44,
-    "title": "Luke Cage \u2014 Season 1",
+    "title": "Luke Cage — Season 1",
     "release_date": "2016-09-30",
     "year": 2016,
     "type": "series",
@@ -867,13 +910,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "55m / ep",
     "episodes": 13,
     "rating": "7.3/10",
-    "trailer": "https://www.youtube.com/watch?v=snJ-nRgx8o0",
+    "trailer": "https://www.youtube.com/watch?v=ORa4hPhGrpo",
     "tmdb_id": 67070,
     "is_tv": true,
     "poster_portrait": "poster/portrait/44.webp",
     "poster_landscape": "poster/landscape/44.webp",
     "poster_portrait_fallback": "poster/portrait/44.jpg",
-    "poster_landscape_fallback": "poster/landscape/44.jpg"
+    "poster_landscape_fallback": "poster/landscape/44.jpg",
+    "description": "Brings bulletproof hero Luke Cage to Harlem to take on corruption, Cottonmouth, and Diamondback."
   },
   {
     "id": 45,
@@ -893,7 +937,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/45.webp",
     "poster_landscape": "poster/landscape/45.webp",
     "poster_portrait_fallback": "poster/portrait/45.jpg",
-    "poster_landscape_fallback": "poster/landscape/45.jpg"
+    "poster_landscape_fallback": "poster/landscape/45.jpg",
+    "description": "Introduces Stephen Strange to the Mystic Arts, Kamar-Taj, the Time Stone, and the Multiverse."
   },
   {
     "id": 46,
@@ -913,11 +958,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/46.webp",
     "poster_landscape": "poster/landscape/46.webp",
     "poster_portrait_fallback": "poster/portrait/46.jpg",
-    "poster_landscape_fallback": "poster/landscape/46.jpg"
+    "poster_landscape_fallback": "poster/landscape/46.jpg",
+    "description": "Emotional send-off for Hugh Jackman's aging Wolverine and Patrick Stewart's Xavier alongside Laura (X-23)."
   },
   {
     "id": 47,
-    "title": "Iron Fist \u2014 Season 1",
+    "title": "Iron Fist — Season 1",
     "release_date": "2017-03-17",
     "year": 2017,
     "type": "series",
@@ -928,13 +974,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "56m / ep",
     "episodes": 13,
     "rating": "6.4/10",
-    "trailer": "https://www.youtube.com/watch?v=0sE68w68_bY",
+    "trailer": "https://www.youtube.com/watch?v=f9OKL5no-S0",
     "tmdb_id": 62127,
     "is_tv": true,
     "poster_portrait": "poster/portrait/47.webp",
     "poster_landscape": "poster/landscape/47.webp",
     "poster_portrait_fallback": "poster/portrait/47.jpg",
-    "poster_landscape_fallback": "poster/landscape/47.jpg"
+    "poster_landscape_fallback": "poster/landscape/47.jpg",
+    "description": "Danny Rand returns to reclaim his family company after training in mystical K'un-Lun."
   },
   {
     "id": 48,
@@ -954,7 +1001,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/48.webp",
     "poster_landscape": "poster/landscape/48.webp",
     "poster_portrait_fallback": "poster/portrait/48.jpg",
-    "poster_landscape_fallback": "poster/landscape/48.jpg"
+    "poster_landscape_fallback": "poster/landscape/48.jpg",
+    "description": "Explores Star-Lord's celestial parentage with Ego the Living Planet and themes of found family."
   },
   {
     "id": 49,
@@ -974,7 +1022,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/49.webp",
     "poster_landscape": "poster/landscape/49.webp",
     "poster_portrait_fallback": "poster/portrait/49.jpg",
-    "poster_landscape_fallback": "poster/landscape/49.jpg"
+    "poster_landscape_fallback": "poster/landscape/49.jpg",
+    "description": "Tom Holland's first solo MCU adventure balancing high school life with stopping the Vulture."
   },
   {
     "id": 50,
@@ -989,14 +1038,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "50m / ep",
     "episodes": 8,
     "rating": "7.2/10",
-    "trailer": "https://www.youtube.com/watch?v=4h3m7B4v6Zc",
+    "trailer": "https://www.youtube.com/watch?v=jYvHxEEgrPA",
     "tmdb_id": 62285,
     "is_tv": true,
     "ddr_slug": "defenders",
     "poster_portrait": "poster/portrait/50.webp",
     "poster_landscape": "poster/landscape/50.webp",
     "poster_portrait_fallback": "poster/portrait/50.jpg",
-    "poster_landscape_fallback": "poster/landscape/50.jpg"
+    "poster_landscape_fallback": "poster/landscape/50.jpg",
+    "description": "Unites Daredevil, Jessica Jones, Luke Cage, and Iron Fist to save New York City from the Hand."
   },
   {
     "id": 51,
@@ -1016,11 +1066,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/51.webp",
     "poster_landscape": "poster/landscape/51.webp",
     "poster_portrait_fallback": "poster/portrait/51.jpg",
-    "poster_landscape_fallback": "poster/landscape/51.jpg"
+    "poster_landscape_fallback": "poster/landscape/51.jpg",
+    "description": "Reinvents Thor with cosmic comedy, pairing him with Hulk against Hela and destroying Asgard."
   },
   {
     "id": 52,
-    "title": "The Punisher \u2014 Season 1",
+    "title": "The Punisher — Season 1",
     "release_date": "2017-11-17",
     "year": 2017,
     "type": "series",
@@ -1031,14 +1082,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "53m / ep",
     "episodes": 13,
     "rating": "8.5/10",
-    "trailer": "https://www.youtube.com/watch?v=OMW_dP695Jg",
+    "trailer": "https://www.youtube.com/watch?v=s4QV6OZdmWY",
     "tmdb_id": 67178,
     "is_tv": true,
     "ddr_slug": "punisher-s1",
     "poster_portrait": "poster/portrait/52.webp",
     "poster_landscape": "poster/landscape/52.webp",
     "poster_portrait_fallback": "poster/portrait/52.jpg",
-    "poster_landscape_fallback": "poster/landscape/52.jpg"
+    "poster_landscape_fallback": "poster/landscape/52.jpg",
+    "description": "Frank Castle uncovers a deep military conspiracy tied to the murder of his family."
   },
   {
     "id": 53,
@@ -1058,11 +1110,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/53.webp",
     "poster_landscape": "poster/landscape/53.webp",
     "poster_portrait_fallback": "poster/portrait/53.jpg",
-    "poster_landscape_fallback": "poster/landscape/53.jpg"
+    "poster_landscape_fallback": "poster/landscape/53.jpg",
+    "description": "Explores Wakanda and T'Challa's kingship facing Killmonger's revolutionary challenge."
   },
   {
     "id": 54,
-    "title": "Jessica Jones \u2014 Season 2",
+    "title": "Jessica Jones — Season 2",
     "release_date": "2018-03-08",
     "year": 2018,
     "type": "series",
@@ -1073,13 +1126,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "51m / ep",
     "episodes": 13,
     "rating": "7.9/10",
-    "trailer": "https://www.youtube.com/watch?v=SLkX_fB5F6Y",
+    "trailer": "https://www.youtube.com/watch?v=-u2AV8z_CX0",
     "tmdb_id": 38472,
     "is_tv": true,
     "poster_portrait": "poster/portrait/54.webp",
     "poster_landscape": "poster/landscape/54.webp",
     "poster_portrait_fallback": "poster/portrait/54.jpg",
-    "poster_landscape_fallback": "poster/landscape/54.jpg"
+    "poster_landscape_fallback": "poster/landscape/54.jpg",
+    "description": "Jessica digs into IGH, the sinister bio-tech firm responsible for her superhuman abilities."
   },
   {
     "id": 55,
@@ -1099,7 +1153,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/55.webp",
     "poster_landscape": "poster/landscape/55.webp",
     "poster_portrait_fallback": "poster/portrait/55.jpg",
-    "poster_landscape_fallback": "poster/landscape/55.jpg"
+    "poster_landscape_fallback": "poster/landscape/55.jpg",
+    "description": "Culmination of 10 years of MCU storytelling as Thanos claims all Infinity Stones and wipes out half of all life."
   },
   {
     "id": 56,
@@ -1119,11 +1174,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/56.webp",
     "poster_landscape": "poster/landscape/56.webp",
     "poster_portrait_fallback": "poster/portrait/56.jpg",
-    "poster_landscape_fallback": "poster/landscape/56.jpg"
+    "poster_landscape_fallback": "poster/landscape/56.jpg",
+    "description": "Wade Wilson forms X-Force to protect young mutant Firefist from time-traveling cyborg Cable."
   },
   {
     "id": 57,
-    "title": "Luke Cage \u2014 Season 2",
+    "title": "Luke Cage — Season 2",
     "release_date": "2018-06-22",
     "year": 2018,
     "type": "series",
@@ -1134,13 +1190,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "56m / ep",
     "episodes": 13,
     "rating": "7.3/10",
-    "trailer": "https://www.youtube.com/watch?v=sB1in0KkAJE",
+    "trailer": "https://www.youtube.com/watch?v=jviNt9gWaZM",
     "tmdb_id": 67070,
     "is_tv": true,
     "poster_portrait": "poster/portrait/57.webp",
     "poster_landscape": "poster/landscape/57.webp",
     "poster_portrait_fallback": "poster/portrait/57.jpg",
-    "poster_landscape_fallback": "poster/landscape/57.jpg"
+    "poster_landscape_fallback": "poster/landscape/57.jpg",
+    "description": "Luke confronts anger and celebrity in Harlem while facing Jamaican crime boss Bushmaster."
   },
   {
     "id": 58,
@@ -1160,11 +1217,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/58.webp",
     "poster_landscape": "poster/landscape/58.webp",
     "poster_portrait_fallback": "poster/portrait/58.jpg",
-    "poster_landscape_fallback": "poster/landscape/58.jpg"
+    "poster_landscape_fallback": "poster/landscape/58.jpg",
+    "description": "Explores the deep Quantum Realm to rescue Janet van Dyne, directly setting up Endgame."
   },
   {
     "id": 59,
-    "title": "Iron Fist \u2014 Season 2",
+    "title": "Iron Fist — Season 2",
     "release_date": "2018-09-07",
     "year": 2018,
     "type": "series",
@@ -1175,13 +1233,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "51m / ep",
     "episodes": 10,
     "rating": "6.4/10",
-    "trailer": "https://www.youtube.com/watch?v=4y3gHjM6r9I",
+    "trailer": "https://www.youtube.com/watch?v=kvvWB0GwCek",
     "tmdb_id": 62127,
     "is_tv": true,
     "poster_portrait": "poster/portrait/59.webp",
     "poster_landscape": "poster/landscape/59.webp",
     "poster_portrait_fallback": "poster/portrait/59.jpg",
-    "poster_landscape_fallback": "poster/landscape/59.jpg"
+    "poster_landscape_fallback": "poster/landscape/59.jpg",
+    "description": "Danny Rand battles former brother Davos for the Iron Fist, passing the power to Colleen Wing."
   },
   {
     "id": 60,
@@ -1200,11 +1259,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/60.webp",
     "poster_landscape": "poster/landscape/60.webp",
     "poster_portrait_fallback": "poster/portrait/60.jpg",
-    "poster_landscape_fallback": "poster/landscape/60.jpg"
+    "poster_landscape_fallback": "poster/landscape/60.jpg",
+    "description": "Launches Sony's Spider-Man Universe with Tom Hardy as journalist Eddie Brock bonding with an alien symbiote."
   },
   {
     "id": 61,
-    "title": "Daredevil \u2014 Season 3",
+    "title": "Daredevil — Season 3",
     "release_date": "2018-10-19",
     "year": 2018,
     "type": "series",
@@ -1222,7 +1282,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/61.webp",
     "poster_landscape": "poster/landscape/61.webp",
     "poster_portrait_fallback": "poster/portrait/61.jpg",
-    "poster_landscape_fallback": "poster/landscape/61.jpg"
+    "poster_landscape_fallback": "poster/landscape/61.jpg",
+    "description": "A broken Matt Murdock faces the dangerous return of Wilson Fisk and the lethal marksman Bullseye."
   },
   {
     "id": 62,
@@ -1241,11 +1302,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/62.webp",
     "poster_landscape": "poster/landscape/62.webp",
     "poster_portrait_fallback": "poster/portrait/62.jpg",
-    "poster_landscape_fallback": "poster/landscape/62.jpg"
+    "poster_landscape_fallback": "poster/landscape/62.jpg",
+    "description": "Oscar-winning animated masterpiece introducing Miles Morales and the parallel Spider-Verse."
   },
   {
     "id": 63,
-    "title": "The Punisher \u2014 Season 2",
+    "title": "The Punisher — Season 2",
     "release_date": "2019-01-18",
     "year": 2019,
     "type": "series",
@@ -1263,7 +1325,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/63.webp",
     "poster_landscape": "poster/landscape/63.webp",
     "poster_portrait_fallback": "poster/portrait/63.jpg",
-    "poster_landscape_fallback": "poster/landscape/63.jpg"
+    "poster_landscape_fallback": "poster/landscape/63.jpg",
+    "description": "Frank Castle protects a hunted young girl from a shadowy cartel and vengeful Billy Russo."
   },
   {
     "id": 64,
@@ -1283,7 +1346,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/64.webp",
     "poster_landscape": "poster/landscape/64.webp",
     "poster_portrait_fallback": "poster/portrait/64.jpg",
-    "poster_landscape_fallback": "poster/landscape/64.jpg"
+    "poster_landscape_fallback": "poster/landscape/64.jpg",
+    "description": "Explores Carol Danvers' 1990s cosmic origin, the Kree-Skrull war, and Nick Fury's Tesseract pager."
   },
   {
     "id": 65,
@@ -1303,7 +1367,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/65.webp",
     "poster_landscape": "poster/landscape/65.webp",
     "poster_portrait_fallback": "poster/portrait/65.jpg",
-    "poster_landscape_fallback": "poster/landscape/65.jpg"
+    "poster_landscape_fallback": "poster/landscape/65.jpg",
+    "description": "Epic conclusion to the 22-movie Infinity Saga with the Time Heist and the final defeat of Thanos."
   },
   {
     "id": 66,
@@ -1323,11 +1388,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/66.webp",
     "poster_landscape": "poster/landscape/66.webp",
     "poster_portrait_fallback": "poster/portrait/66.jpg",
-    "poster_landscape_fallback": "poster/landscape/66.jpg"
+    "poster_landscape_fallback": "poster/landscape/66.jpg",
+    "description": "Concludes Fox's mainline X-Men series, focusing on Jean Grey's descent into cosmic corruption."
   },
   {
     "id": 67,
-    "title": "Jessica Jones \u2014 Season 3",
+    "title": "Jessica Jones — Season 3",
     "release_date": "2019-06-14",
     "year": 2019,
     "type": "series",
@@ -1338,13 +1404,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "52m / ep",
     "episodes": 13,
     "rating": "7.9/10",
-    "trailer": "https://www.youtube.com/watch?v=34Uv2_9v2i4",
+    "trailer": "https://www.youtube.com/watch?v=7DBKS2qH51I",
     "tmdb_id": 38472,
     "is_tv": true,
     "poster_portrait": "poster/portrait/67.webp",
     "poster_landscape": "poster/landscape/67.webp",
     "poster_portrait_fallback": "poster/portrait/67.jpg",
-    "poster_landscape_fallback": "poster/landscape/67.jpg"
+    "poster_landscape_fallback": "poster/landscape/67.jpg",
+    "description": "Wraps up the Netflix Defenders era with Jessica clashing with sister Trish Walker over vigilantism."
   },
   {
     "id": 68,
@@ -1364,7 +1431,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/68.webp",
     "poster_landscape": "poster/landscape/68.webp",
     "poster_portrait_fallback": "poster/portrait/68.jpg",
-    "poster_landscape_fallback": "poster/landscape/68.jpg"
+    "poster_landscape_fallback": "poster/landscape/68.jpg",
+    "description": "Closes Phase Three as Peter deals with Tony Stark's death and Mysterio's multiverse deception."
   },
   {
     "id": 69,
@@ -1377,14 +1445,15 @@ const MARVEL_DATA = [
     "runtime_mins": 94,
     "watch_time": "1h 34m",
     "rating": "5.3/10",
-    "trailer": "https://www.youtube.com/watch?v=W_vJhUA3dHY",
+    "trailer": "https://www.youtube.com/watch?v=W_vJhUAOFpI",
     "tmdb_id": 340102,
     "is_tv": false,
     "ddr_slug": "new-mutants",
     "poster_portrait": "poster/portrait/69.webp",
     "poster_landscape": "poster/landscape/69.webp",
     "poster_portrait_fallback": "poster/portrait/69.jpg",
-    "poster_landscape_fallback": "poster/landscape/69.jpg"
+    "poster_landscape_fallback": "poster/landscape/69.jpg",
+    "description": "Horror-toned Fox finale following five young mutants confronting past traumas in a secret facility."
   },
   {
     "id": 70,
@@ -1399,14 +1468,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "39m / ep",
     "episodes": 9,
     "rating": "7.9/10",
-    "trailer": "https://www.youtube.com/watch?v=UBhlqe2KVt4",
+    "trailer": "https://www.youtube.com/watch?v=sj9J2ecsSpo",
     "tmdb_id": 85271,
     "is_tv": true,
     "ddr_slug": "wandavision",
     "poster_portrait": "poster/portrait/70.webp",
     "poster_landscape": "poster/landscape/70.webp",
     "poster_portrait_fallback": "poster/portrait/70.jpg",
-    "poster_landscape_fallback": "poster/landscape/70.jpg"
+    "poster_landscape_fallback": "poster/landscape/70.jpg",
+    "description": "Opens Phase Four and the Multiverse Saga through sitcom illusions, creating the Scarlet Witch."
   },
   {
     "id": 71,
@@ -1428,11 +1498,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/71.webp",
     "poster_landscape": "poster/landscape/71.webp",
     "poster_portrait_fallback": "poster/portrait/71.jpg",
-    "poster_landscape_fallback": "poster/landscape/71.jpg"
+    "poster_landscape_fallback": "poster/landscape/71.jpg",
+    "description": "Explores Steve Rogers' legacy as Sam Wilson officially accepts the mantle of Captain America."
   },
   {
     "id": 72,
-    "title": "Loki \u2014 Season 1",
+    "title": "Loki — Season 1",
     "release_date": "2021-06-09",
     "year": 2021,
     "type": "series",
@@ -1450,7 +1521,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/72.webp",
     "poster_landscape": "poster/landscape/72.webp",
     "poster_portrait_fallback": "poster/portrait/72.jpg",
-    "poster_landscape_fallback": "poster/landscape/72.jpg"
+    "poster_landscape_fallback": "poster/landscape/72.jpg",
+    "description": "Introduces the Time Variance Authority, the Sacred Timeline, and He Who Remains, cracking open the multiverse."
   },
   {
     "id": 73,
@@ -1470,11 +1542,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/73.webp",
     "poster_landscape": "poster/landscape/73.webp",
     "poster_portrait_fallback": "poster/portrait/73.jpg",
-    "poster_landscape_fallback": "poster/landscape/73.jpg"
+    "poster_landscape_fallback": "poster/landscape/73.jpg",
+    "description": "Fills the gap between Civil War and Infinity War, introducing Yelena Belova and breaking the Red Room."
   },
   {
     "id": 74,
-    "title": "What If...? \u2014 Season 1",
+    "title": "What If...? — Season 1",
     "release_date": "2021-08-11",
     "year": 2021,
     "type": "series",
@@ -1492,7 +1565,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/74.webp",
     "poster_landscape": "poster/landscape/74.webp",
     "poster_portrait_fallback": "poster/portrait/74.jpg",
-    "poster_landscape_fallback": "poster/landscape/74.jpg"
+    "poster_landscape_fallback": "poster/landscape/74.jpg",
+    "description": "The Watcher observes alternate MCU timelines, introducing Captain Carter and Infinity Ultron."
   },
   {
     "id": 75,
@@ -1512,7 +1586,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/75.webp",
     "poster_landscape": "poster/landscape/75.webp",
     "poster_portrait_fallback": "poster/portrait/75.jpg",
-    "poster_landscape_fallback": "poster/landscape/75.jpg"
+    "poster_landscape_fallback": "poster/landscape/75.jpg",
+    "description": "Debuts mythical hero Shang-Chi, the true Wenwu, the Ten Rings, and the realm of Ta Lo."
   },
   {
     "id": 76,
@@ -1531,7 +1606,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/76.webp",
     "poster_landscape": "poster/landscape/76.webp",
     "poster_portrait_fallback": "poster/portrait/76.jpg",
-    "poster_landscape_fallback": "poster/landscape/76.jpg"
+    "poster_landscape_fallback": "poster/landscape/76.jpg",
+    "description": "Eddie and Venom clash with serial killer Cletus Kasady's Carnage, ending with an MCU multiverse jump."
   },
   {
     "id": 77,
@@ -1551,7 +1627,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/77.webp",
     "poster_landscape": "poster/landscape/77.webp",
     "poster_portrait_fallback": "poster/portrait/77.jpg",
-    "poster_landscape_fallback": "poster/landscape/77.jpg"
+    "poster_landscape_fallback": "poster/landscape/77.jpg",
+    "description": "Unveils millennia of human history guided by immortal alien protectors sent by the Celestial Arishem."
   },
   {
     "id": 78,
@@ -1573,7 +1650,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/78.webp",
     "poster_landscape": "poster/landscape/78.webp",
     "poster_portrait_fallback": "poster/portrait/78.jpg",
-    "poster_landscape_fallback": "poster/landscape/78.jpg"
+    "poster_landscape_fallback": "poster/landscape/78.jpg",
+    "description": "Christmas street adventure passing the bow to Kate Bishop and re-introducing Vincent D'Onofrio's Kingpin."
   },
   {
     "id": 79,
@@ -1593,7 +1671,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/79.webp",
     "poster_landscape": "poster/landscape/79.webp",
     "poster_portrait_fallback": "poster/portrait/79.jpg",
-    "poster_landscape_fallback": "poster/landscape/79.jpg"
+    "poster_landscape_fallback": "poster/landscape/79.jpg",
+    "description": "Historic multiverse event uniting Tom Holland, Tobey Maguire, and Andrew Garfield against legacy villains."
   },
   {
     "id": 80,
@@ -1614,7 +1693,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/80.webp",
     "poster_landscape": "poster/landscape/80.webp",
     "poster_portrait_fallback": "poster/portrait/80.jpg",
-    "poster_landscape_fallback": "poster/landscape/80.jpg"
+    "poster_landscape_fallback": "poster/landscape/80.jpg",
+    "description": "Explores Egyptian deity Khonshu and dissociative identity disorder with Marc Spector and Steven Grant."
   },
   {
     "id": 81,
@@ -1633,7 +1713,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/81.webp",
     "poster_landscape": "poster/landscape/81.webp",
     "poster_portrait_fallback": "poster/portrait/81.jpg",
-    "poster_landscape_fallback": "poster/landscape/81.jpg"
+    "poster_landscape_fallback": "poster/landscape/81.jpg",
+    "description": "Introduces Jared Leto as biochemist Michael Morbius infected with vampirism in Sony's universe."
   },
   {
     "id": 82,
@@ -1653,7 +1734,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/82.webp",
     "poster_landscape": "poster/landscape/82.webp",
     "poster_portrait_fallback": "poster/portrait/82.jpg",
-    "poster_landscape_fallback": "poster/landscape/82.jpg"
+    "poster_landscape_fallback": "poster/landscape/82.jpg",
+    "description": "Wild interdimensional ride as Strange and America Chavez flee a corrupted Scarlet Witch."
   },
   {
     "id": 83,
@@ -1675,7 +1757,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/83.webp",
     "poster_landscape": "poster/landscape/83.webp",
     "poster_portrait_fallback": "poster/portrait/83.jpg",
-    "poster_landscape_fallback": "poster/landscape/83.jpg"
+    "poster_landscape_fallback": "poster/landscape/83.jpg",
+    "description": "Introduces Jersey City teen Kamala Khan with hard-light powers, revealing the MCU's first mutant gene."
   },
   {
     "id": 84,
@@ -1695,11 +1778,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/84.webp",
     "poster_landscape": "poster/landscape/84.webp",
     "poster_portrait_fallback": "poster/portrait/84.jpg",
-    "poster_landscape_fallback": "poster/landscape/84.jpg"
+    "poster_landscape_fallback": "poster/landscape/84.jpg",
+    "description": "Thor reunites with Jane Foster as Mighty Thor to battle Christian Bale's Gorr the God Butcher."
   },
   {
     "id": 85,
-    "title": "I Am Groot \u2014 Season 1",
+    "title": "I Am Groot — Season 1",
     "release_date": "2022-08-10",
     "year": 2022,
     "type": "series",
@@ -1716,7 +1800,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/85.webp",
     "poster_landscape": "poster/landscape/85.webp",
     "poster_portrait_fallback": "poster/portrait/85.jpg",
-    "poster_landscape_fallback": "poster/landscape/85.jpg"
+    "poster_landscape_fallback": "poster/landscape/85.jpg",
+    "description": "Lighthearted animated shorts exploring Baby Groot's whimsical adventures across the cosmos."
   },
   {
     "id": 86,
@@ -1738,7 +1823,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/86.webp",
     "poster_landscape": "poster/landscape/86.webp",
     "poster_portrait_fallback": "poster/portrait/86.jpg",
-    "poster_landscape_fallback": "poster/landscape/86.jpg"
+    "poster_landscape_fallback": "poster/landscape/86.jpg",
+    "description": "Legal comedy introducing Jennifer Walters, balancing superhuman cases with fourth-wall breaks."
   },
   {
     "id": 87,
@@ -1757,7 +1843,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/87.webp",
     "poster_landscape": "poster/landscape/87.webp",
     "poster_portrait_fallback": "poster/portrait/87.jpg",
-    "poster_landscape_fallback": "poster/landscape/87.jpg"
+    "poster_landscape_fallback": "poster/landscape/87.jpg",
+    "description": "Retro black-and-white monster special introducing Jack Russell, Elsa Bloodstone, and Man-Thing."
   },
   {
     "id": 88,
@@ -1770,14 +1857,15 @@ const MARVEL_DATA = [
     "runtime_mins": 161,
     "watch_time": "2h 41m",
     "rating": "6.7/10",
-    "trailer": "https://www.youtube.com/watch?v=_Z3QKfv30tU",
+    "trailer": "https://www.youtube.com/watch?v=_Z3QKkl1WyM",
     "tmdb_id": 505642,
     "is_tv": false,
     "ddr_slug": "black-panther-wakanda-forever",
     "poster_portrait": "poster/portrait/88.webp",
     "poster_landscape": "poster/landscape/88.webp",
     "poster_portrait_fallback": "poster/portrait/88.jpg",
-    "poster_landscape_fallback": "poster/landscape/88.jpg"
+    "poster_landscape_fallback": "poster/landscape/88.jpg",
+    "description": "Tribute to Chadwick Boseman as Shuri assumes the mantle to defend Wakanda against Namor's Talokan."
   },
   {
     "id": 89,
@@ -1790,13 +1878,14 @@ const MARVEL_DATA = [
     "runtime_mins": 42,
     "watch_time": "0h 42m",
     "rating": "6.9/10",
-    "trailer": "https://www.youtube.com/watch?v=OYhFF_J3gkE",
+    "trailer": "https://www.youtube.com/watch?v=OYhFFQl4fLs",
     "tmdb_id": 774752,
     "is_tv": false,
     "poster_portrait": "poster/portrait/89.webp",
     "poster_landscape": "poster/landscape/89.webp",
     "poster_portrait_fallback": "poster/portrait/89.jpg",
-    "poster_landscape_fallback": "poster/landscape/89.jpg"
+    "poster_landscape_fallback": "poster/landscape/89.jpg",
+    "description": "Heartwarming Christmas special where Drax and Mantis kidnap Kevin Bacon for Peter Quill."
   },
   {
     "id": 90,
@@ -1816,7 +1905,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/90.webp",
     "poster_landscape": "poster/landscape/90.webp",
     "poster_portrait_fallback": "poster/portrait/90.jpg",
-    "poster_landscape_fallback": "poster/landscape/90.jpg"
+    "poster_landscape_fallback": "poster/landscape/90.jpg",
+    "description": "Launches Phase Five inside the Quantum Realm, revealing Kang the Conqueror's exile."
   },
   {
     "id": 91,
@@ -1836,7 +1926,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/91.webp",
     "poster_landscape": "poster/landscape/91.webp",
     "poster_portrait_fallback": "poster/portrait/91.jpg",
-    "poster_landscape_fallback": "poster/landscape/91.jpg"
+    "poster_landscape_fallback": "poster/landscape/91.jpg",
+    "description": "James Gunn's farewell to the Guardians, revealing Rocket Raccoon's origin against the High Evolutionary."
   },
   {
     "id": 92,
@@ -1855,7 +1946,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/92.webp",
     "poster_landscape": "poster/landscape/92.webp",
     "poster_portrait_fallback": "poster/portrait/92.jpg",
-    "poster_landscape_fallback": "poster/landscape/92.jpg"
+    "poster_landscape_fallback": "poster/landscape/92.jpg",
+    "description": "Visual triumph as Miles Morales explores the multiverse and challenges the canon Spider-Society."
   },
   {
     "id": 93,
@@ -1877,11 +1969,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/93.webp",
     "poster_landscape": "poster/landscape/93.webp",
     "poster_portrait_fallback": "poster/portrait/93.jpg",
-    "poster_landscape_fallback": "poster/landscape/93.jpg"
+    "poster_landscape_fallback": "poster/landscape/93.jpg",
+    "description": "Espionage thriller following Nick Fury uncovering a clandestine rogue Skrull takeover of Earth."
   },
   {
     "id": 94,
-    "title": "I Am Groot \u2014 Season 2",
+    "title": "I Am Groot — Season 2",
     "release_date": "2023-09-06",
     "year": 2023,
     "type": "series",
@@ -1892,17 +1985,18 @@ const MARVEL_DATA = [
     "avg_watch_time": "4m / ep",
     "episodes": 5,
     "rating": "6.5/10",
-    "trailer": "https://www.youtube.com/watch?v=1d977_k8s3s",
+    "trailer": "https://www.youtube.com/watch?v=1k8H2CywVqg",
     "tmdb_id": 114472,
     "is_tv": true,
     "poster_portrait": "poster/portrait/94.webp",
     "poster_landscape": "poster/landscape/94.webp",
     "poster_portrait_fallback": "poster/portrait/94.jpg",
-    "poster_landscape_fallback": "poster/landscape/94.jpg"
+    "poster_landscape_fallback": "poster/landscape/94.jpg",
+    "description": "Follows Baby Groot through five more playful animated galactic misadventures."
   },
   {
     "id": 95,
-    "title": "Loki \u2014 Season 2",
+    "title": "Loki — Season 2",
     "release_date": "2023-10-05",
     "year": 2023,
     "type": "series",
@@ -1920,7 +2014,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/95.webp",
     "poster_landscape": "poster/landscape/95.webp",
     "poster_portrait_fallback": "poster/portrait/95.jpg",
-    "poster_landscape_fallback": "poster/landscape/95.jpg"
+    "poster_landscape_fallback": "poster/landscape/95.jpg",
+    "description": "Loki sacrifices himself to become the God of Stories, weaving all multiverse timelines together."
   },
   {
     "id": 96,
@@ -1933,18 +2028,19 @@ const MARVEL_DATA = [
     "runtime_mins": 105,
     "watch_time": "1h 45m",
     "rating": "5.5/10",
-    "trailer": "https://www.youtube.com/watch?v=wS_qbD02650",
+    "trailer": "https://www.youtube.com/watch?v=wS_qbDztgVY",
     "tmdb_id": 609681,
     "is_tv": false,
     "ddr_slug": "the-marvels",
     "poster_portrait": "poster/portrait/96.webp",
     "poster_landscape": "poster/landscape/96.webp",
     "poster_portrait_fallback": "poster/portrait/96.jpg",
-    "poster_landscape_fallback": "poster/landscape/96.jpg"
+    "poster_landscape_fallback": "poster/landscape/96.jpg",
+    "description": "Teams up Captain Marvel, Monica Rambeau, and Ms. Marvel, ending with a major X-Men universe breach."
   },
   {
     "id": 97,
-    "title": "What If...? \u2014 Season 2",
+    "title": "What If...? — Season 2",
     "release_date": "2023-12-22",
     "year": 2023,
     "type": "series",
@@ -1955,13 +2051,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "32m / ep",
     "episodes": 9,
     "rating": "7.3/10",
-    "trailer": "https://www.youtube.com/watch?v=TiEV_b3aTmA",
+    "trailer": "https://www.youtube.com/watch?v=TiEVqZ2Bc_c",
     "tmdb_id": 91363,
     "is_tv": true,
     "poster_portrait": "poster/portrait/97.webp",
     "poster_landscape": "poster/landscape/97.webp",
     "poster_portrait_fallback": "poster/portrait/97.jpg",
-    "poster_landscape_fallback": "poster/landscape/97.jpg"
+    "poster_landscape_fallback": "poster/landscape/97.jpg",
+    "description": "Features new multiverse twists, introducing Mohawk hero Kahhori and alternate Avenger lineups."
   },
   {
     "id": 98,
@@ -1983,7 +2080,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/98.webp",
     "poster_landscape": "poster/landscape/98.webp",
     "poster_portrait_fallback": "poster/portrait/98.jpg",
-    "poster_landscape_fallback": "poster/landscape/98.jpg"
+    "poster_landscape_fallback": "poster/landscape/98.jpg",
+    "description": "Marvel Spotlight series exploring Maya Lopez's Choctaw roots and her violent showdown with Kingpin."
   },
   {
     "id": 99,
@@ -2002,11 +2100,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/99.webp",
     "poster_landscape": "poster/landscape/99.webp",
     "poster_portrait_fallback": "poster/portrait/99.jpg",
-    "poster_landscape_fallback": "poster/landscape/99.jpg"
+    "poster_landscape_fallback": "poster/landscape/99.jpg",
+    "description": "Origin of paramedic Cassie Webb unlocking clairvoyant foresight to protect three future Spider-Women."
   },
   {
     "id": 100,
-    "title": "X-Men '97 \u2014 Season 1",
+    "title": "X-Men '97 — Season 1",
     "release_date": "2024-03-20",
     "year": 2024,
     "type": "series",
@@ -2017,13 +2116,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "32m / ep",
     "episodes": 10,
     "rating": "8.8/10",
-    "trailer": "https://www.youtube.com/watch?v=pv3Ss8o9au4",
+    "trailer": "https://www.youtube.com/watch?v=pv3Ss8o9gGQ",
     "tmdb_id": 138503,
     "is_tv": true,
     "poster_portrait": "poster/portrait/100.webp",
     "poster_landscape": "poster/landscape/100.webp",
     "poster_portrait_fallback": "poster/portrait/100.jpg",
-    "poster_landscape_fallback": "poster/landscape/100.jpg"
+    "poster_landscape_fallback": "poster/landscape/100.jpg",
+    "description": "Acclaimed continuation of the 1990s animated series, exploring the mutant world following Xavier's departure."
   },
   {
     "id": 101,
@@ -2043,7 +2143,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/101.webp",
     "poster_landscape": "poster/landscape/101.webp",
     "poster_portrait_fallback": "poster/portrait/101.jpg",
-    "poster_landscape_fallback": "poster/landscape/101.jpg"
+    "poster_landscape_fallback": "poster/landscape/101.jpg",
+    "description": "Monumental multiverse crossover integrating Wade Wilson and Wolverine into the MCU through the TVA."
   },
   {
     "id": 102,
@@ -2058,13 +2159,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "43m / ep",
     "episodes": 9,
     "rating": "7.2/10",
-    "trailer": "https://www.youtube.com/watch?v=R9pXbFZq82M",
+    "trailer": "https://www.youtube.com/watch?v=R9pXbNz6Vbw",
     "tmdb_id": 138501,
     "is_tv": true,
     "poster_portrait": "poster/portrait/102.webp",
     "poster_landscape": "poster/landscape/102.webp",
     "poster_portrait_fallback": "poster/portrait/102.jpg",
-    "poster_landscape_fallback": "poster/landscape/102.jpg"
+    "poster_landscape_fallback": "poster/landscape/102.jpg",
+    "description": "Agatha Harkness and Billy Maximoff walk the legendary Witches' Road to restore their lost power."
   },
   {
     "id": 103,
@@ -2083,7 +2185,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/103.webp",
     "poster_landscape": "poster/landscape/103.webp",
     "poster_portrait_fallback": "poster/portrait/103.jpg",
-    "poster_landscape_fallback": "poster/landscape/103.jpg"
+    "poster_landscape_fallback": "poster/landscape/103.jpg",
+    "description": "Concludes Tom Hardy's Venom trilogy as Eddie and the symbiote battle Knull's Xenophage invasion."
   },
   {
     "id": 104,
@@ -2102,11 +2205,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/104.webp",
     "poster_landscape": "poster/landscape/104.webp",
     "poster_portrait_fallback": "poster/portrait/104.jpg",
-    "poster_landscape_fallback": "poster/landscape/104.jpg"
+    "poster_landscape_fallback": "poster/landscape/104.jpg",
+    "description": "Gritty origin of Sergei Kravinoff turning into the world's most formidable apex predator."
   },
   {
     "id": 105,
-    "title": "What If...? \u2014 Season 3",
+    "title": "What If...? — Season 3",
     "release_date": "2024-12-22",
     "year": 2024,
     "type": "series",
@@ -2117,17 +2221,18 @@ const MARVEL_DATA = [
     "avg_watch_time": "33m / ep",
     "episodes": 8,
     "rating": "7.2/10",
-    "trailer": "https://www.youtube.com/watch?v=2nQj71i_1C0",
+    "trailer": "https://www.youtube.com/watch?v=umiKiW4En9g",
     "tmdb_id": 91363,
     "is_tv": true,
     "poster_portrait": "poster/portrait/105.webp",
     "poster_landscape": "poster/landscape/105.webp",
     "poster_portrait_fallback": "poster/portrait/105.jpg",
-    "poster_landscape_fallback": "poster/landscape/105.jpg"
+    "poster_landscape_fallback": "poster/landscape/105.jpg",
+    "description": "Final season of the animated multiverse anthology featuring unexpected multiversal team-ups."
   },
   {
     "id": 106,
-    "title": "Your Friendly Neighborhood Spider-Man \u2014 Season 1",
+    "title": "Your Friendly Neighborhood Spider-Man — Season 1",
     "release_date": "2025-01-29",
     "year": 2025,
     "type": "series",
@@ -2138,13 +2243,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "30m / ep",
     "episodes": 10,
     "rating": "7.4/10",
-    "trailer": "https://www.youtube.com/watch?v=2gQG_j8h1C4",
+    "trailer": "https://www.youtube.com/watch?v=N3J2JRQg040",
     "tmdb_id": 138505,
     "is_tv": true,
     "poster_portrait": "poster/portrait/106.webp",
     "poster_landscape": "poster/landscape/106.webp",
     "poster_portrait_fallback": "poster/portrait/106.jpg",
-    "poster_landscape_fallback": "poster/landscape/106.jpg"
+    "poster_landscape_fallback": "poster/landscape/106.jpg",
+    "description": "Animated alternate-reality origin where Peter Parker is mentored by Norman Osborn instead of Tony Stark."
   },
   {
     "id": 107,
@@ -2164,11 +2270,12 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/107.webp",
     "poster_landscape": "poster/landscape/107.webp",
     "poster_portrait_fallback": "poster/portrait/107.jpg",
-    "poster_landscape_fallback": "poster/landscape/107.jpg"
+    "poster_landscape_fallback": "poster/landscape/107.jpg",
+    "description": "Sam Wilson faces global political conspiracy and President Thaddeus Ross transforming into Red Hulk."
   },
   {
     "id": 108,
-    "title": "Daredevil: Born Again \u2014 Season 1",
+    "title": "Daredevil: Born Again — Season 1",
     "release_date": "2025-03-04",
     "year": 2025,
     "type": "series",
@@ -2179,14 +2286,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "50m / ep",
     "episodes": 9,
     "rating": "8.4/10",
-    "trailer": "https://www.youtube.com/watch?v=7xAXi8Lpnhc",
+    "trailer": "https://www.youtube.com/watch?v=7xALolZzhSM",
     "tmdb_id": 202250,
     "is_tv": true,
     "ddr_slug": "daredevil-born-again",
     "poster_portrait": "poster/portrait/108.webp",
     "poster_landscape": "poster/landscape/108.webp",
     "poster_portrait_fallback": "poster/portrait/108.jpg",
-    "poster_landscape_fallback": "poster/landscape/108.jpg"
+    "poster_landscape_fallback": "poster/landscape/108.jpg",
+    "description": "Charlie Cox and Vincent D'Onofrio bring Matt Murdock and Mayor Wilson Fisk's brutal rivalry to the MCU."
   },
   {
     "id": 109,
@@ -2199,14 +2307,15 @@ const MARVEL_DATA = [
     "runtime_mins": 130,
     "watch_time": "2h 10m",
     "rating": "7.2/10",
-    "trailer": "https://www.youtube.com/watch?v=-sAOWhvheKc",
+    "trailer": "https://www.youtube.com/watch?v=-sAOWhvheK8",
     "tmdb_id": 986056,
     "is_tv": false,
     "ddr_slug": "thunderbolts",
     "poster_portrait": "poster/portrait/109.webp",
     "poster_landscape": "poster/landscape/109.webp",
     "poster_portrait_fallback": "poster/portrait/109.jpg",
-    "poster_landscape_fallback": "poster/landscape/109.jpg"
+    "poster_landscape_fallback": "poster/landscape/109.jpg",
+    "description": "An elite covert ops squad of antiheroes and former assassins deployed on dangerous government missions."
   },
   {
     "id": 110,
@@ -2221,14 +2330,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "45m / ep",
     "episodes": 6,
     "rating": "6.8/10",
-    "trailer": "https://www.youtube.com/watch?v=5U9Yk5bT9s8",
+    "trailer": "https://www.youtube.com/watch?v=WpW36ldAqnM",
     "tmdb_id": 114478,
     "is_tv": true,
     "ddr_slug": "ironheart",
     "poster_portrait": "poster/portrait/110.webp",
     "poster_landscape": "poster/landscape/110.webp",
     "poster_portrait_fallback": "poster/portrait/110.jpg",
-    "poster_landscape_fallback": "poster/landscape/110.jpg"
+    "poster_landscape_fallback": "poster/landscape/110.jpg",
+    "description": "Tech prodigy Riri Williams returns to Chicago, pitting advanced engineering against Parker Robbins' dark magic."
   },
   {
     "id": 111,
@@ -2241,14 +2351,15 @@ const MARVEL_DATA = [
     "runtime_mins": 135,
     "watch_time": "2h 15m",
     "rating": "7.8/10",
-    "trailer": "https://www.youtube.com/watch?v=e_sQ_y0PqR0",
+    "trailer": "https://www.youtube.com/watch?v=18QQWa5MEcs",
     "tmdb_id": 617127,
     "is_tv": false,
     "ddr_slug": "fantastic-four-first-steps",
     "poster_portrait": "poster/portrait/111.webp",
     "poster_landscape": "poster/landscape/111.webp",
     "poster_portrait_fallback": "poster/portrait/111.jpg",
-    "poster_landscape_fallback": "poster/landscape/111.jpg"
+    "poster_landscape_fallback": "poster/landscape/111.jpg",
+    "description": "Introduces Marvel's First Family from a vibrant alternate-1960s retro-futuristic world facing Galactus."
   },
   {
     "id": 112,
@@ -2263,13 +2374,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "35m / ep",
     "episodes": 4,
     "rating": "7.0/10",
-    "trailer": "https://www.youtube.com/watch?v=8bY7r2_jV9s",
+    "trailer": "https://www.youtube.com/watch?v=ODHh6oe4MlE",
     "tmdb_id": 242099,
     "is_tv": true,
     "poster_portrait": "poster/portrait/112.webp",
     "poster_landscape": "poster/landscape/112.webp",
     "poster_portrait_fallback": "poster/portrait/112.jpg",
-    "poster_landscape_fallback": "poster/landscape/112.jpg"
+    "poster_landscape_fallback": "poster/landscape/112.jpg",
+    "description": "Animated anthology chronicling the Hatut Zeraze retrieving lost vibranium artifacts across world history."
   },
   {
     "id": 113,
@@ -2284,17 +2396,18 @@ const MARVEL_DATA = [
     "avg_watch_time": "35m / ep",
     "episodes": 4,
     "rating": "7.2/10",
-    "trailer": "https://www.youtube.com/watch?v=W0q_c3P6J5w",
+    "trailer": "https://www.youtube.com/watch?v=twHYF506-9Y",
     "tmdb_id": 138506,
     "is_tv": true,
     "poster_portrait": "poster/portrait/113.webp",
     "poster_landscape": "poster/landscape/113.webp",
     "poster_portrait_fallback": "poster/portrait/113.jpg",
-    "poster_landscape_fallback": "poster/landscape/113.jpg"
+    "poster_landscape_fallback": "poster/landscape/113.jpg",
+    "description": "TV-MA animated continuation of What If's zombie plague following surviving heroes in an undead world."
   },
   {
     "id": 114,
-    "title": "Wonder Man \u2014 Season 1",
+    "title": "Wonder Man — Season 1",
     "release_date": "2026-01-27",
     "year": 2026,
     "type": "series",
@@ -2305,17 +2418,18 @@ const MARVEL_DATA = [
     "avg_watch_time": "35m / ep",
     "episodes": 8,
     "rating": "7.0/10",
-    "trailer": "https://www.youtube.com/watch?v=e8R4_b_Vz-A",
+    "trailer": "https://www.youtube.com/watch?v=wHuWmjXsReU",
     "tmdb_id": 204541,
     "is_tv": true,
     "poster_portrait": "poster/portrait/114.webp",
     "poster_landscape": "poster/landscape/114.webp",
     "poster_portrait_fallback": "poster/portrait/114.jpg",
-    "poster_landscape_fallback": "poster/landscape/114.jpg"
+    "poster_landscape_fallback": "poster/landscape/114.jpg",
+    "description": "Hollywood superhero satire exploring Simon Williams balancing acting auditions with ionic superpowers."
   },
   {
     "id": 115,
-    "title": "Daredevil: Born Again \u2014 Season 2",
+    "title": "Daredevil: Born Again — Season 2",
     "release_date": "2026-03-24",
     "year": 2026,
     "type": "series",
@@ -2326,13 +2440,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "50m / ep",
     "episodes": 9,
     "rating": "8.5/10",
-    "trailer": "https://www.youtube.com/watch?v=7xAXi8Lpnhc",
+    "trailer": "https://www.youtube.com/watch?v=U1MqJBVn8Rk",
     "tmdb_id": 202250,
     "is_tv": true,
     "poster_portrait": "poster/portrait/115.webp",
     "poster_landscape": "poster/landscape/115.webp",
     "poster_portrait_fallback": "poster/portrait/115.jpg",
-    "poster_landscape_fallback": "poster/landscape/115.jpg"
+    "poster_landscape_fallback": "poster/landscape/115.jpg",
+    "description": "The escalating street war between Daredevil and Mayor Fisk reaches its peak in New York City."
   },
   {
     "id": 116,
@@ -2345,17 +2460,18 @@ const MARVEL_DATA = [
     "runtime_mins": 120,
     "watch_time": "2h 00m",
     "rating": "8.0/10",
-    "trailer": "https://www.youtube.com/watch?v=OMW_dP695Jg",
+    "trailer": "https://www.youtube.com/watch?v=oSeqs_xeqv4",
     "tmdb_id": 67178,
     "is_tv": false,
     "poster_portrait": "poster/portrait/116.webp",
     "poster_landscape": "poster/landscape/116.webp",
     "poster_portrait_fallback": "poster/portrait/116.jpg",
-    "poster_landscape_fallback": "poster/landscape/116.jpg"
+    "poster_landscape_fallback": "poster/landscape/116.jpg",
+    "description": "Jon Bernthal's Frank Castle embarks on an unforgiving, high-stakes final retribution mission."
   },
   {
     "id": 117,
-    "title": "X-Men '97 \u2014 Season 2",
+    "title": "X-Men '97 — Season 2",
     "release_date": "2026-07-01",
     "year": 2026,
     "type": "series",
@@ -2366,13 +2482,14 @@ const MARVEL_DATA = [
     "avg_watch_time": "32m / ep",
     "episodes": 10,
     "rating": "8.7/10",
-    "trailer": "https://www.youtube.com/watch?v=pv3Ss8o9au4",
+    "trailer": "https://www.youtube.com/watch?v=mfUtseK27pc",
     "tmdb_id": 138503,
     "is_tv": true,
     "poster_portrait": "poster/portrait/117.webp",
     "poster_landscape": "poster/landscape/117.webp",
     "poster_portrait_fallback": "poster/portrait/117.jpg",
-    "poster_landscape_fallback": "poster/landscape/117.jpg"
+    "poster_landscape_fallback": "poster/landscape/117.jpg",
+    "description": "The mutant resistance fights across fractured timelines following the cataclysm of Asteroid M."
   },
   {
     "id": 118,
@@ -2392,7 +2509,8 @@ const MARVEL_DATA = [
     "poster_portrait": "poster/portrait/118.webp",
     "poster_landscape": "poster/landscape/118.webp",
     "poster_portrait_fallback": "poster/portrait/118.jpg",
-    "poster_landscape_fallback": "poster/landscape/118.jpg"
+    "poster_landscape_fallback": "poster/landscape/118.jpg",
+    "description": "Peter Parker navigates life as a forgotten street hero facing new urban threats and alliances."
   },
   {
     "id": 119,
@@ -2405,13 +2523,14 @@ const MARVEL_DATA = [
     "runtime_mins": 190,
     "watch_time": "3h 10m",
     "rating": "8.6/10",
-    "trailer": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+    "trailer": "https://www.youtube.com/watch?v=L2NAh3CIdig",
     "tmdb_id": 299534,
     "is_tv": false,
     "poster_portrait": "poster/portrait/119.webp",
     "poster_landscape": "poster/landscape/119.webp",
     "poster_portrait_fallback": "poster/portrait/119.jpg",
-    "poster_landscape_fallback": "poster/landscape/119.jpg"
+    "poster_landscape_fallback": "poster/landscape/119.jpg",
+    "description": "Retrospective theatrical celebration revisiting the Infinity Saga before entering the Multiverse battle."
   },
   {
     "id": 120,
@@ -2426,14 +2545,15 @@ const MARVEL_DATA = [
     "avg_watch_time": "45m / ep",
     "episodes": 6,
     "rating": "7.3/10",
-    "trailer": "https://www.youtube.com/watch?v=UBhlqe2KVt4",
+    "trailer": "https://www.youtube.com/watch?v=oSVTAUKyrL8",
     "tmdb_id": 85271,
     "is_tv": true,
     "ddr_slug": "visionquest",
     "poster_portrait": "poster/portrait/120.webp",
     "poster_landscape": "poster/landscape/120.webp",
     "poster_portrait_fallback": "poster/portrait/120.jpg",
-    "poster_landscape_fallback": "poster/landscape/120.jpg"
+    "poster_landscape_fallback": "poster/landscape/120.jpg",
+    "description": "White Vision embarks on a philosophical quest across Earth to recover his identity, memories, and soul."
   },
   {
     "id": 121,
@@ -2446,13 +2566,14 @@ const MARVEL_DATA = [
     "runtime_mins": 165,
     "watch_time": "2h 45m",
     "rating": "Anticipated",
-    "trailer": "https://www.youtube.com/watch?v=y3Yj6jF2b28",
+    "trailer": "https://www.youtube.com/watch?v=irVNGjRFZGk",
     "tmdb_id": 1003596,
     "is_tv": false,
     "ddr_slug": "avengers-doomsday",
     "poster_portrait": "poster/portrait/121.webp",
     "poster_landscape": "poster/landscape/121.webp",
     "poster_portrait_fallback": "poster/portrait/121.jpg",
-    "poster_landscape_fallback": "poster/landscape/121.jpg"
+    "poster_landscape_fallback": "poster/landscape/121.jpg",
+    "description": "Robert Downey Jr. returns as Doctor Doom in the cataclysmic Multiverse Saga crossover resetting all realities."
   }
 ];

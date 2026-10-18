@@ -839,6 +839,16 @@ body {
   color: #ffffff;
 }
 
+/* Card One-Line Description */
+.card-summary {
+  font-size: 0.83rem;
+  line-height: 1.42;
+  color: #94a3b8;
+  margin: -4px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
 /* Watch Time Section */
 .card-watch-stats {
   display: flex;

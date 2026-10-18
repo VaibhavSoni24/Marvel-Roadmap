@@ -246,7 +246,8 @@
         const matchYear = item.year.toString().includes(q);
         const matchUniv = item.universe.toLowerCase().includes(q);
         const matchCat = item.category.toLowerCase().includes(q);
-        if (!matchTitle && !matchYear && !matchUniv && !matchCat) {
+        const matchDesc = item.description ? item.description.toLowerCase().includes(q) : false;
+        if (!matchTitle && !matchYear && !matchUniv && !matchCat && !matchDesc) {
           return false;
         }
       }
@@ -338,6 +339,7 @@
             </div>
 
             <h2 class="card-title">${item.title}</h2>
+            ${item.description ? `<p class="card-summary">${item.description}</p>` : ''}
 
             ${watchTimeHtml}
 
