@@ -11,6 +11,7 @@
   const STORAGE_KEY_SKIPPED = 'marvel_roadmap_skipped_v1';
   const STORAGE_KEY_RATINGS = 'marvel_roadmap_ratings_v1';
   const DOOMSDAY_DATE = new Date('2026-12-18T00:00:00');
+  const ASSET_VERSION = 'v=20261024_2';
 
   // State
   let items = typeof MARVEL_DATA !== 'undefined' ? MARVEL_DATA : [];
@@ -389,47 +390,86 @@
     const item = items.find(it => it.id === id);
     if (!item) return;
 
-    const landscapeUrl = item.poster_landscape;
-    const fallbackUrl = item.poster_landscape_fallback || `poster/landscape/${id}.jpg`;
+    const landscapeUrl = `${item.poster_landscape}?${ASSET_VERSION}`;
+    const fallbackUrl = `${item.poster_landscape_fallback || `poster/landscape/${id}.jpg`}?${ASSET_VERSION}`;
 
-    // Crossfade between A and B
-    if (activeHeroLayer === 'A') {
-      heroBgB.style.backgroundImage = `url('${landscapeUrl}'), url('${fallbackUrl}')`;
-      heroBgB.classList.add('active');
-      heroBgA.classList.remove('active');
-      activeHeroLayer = 'B';
-    } else {
-      heroBgA.style.backgroundImage = `url('${landscapeUrl}'), url('${fallbackUrl}')`;
-      heroBgA.classList.add('active');
-      heroBgB.classList.remove('active');
-      activeHeroLayer = 'A';
-    }
+    const nextLayer = (activeHeroLayer === 'A') ? heroBgB : heroBgA;
+    const prevLayer = (activeHeroLayer === 'A') ? heroBgA : heroBgB;
+    const nextLayerName = (activeHeroLayer === 'A') ? 'B' : 'A';
+
+    // Preload image so fade is instantaneous without glitching or stale cache
+    const img = new Image();
+    img.onload = () => {
+      if (currentActiveId !== id) return;
+      nextLayer.style.backgroundImage = `url('${landscapeUrl}')`;
+      nextLayer.classList.add('active');
+      prevLayer.classList.remove('active');
+      activeHeroLayer = nextLayerName;
+    };
+    img.onerror = () => {
+      if (currentActiveId !== id) return;
+      nextLayer.style.backgroundImage = `url('${fallbackUrl}')`;
+      nextLayer.classList.add('active');
+      prevLayer.classList.remove('active');
+      activeHeroLayer = nextLayerName;
+    };
+    img.src = landscapeUrl;
   }
 
   // -------------------------------------------------------------------------
-  // Scroll Intersection Observer
+  // Scroll Position & Viewport Center Detection
   // -------------------------------------------------------------------------
   let observer = null;
+  let scrollTicking = false;
+
+  function updateActiveCardFromScroll() {
+    const viewportCenter = window.innerHeight * 0.45; // eye level
+    let closestId = null;
+    let minDistance = Infinity;
+
+    const cards = document.querySelectorAll('.timeline-item');
+    for (let i = 0; i < cards.length; i++) {
+      const el = cards[i];
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const cardCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(cardCenter - viewportCenter);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestId = parseInt(el.dataset.id, 10);
+        }
+      }
+    }
+
+    if (closestId) {
+      setBackground(closestId);
+    }
+  }
+
   function setupIntersectionObserver() {
     if (observer) {
       observer.disconnect();
     }
 
-    observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = parseInt(entry.target.dataset.id, 10);
-          if (id) {
-            setBackground(id);
-          }
-        }
-      });
+    observer = new IntersectionObserver(() => {
+      updateActiveCardFromScroll();
     }, {
-      rootMargin: '-30% 0px -50% 0px',
-      threshold: 0.1
+      rootMargin: '0px 0px 0px 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1.0]
     });
 
     document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+    // Secondary fallback for fast momentum scrolling
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          updateActiveCardFromScroll();
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
   }
 
   // -------------------------------------------------------------------------
