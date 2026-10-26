@@ -1218,12 +1218,6 @@
     <!-- Sticky HUD Progress Rail -->
     <div class="sticky-hud-rail" id="stickyHud" role="region" aria-label="Roadmap progress HUD">
       <div class="sticky-hud-inner">
-        <button type="button" class="hud-jump-top" id="jumpTopBtn" title="Scroll to top" aria-label="Scroll to top">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
 
         <div class="hud-stats-row">
           <div class="hud-stat-item stat-left">
@@ -1235,7 +1229,14 @@
 
           <div class="hud-stat-item stat-pace">
             <span class="hud-stat-label">PACE</span>
-            <span class="hud-stat-value" id="hudPace">7.8h/d</span>
+            <span class="hud-stat-value" id="hudPace">8.1h/d</span>
+          </div>
+
+          <div class="hud-stat-divider"></div>
+
+          <div class="hud-stat-item stat-skipped" title="Total watch time of skipped titles (omitted from Left and Pace)">
+            <span class="hud-stat-label">SKIPPED</span>
+            <span class="hud-stat-value" id="hudHoursSkipped">0h 00m</span>
           </div>
 
           <div class="hud-stat-divider"></div>
@@ -15712,8 +15713,8 @@
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
   <!-- Scripts -->
-  <script src="data.js?v=3"></script>
-  <script src="app.js?v=3"></script>
+  <script src="data.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 
 </html>

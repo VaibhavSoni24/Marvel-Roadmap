@@ -36,11 +36,11 @@
   const searchInput = document.getElementById('searchInput');
   const clearSearchBtn = document.getElementById('clearSearchBtn');
   const resetFiltersBtn = document.getElementById('resetFiltersBtn');
-  const jumpTopBtn = document.getElementById('jumpTopBtn');
 
   // HUD Elements
   const hudHoursLeft = document.getElementById('hudHoursLeft');
   const hudPace = document.getElementById('hudPace');
+  const hudHoursSkipped = document.getElementById('hudHoursSkipped');
   const hudDoneCount = document.getElementById('hudDoneCount');
   const hudTotalCount = document.getElementById('hudTotalCount');
   const hudDonePct = document.getElementById('hudDonePct');
@@ -115,40 +115,59 @@
   function updateStats() {
     const totalItems = items.length;
     let watchedCount = 0;
+    let watchedMinutes = 0;
+    let skippedCount = 0;
+    let skippedMinutes = 0;
     let remainingMinutes = 0;
 
     items.forEach(item => {
       const isWatched = watchedSet.has(item.id);
       const isSkipped = skippedSet.has(item.id);
+      const runtime = (item.runtime_mins || 120);
 
       if (isWatched) {
         watchedCount++;
-      } else if (!isSkipped) {
-        remainingMinutes += (item.runtime_mins || 120);
+        watchedMinutes += runtime;
+      } else if (isSkipped) {
+        skippedCount++;
+        skippedMinutes += runtime;
+      } else {
+        remainingMinutes += runtime;
       }
     });
 
-    // Watch Time Left
+    // Watch Time Left (unwatched & unskipped only)
     const hours = Math.floor(remainingMinutes / 60);
     const mins = remainingMinutes % 60;
-    hudHoursLeft.textContent = `${hours}h ${mins.toString().padStart(2, '0')}m`;
+    if (hudHoursLeft) {
+      hudHoursLeft.textContent = `${hours}h ${mins.toString().padStart(2, '0')}m`;
+    }
 
     // Days until Avengers: Doomsday (2026-12-18)
     const now = new Date();
     const diffTime = DOOMSDAY_DATE - now;
     const diffDays = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
 
-    // Pace (hours/day needed)
+    // Pace (hours/day needed) - based strictly on remaining unskipped watch time
     const hoursLeft = remainingMinutes / 60;
     const paceHPerDay = (hoursLeft / diffDays).toFixed(1);
-    hudPace.textContent = `${paceHPerDay}h/d`;
+    if (hudPace) {
+      hudPace.textContent = `${paceHPerDay}h/d`;
+    }
+
+    // Skipped Watch Time
+    const skippedHours = Math.floor(skippedMinutes / 60);
+    const skippedMins = skippedMinutes % 60;
+    if (hudHoursSkipped) {
+      hudHoursSkipped.textContent = `${skippedHours}h ${skippedMins.toString().padStart(2, '0')}m`;
+    }
 
     // Done Count & Percentage
     const donePct = totalItems > 0 ? Math.round((watchedCount / totalItems) * 100) : 0;
-    hudDoneCount.textContent = watchedCount;
-    hudTotalCount.textContent = totalItems;
-    hudDonePct.textContent = `${donePct}%`;
-    hudProgressBar.style.width = `${donePct}%`;
+    if (hudDoneCount) hudDoneCount.textContent = watchedCount;
+    if (hudTotalCount) hudTotalCount.textContent = totalItems;
+    if (hudDonePct) hudDonePct.textContent = `${donePct}%`;
+    if (hudProgressBar) hudProgressBar.style.width = `${donePct}%`;
   }
 
   // -------------------------------------------------------------------------
@@ -616,10 +635,6 @@
         }
       });
       renderTimeline();
-    });
-
-    jumpTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Trailer Modal Close

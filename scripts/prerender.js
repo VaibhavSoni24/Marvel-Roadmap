@@ -333,6 +333,11 @@ html = html.replace(
   `<span class="hud-stat-value" id="hudPace">${paceFormatted}</span>`
 );
 
+html = html.replace(
+  /<span class="hud-stat-value" id="hudHoursSkipped">[\s\S]*?<\/span>/,
+  `<span class="hud-stat-value" id="hudHoursSkipped">0h 00m</span>`
+);
+
 // Replace timelineList content
 html = html.replace(
   /<ol class="timeline-list" id="timelineList">[\s\S]*?<\/ol>/,

@@ -16,8 +16,9 @@
 - **🎯 Exact 121-Item Multiverse Path**: Complete chronological release marathon from *Blade (1998)* through *Avengers: Doomsday (December 18, 2026)*.
 - **📝 Contextual One-Line Descriptions**: Every single movie and series card includes a concise one-line synopsis detailing what the entry is and its role in the Marvel Multiverse.
 - **📊 Interactive Sticky HUD Rail**:
-  - **LEFT**: Live watch hours & minutes remaining across unwatched titles.
+  - **LEFT**: Live watch hours & minutes remaining across unwatched & unskipped titles.
   - **PACE**: Calculated hours/day needed to finish before *Avengers: Doomsday* premiere.
+  - **SKIPPED**: Live watch time of skipped titles, omitted from remaining watch time and pace calculations.
   - **DONE**: Live completion counter (`x/121`) with real-time percentage and progress bar.
 - **🎨 Dynamic Ambient Landscape Backdrop**:
   - Full-screen high-definition backdrop automatically transitions as you scroll or hover over movie cards.

@@ -441,7 +441,7 @@ body {
   background: rgba(14, 17, 23, 0.88);
   border: 1px solid var(--border-highlight);
   border-radius: var(--radius-full);
-  padding: 8px 22px 8px 12px;
+  padding: 8px 24px;
   backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.2);
   position: relative;
@@ -449,37 +449,17 @@ body {
   max-width: 90%;
 }
 
-.hud-jump-top {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(25, 30, 42, 0.7);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.hud-jump-top:hover {
-  color: #fff;
-  border-color: var(--border-highlight);
-  background: rgba(38, 46, 64, 0.9);
-}
-
 .hud-stats-row {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
 .hud-stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 70px;
+  min-width: 65px;
 }
 
 .hud-stat-label {
@@ -506,6 +486,10 @@ body {
 
 .stat-pace .hud-stat-value {
   color: var(--accent-gold);
+}
+
+.stat-skipped .hud-stat-value {
+  color: #94a3b8;
 }
 
 .stat-done .hud-stat-value {
@@ -1597,16 +1581,24 @@ body {
   }
 
   .sticky-hud-inner {
-    padding: 6px 14px 6px 10px;
-    gap: 10px;
+    padding: 6px 14px;
+    gap: 8px;
   }
 
   .hud-stats-row {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .hud-stat-item {
+    min-width: 48px;
+  }
+
+  .hud-stat-label {
+    font-size: 0.62rem;
   }
 
   .hud-stat-value {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .calendar-fab {
