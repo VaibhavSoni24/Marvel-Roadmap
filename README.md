@@ -180,4 +180,4 @@ This project is an **unofficial, non-commercial open-source fan project** create
 
 ## 📄 License
 
-This software is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This software is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
