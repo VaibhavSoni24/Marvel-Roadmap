@@ -47,12 +47,13 @@ function getRatingWidgetHtml(itemId, title) {
 
   return `
                   <div class="user-rating-widget" data-id="${itemId}">
-                    <button type="button" class="user-rating-btn" data-id="${itemId}" aria-expanded="false" aria-haspopup="dialog" title="Rate ${title} (1-10)">
+                    <button type="button" class="user-rating-btn is-locked" data-id="${itemId}" aria-disabled="true" aria-expanded="false" title="Mark as watched to rate">
+                      <svg class="rating-lock-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
                       <span class="user-rating-prefix">YOUR RATING:</span>
                       <span class="user-rating-value">_ / 10</span>
-                      <svg class="rating-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
                     </button>
                     <div class="rating-popover" role="dialog" aria-hidden="true">
                       <div class="rating-popover-header">

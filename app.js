@@ -94,6 +94,18 @@
       if (ratings) {
         ratingsMap = JSON.parse(ratings);
       }
+      // Sanitize: only watched and unskipped titles may have personal ratings
+      let ratingsCleaned = false;
+      for (const idStr of Object.keys(ratingsMap)) {
+        const idNum = parseInt(idStr, 10);
+        if (!watchedSet.has(idNum) || skippedSet.has(idNum)) {
+          delete ratingsMap[idStr];
+          ratingsCleaned = true;
+        }
+      }
+      if (ratingsCleaned) {
+        localStorage.setItem(STORAGE_KEY_RATINGS, JSON.stringify(ratingsMap));
+      }
     } catch (e) {
       console.warn('Failed to load progress from localStorage:', e);
     }
@@ -198,10 +210,10 @@
   // -------------------------------------------------------------------------
   // Render Custom Rating Popover Widget
   // -------------------------------------------------------------------------
-  function getRatingWidgetHtml(itemId, userRating, title) {
-    const ratingLabel = userRating ? `${userRating} / 10` : '_ / 10';
-    const hasRatingClass = userRating ? 'has-rating' : '';
-    const clearBtn = userRating ? `<button type="button" class="btn-clear-rating" data-id="${itemId}" title="Clear your rating">Clear</button>` : '';
+  function getRatingWidgetHtml(itemId, userRating, title, isWatched) {
+    if (typeof isWatched === 'undefined') {
+      isWatched = watchedSet.has(itemId) && !skippedSet.has(itemId);
+    }
 
     let buttonsHtml = '';
     for (let r = 1; r <= 10; r++) {
@@ -214,9 +226,36 @@
       `;
     }
 
+    if (!isWatched) {
+      return `
+        <div class="user-rating-widget" data-id="${itemId}">
+          <button type="button" class="user-rating-btn is-locked" data-id="${itemId}" aria-disabled="true" aria-expanded="false" title="Mark as watched to rate">
+            <svg class="rating-lock-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span class="user-rating-prefix">YOUR RATING:</span>
+            <span class="user-rating-value">_ / 10</span>
+          </button>
+          <div class="rating-popover" role="dialog" aria-hidden="true">
+            <div class="rating-popover-header">
+              <span class="popover-title">Your Rating</span>
+            </div>
+            <div class="rating-grid">
+              ${buttonsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    const ratingLabel = userRating ? `${userRating} / 10` : '_ / 10';
+    const hasRatingClass = userRating ? 'has-rating' : '';
+    const clearBtn = userRating ? `<button type="button" class="btn-clear-rating" data-id="${itemId}" title="Clear your rating">Clear</button>` : '';
+
     return `
       <div class="user-rating-widget" data-id="${itemId}">
-        <button type="button" class="user-rating-btn ${hasRatingClass}" data-id="${itemId}" aria-expanded="false" aria-haspopup="dialog" title="Rate ${title} (1-10)">
+        <button type="button" class="user-rating-btn ${hasRatingClass}" data-id="${itemId}" aria-expanded="false" aria-haspopup="dialog" title="${userRating ? `Change rating for ${title} (${userRating}/10)` : `Rate ${title} (1-10)`}">
           <span class="user-rating-prefix">YOUR RATING:</span>
           <span class="user-rating-value">${ratingLabel}</span>
           <svg class="rating-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -331,7 +370,7 @@
         `;
       }
 
-      const ratingWidgetMarkup = getRatingWidgetHtml(item.id, userRating, item.title);
+      const ratingWidgetMarkup = getRatingWidgetHtml(item.id, userRating, item.title, isWatched);
 
       li.innerHTML = `
         <div class="timeline-node" aria-hidden="true">
@@ -526,6 +565,12 @@
       const ratingBtn = e.target.closest('.user-rating-btn');
       if (ratingBtn) {
         e.stopPropagation();
+        const id = parseInt(ratingBtn.dataset.id, 10);
+        if (!watchedSet.has(id) || skippedSet.has(id)) {
+          showToast('Mark as watched first to rate');
+          return;
+        }
+
         const widget = ratingBtn.closest('.user-rating-widget');
         if (!widget) return;
         const isOpen = widget.classList.contains('is-open');
@@ -650,6 +695,13 @@
     // Reset All Progress
     resetProgressBtn.addEventListener('click', handleResetProgress);
 
+    // Close open popovers on scroll
+    window.addEventListener('scroll', () => {
+      if (document.querySelector('.user-rating-widget.is-open')) {
+        closeAllRatingPopovers();
+      }
+    }, { passive: true });
+
     // Keyboard ESC to close modals & popovers
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -676,8 +728,14 @@
   }
 
   function setPersonalRating(id, rating) {
+    if (!watchedSet.has(id) || skippedSet.has(id)) {
+      closeAllRatingPopovers();
+      showToast('Mark as watched first to rate');
+      return;
+    }
     ratingsMap[id] = rating;
     saveStorage();
+    closeAllRatingPopovers();
     showToast(`★ Rated #${id} (${rating}/10)`);
     updateSingleRatingWidget(id);
   }
@@ -685,6 +743,7 @@
   function clearPersonalRating(id) {
     delete ratingsMap[id];
     saveStorage();
+    closeAllRatingPopovers();
     showToast(`Cleared rating for #${id}`);
     updateSingleRatingWidget(id);
   }
@@ -692,15 +751,17 @@
   function updateSingleRatingWidget(id) {
     const card = document.getElementById(`title-card-${id}`);
     if (!card) return;
+    card.classList.remove('has-open-popover');
     const widget = card.querySelector('.user-rating-widget');
     if (!widget) return;
 
     const item = items.find(it => it.id === id);
     const userRating = ratingsMap[id] || null;
+    const isWatched = watchedSet.has(id) && !skippedSet.has(id);
     const title = item ? item.title : `Title #${id}`;
 
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = getRatingWidgetHtml(id, userRating, title);
+    tempDiv.innerHTML = getRatingWidgetHtml(id, userRating, title, isWatched);
     const newWidget = tempDiv.firstElementChild;
     widget.replaceWith(newWidget);
   }
@@ -709,9 +770,15 @@
   // State Toggle Handlers
   // -------------------------------------------------------------------------
   function toggleWatched(id) {
+    closeAllRatingPopovers();
     if (watchedSet.has(id)) {
       watchedSet.delete(id);
-      showToast(`Unmarked #${id} as watched`);
+      let toastMsg = `Unmarked #${id} as watched`;
+      if (ratingsMap[id]) {
+        delete ratingsMap[id];
+        toastMsg = `Unmarked #${id} as watched (rating removed)`;
+      }
+      showToast(toastMsg);
     } else {
       watchedSet.add(id);
       skippedSet.delete(id); // cannot be both watched and skipped
@@ -724,13 +791,19 @@
   }
 
   function toggleSkip(id) {
+    closeAllRatingPopovers();
     if (skippedSet.has(id)) {
       skippedSet.delete(id);
       showToast(`Removed skip on #${id}`);
     } else {
       skippedSet.add(id);
       watchedSet.delete(id);
-      showToast(`Skipped #${id}`);
+      let toastMsg = `Skipped #${id}`;
+      if (ratingsMap[id]) {
+        delete ratingsMap[id];
+        toastMsg = `Skipped #${id} (rating removed)`;
+      }
+      showToast(toastMsg);
     }
     saveStorage();
     updateStats();
@@ -797,6 +870,7 @@
   // -------------------------------------------------------------------------
   function handleResetProgress() {
     if (confirm('Are you sure you want to reset all your watched, skipped, and rating progress? This cannot be undone.')) {
+      closeAllRatingPopovers();
       watchedSet.clear();
       skippedSet.clear();
       ratingsMap = {};

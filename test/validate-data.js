@@ -121,6 +121,29 @@ if (jsonLdMatch && jsonLdMatch[1]) {
   }
 }
 
+// 6. Validate Rating Lock & Stacking Hierarchy
+const cssPath = path.resolve(__dirname, '../style.css');
+check(fs.existsSync(cssPath), 'style.css must exist');
+if (fs.existsSync(cssPath)) {
+  const css = fs.readFileSync(cssPath, 'utf8');
+  const hudMatch = css.match(/\.sticky-hud-rail\s*\{[^}]*z-index:\s*(\d+)/s);
+  check(Boolean(hudMatch && parseInt(hudMatch[1], 10) >= 90), '.sticky-hud-rail must have z-index >= 90 to prevent card overlap');
+  check(css.includes('.user-rating-btn.is-locked'), 'style.css missing .user-rating-btn.is-locked rule');
+  check(css.includes('.rating-lock-icon'), 'style.css missing .rating-lock-icon rule');
+}
+
+check(indexHtml.includes('class="user-rating-btn is-locked"'), 'index.html missing locked rating button state');
+check(indexHtml.includes('class="rating-lock-icon"'), 'index.html missing rating lock icon');
+
+const appJsPath = path.resolve(__dirname, '../app.js');
+check(fs.existsSync(appJsPath), 'app.js must exist');
+if (fs.existsSync(appJsPath)) {
+  const appJs = fs.readFileSync(appJsPath, 'utf8');
+  check(appJs.includes('!watchedSet.has(id) || skippedSet.has(id)'), 'app.js missing rating lock check');
+  check(appJs.includes('delete ratingsMap[id]'), 'app.js missing rating cleanup on unmark/skip');
+  check(appJs.includes("card.classList.remove('has-open-popover')"), 'app.js missing popover cleanup in updateSingleRatingWidget');
+}
+
 // Report
 console.log('');
 if (errors.length > 0) {
