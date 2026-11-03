@@ -252,9 +252,16 @@
       }
     }
 
-    // 2. Floating Continue Button: visible if continue card exists and is not currently in view
+    // 2. Floating Continue Button: visible if continue card exists, user is NOT on top, and continue card is not in view
     if (floatingContinueBtn) {
       if (!currentContinueId) {
+        floatingContinueBtn.classList.remove('is-visible');
+        return;
+      }
+
+      // Do not display if user is on the top where the header continue button is already visible
+      const isAtTop = window.scrollY < 260 || (continueBtn && continueBtn.getBoundingClientRect().bottom > 50);
+      if (isAtTop) {
         floatingContinueBtn.classList.remove('is-visible');
         return;
       }

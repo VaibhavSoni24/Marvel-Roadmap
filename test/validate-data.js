@@ -158,6 +158,7 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes('updateFloatingNavButtons'), 'app.js missing updateFloatingNavButtons');
   check(appJs.includes('backToTopBtn'), 'app.js missing backToTopBtn reference');
   check(appJs.includes('floatingContinueBtn'), 'app.js missing floatingContinueBtn reference');
+  check(appJs.includes('isAtTop'), 'app.js missing isAtTop check to suppress continue button on top');
 }
 
 // Report
