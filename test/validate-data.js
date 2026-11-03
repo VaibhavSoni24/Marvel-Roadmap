@@ -144,6 +144,22 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes("card.classList.remove('has-open-popover')"), 'app.js missing popover cleanup in updateSingleRatingWidget');
 }
 
+// 7. Validate Floating Action Navigation Buttons
+check(indexHtml.includes('id="backToTopBtn"'), 'index.html missing #backToTopBtn');
+check(indexHtml.includes('id="floatingContinueBtn"'), 'index.html missing #floatingContinueBtn');
+if (fs.existsSync(cssPath)) {
+  const css = fs.readFileSync(cssPath, 'utf8');
+  check(css.includes('.floating-fab'), 'style.css missing .floating-fab rule');
+  check(css.includes('.fab-top'), 'style.css missing .fab-top rule');
+  check(css.includes('.fab-continue'), 'style.css missing .fab-continue rule');
+}
+if (fs.existsSync(appJsPath)) {
+  const appJs = fs.readFileSync(appJsPath, 'utf8');
+  check(appJs.includes('updateFloatingNavButtons'), 'app.js missing updateFloatingNavButtons');
+  check(appJs.includes('backToTopBtn'), 'app.js missing backToTopBtn reference');
+  check(appJs.includes('floatingContinueBtn'), 'app.js missing floatingContinueBtn reference');
+}
+
 // Report
 console.log('');
 if (errors.length > 0) {

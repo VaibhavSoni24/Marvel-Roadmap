@@ -58,6 +58,13 @@
   const resetProgressBtn = document.getElementById('resetProgressBtn');
   const toastContainer = document.getElementById('toastContainer');
 
+  // Floating Action Navigation
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const floatingContinueBtn = document.getElementById('floatingContinueBtn');
+  const floatingContinueIcon = document.getElementById('floatingContinueIcon');
+  const floatingContinueLabel = document.getElementById('floatingContinueLabel');
+  let currentContinueId = null;
+
   // -------------------------------------------------------------------------
   // Initialization
   // -------------------------------------------------------------------------
@@ -188,22 +195,98 @@
   function updateContinueButton() {
     const nextItem = items.find(it => !watchedSet.has(it.id) && !skippedSet.has(it.id));
     if (nextItem) {
+      currentContinueId = nextItem.id;
       continueTitle.textContent = `${nextItem.title} (${nextItem.year})`;
       continueBtn.style.display = 'inline-flex';
       continueBtn.onclick = () => scrollToItem(nextItem.id);
     } else {
+      currentContinueId = null;
       continueTitle.textContent = 'All Completed! Ready for Doomsday';
       continueBtn.onclick = () => showToast('🎉 You have completed the entire Multiverse Roadmap!');
     }
+    updateFloatingNavButtons();
   }
 
   function scrollToItem(id) {
-    const el = document.getElementById(`title-card-${id}`);
+    let el = document.getElementById(`title-card-${id}`);
+    if (!el) {
+      // If card was hidden by filters or search query, reset to show all
+      activeFilter = 'all';
+      activeStatus = 'all';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+      document.querySelectorAll('.chip-btn').forEach(b => {
+        if (b.dataset.filter === 'all' || b.dataset.status === 'all') {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      renderTimeline();
+      el = document.getElementById(`title-card-${id}`);
+    }
+
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       el.classList.add('is-active');
       setTimeout(() => el.classList.remove('is-active'), 2000);
       setBackground(id);
+      setTimeout(updateFloatingNavButtons, 400);
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Floating Action Navigation Buttons (Bottom-Left Continue & Bottom-Right Top)
+  // -------------------------------------------------------------------------
+  const ARROW_UP_SVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+  const ARROW_DOWN_SVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+  function updateFloatingNavButtons() {
+    // 1. Back to Top Button: visible when scrolled past 350px
+    if (backToTopBtn) {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }
+
+    // 2. Floating Continue Button: visible if continue card exists and is not currently in view
+    if (floatingContinueBtn) {
+      if (!currentContinueId) {
+        floatingContinueBtn.classList.remove('is-visible');
+        return;
+      }
+
+      const cardEl = document.getElementById(`title-card-${currentContinueId}`);
+      let inView = false;
+      let isAbove = false;
+
+      if (cardEl) {
+        const rect = cardEl.getBoundingClientRect();
+        // Considered in view if card intersects the active viewport region (15% to 85% of height)
+        inView = (rect.bottom > window.innerHeight * 0.15 && rect.top < window.innerHeight * 0.85);
+        isAbove = (rect.bottom <= window.innerHeight * 0.15);
+      } else {
+        inView = false;
+        isAbove = false;
+      }
+
+      if (inView) {
+        floatingContinueBtn.classList.remove('is-visible');
+      } else {
+        floatingContinueBtn.classList.add('is-visible');
+        if (floatingContinueIcon) {
+          floatingContinueIcon.innerHTML = isAbove ? ARROW_UP_SVG : ARROW_DOWN_SVG;
+        }
+        if (floatingContinueLabel) {
+          floatingContinueLabel.textContent = `Continue #${currentContinueId}`;
+        }
+        floatingContinueBtn.title = isAbove
+          ? `Scroll up to current continue card #${currentContinueId}`
+          : `Scroll down to current continue card #${currentContinueId}`;
+      }
     }
   }
 
@@ -435,6 +518,7 @@
 
     // Re-observe cards for scroll-based background transitions
     setupIntersectionObserver();
+    updateFloatingNavButtons();
   }
 
   // -------------------------------------------------------------------------
@@ -502,6 +586,7 @@
     if (closestId) {
       setBackground(closestId);
     }
+    updateFloatingNavButtons();
   }
 
   function setupIntersectionObserver() {
@@ -709,6 +794,24 @@
         closeAllRatingPopovers();
       }
     });
+
+    // Floating Back to Top Button
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Floating Jump to Continue Button
+    if (floatingContinueBtn) {
+      floatingContinueBtn.addEventListener('click', () => {
+        if (currentContinueId) {
+          scrollToItem(currentContinueId);
+        }
+      });
+    }
+
+    window.addEventListener('resize', updateFloatingNavButtons, { passive: true });
   }
 
   // -------------------------------------------------------------------------
