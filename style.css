@@ -283,6 +283,55 @@ body {
 /* Continue Pill Button */
 .header-continue-wrapper {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bottom-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(22, 26, 36, 0.75);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 8px 18px 8px 14px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.bottom-pill-btn:hover {
+  background: rgba(34, 40, 56, 0.95);
+  border-color: var(--border-highlight);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.bottom-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.bottom-pill-btn:hover .bottom-label {
+  color: var(--accent-red);
+}
+
+.bottom-title {
+  font-weight: 600;
 }
 
 .continue-pill-btn {
@@ -1708,6 +1757,16 @@ body {
 }
 
 @media (max-width: 680px) {
+  .header-continue-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .continue-pill-btn,
+  .bottom-pill-btn {
+    justify-content: center;
+  }
+
   .site-container {
     padding: 16px 12px 90px;
   }

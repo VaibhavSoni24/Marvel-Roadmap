@@ -44,8 +44,8 @@
   - Instant search across title, release year, character, universe tags, and descriptions.
   - Quick chips with exact dataset counts: **All (121)**, **MCU (64)**, **Fox (18)**, **Defenders (16)**, **Sony (13)**, and **Legacy (10)**.
   - Status filters: **All**, **Remaining**, **Watched**, and **Skipped**.
-- **🚀 One-Click "Continue" Button**:
-  - Automatically identifies the next unwatched milestone and scrolls smoothly into view.
+- **🚀 One-Click "Continue" & "Go to Bottom" Navigation**:
+  - Instant navigation to either your next unwatched milestone or directly to the final multiverse milestone (*Avengers: Doomsday*).
 
 ---
 

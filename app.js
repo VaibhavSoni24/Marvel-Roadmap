@@ -33,6 +33,8 @@
   const onlineCount = document.getElementById('onlineCount');
   const continueBtn = document.getElementById('continueBtn');
   const continueTitle = document.getElementById('continueTitle');
+  const bottomBtn = document.getElementById('bottomBtn');
+  const bottomTitle = document.getElementById('bottomTitle');
   const searchInput = document.getElementById('searchInput');
   const clearSearchBtn = document.getElementById('clearSearchBtn');
   const resetFiltersBtn = document.getElementById('resetFiltersBtn');
@@ -786,6 +788,18 @@
 
     // Reset All Progress
     resetProgressBtn.addEventListener('click', handleResetProgress);
+
+    // Go to Bottom (Last Card) Navigation
+    if (bottomBtn) {
+      const lastItem = items.length > 0 ? items[items.length - 1] : null;
+      if (lastItem && bottomTitle) {
+        bottomTitle.textContent = `${lastItem.title} (${lastItem.year})`;
+      }
+      bottomBtn.addEventListener('click', () => {
+        const lastId = lastItem ? lastItem.id : 121;
+        scrollToItem(lastId);
+      });
+    }
 
     // Close open popovers on scroll
     window.addEventListener('scroll', () => {

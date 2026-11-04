@@ -161,6 +161,17 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes('isAtTop'), 'app.js missing isAtTop check to suppress continue button on top');
 }
 
+// 8. Validate Header Quick Navigation & Go To Bottom Button
+check(indexHtml.includes('id="bottomBtn"'), 'index.html missing #bottomBtn');
+if (fs.existsSync(cssPath)) {
+  const css = fs.readFileSync(cssPath, 'utf8');
+  check(css.includes('.bottom-pill-btn'), 'style.css missing .bottom-pill-btn rule');
+}
+if (fs.existsSync(appJsPath)) {
+  const appJs = fs.readFileSync(appJsPath, 'utf8');
+  check(appJs.includes('bottomBtn'), 'app.js missing bottomBtn reference');
+}
+
 // Report
 console.log('');
 if (errors.length > 0) {
