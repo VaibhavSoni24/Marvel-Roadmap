@@ -45,6 +45,7 @@ data.forEach((item, index) => {
   check(typeof item.runtime_mins === 'number' && item.runtime_mins > 0, `Item #${expectedId} invalid runtime_mins: ${item.runtime_mins}`);
   check(Boolean(item.trailer && item.trailer.startsWith('https://')), `Item #${expectedId} missing or invalid trailer URL`);
   check(Boolean(item.description && item.description.length > 10), `Item #${expectedId} missing or too short description`);
+  check(Array.isArray(item.watch_providers) && item.watch_providers.length > 0, `Item #${expectedId} missing or empty watch_providers`);
 
   // Check that media exists on disk
   const portraitPath = path.resolve(__dirname, '..', item.poster_portrait);
@@ -121,6 +122,8 @@ check(indexHtml.includes('id="title-card-121"'), 'index.html missing pre-rendere
 check(indexHtml.includes('id="faq"'), 'index.html missing visible FAQ section');
 check(indexHtml.includes('class="faq-item"'), 'index.html missing visible FAQ items');
 check(indexHtml.includes('class="footer-disclaimer"'), 'index.html missing footer legal disclaimer');
+check(indexHtml.includes('class="card-watch-on"'), 'index.html missing pre-rendered card-watch-on section');
+check(indexHtml.includes('vaibhavson083-21'), 'index.html missing Amazon Associate tracking tag vaibhavson083-21');
 
 // 5. Validate JSON-LD contains all 121 items and matching anchor links
 const jsonLdMatch = indexHtml.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/);

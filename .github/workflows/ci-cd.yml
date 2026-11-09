@@ -111,6 +111,16 @@ jobs:
             exit 1
           }
 
+          # Check Streaming Affiliates and Amazon Tag
+          echo "$PROD_HTML" | grep -F 'class="card-watch-on"' > /dev/null || {
+            echo "::error::Production homepage missing card-watch-on section!"
+            exit 1
+          }
+          echo "$PROD_HTML" | grep -F 'vaibhavson083-21' > /dev/null || {
+            echo "::error::Production homepage missing Amazon Associate tag vaibhavson083-21!"
+            exit 1
+          }
+
           echo "🧪 2. Testing Google Site Verification HTML File..."
           GSC_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)
           if [ "$GSC_STATUS" -ne 200 ]; then
@@ -189,6 +199,10 @@ jobs:
           }
           echo "$PRIVACY_HTML" | grep -F "Vaibhav Soni" > /dev/null || {
             echo "::error::Production /privacy-policy missing maintainer attribution!"
+            exit 1
+          }
+          echo "$PRIVACY_HTML" | grep -F "vaibhavson083-21" > /dev/null || {
+            echo "::error::Production /privacy-policy missing Amazon Associate disclosure!"
             exit 1
           }
 

@@ -1186,6 +1186,78 @@ body {
   color: #0b0d13;
 }
 
+/* Watch Providers / Where to Watch */
+.card-watch-on {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
+
+.watch-on-label {
+  font-family: var(--font-brand);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-dim);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.watch-provider-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.provider-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.provider-badge:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.6);
+  filter: brightness(1.15);
+}
+
+.provider-badge.provider-hotstar {
+  background: linear-gradient(135deg, #0257e8, #e01e5a);
+}
+
+.provider-badge.provider-vi {
+  background: #e31837;
+}
+
+.provider-badge.provider-prime {
+  background: linear-gradient(135deg, #001e38, #00a8e1);
+}
+
+.provider-badge.provider-netflix {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.provider-badge.provider-sonyliv {
+  background: linear-gradient(135deg, #141824, #262c3e);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.provider-badge.provider-jiocinema {
+  background: linear-gradient(135deg, #e5007d, #9c0053);
+}
+
 /* Card Action Buttons */
 .card-actions {
   display: flex;

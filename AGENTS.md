@@ -111,6 +111,7 @@ npm start
 ### 2. Dataset Synchronization (`data.json` & `data.js`)
 - Whenever adding, editing, or correcting an entry in `data/data.json`, you **MUST** ensure `data/data.js` matches it identically.
 - After modifying either dataset file, always execute `npm test` so that `scripts/prerender.js` rebuilds `index.html`.
+- Every title includes a `watch_providers` array (e.g. `['hotstar', 'prime']`) and Amazon Associates tag `vaibhavson083-21` for streaming affiliate monetization.
 
 ### 3. Clean URLs & Routing
 - Never link to `.html` in internal hrefs or sitemaps. Use clean URLs:

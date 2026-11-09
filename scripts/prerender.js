@@ -65,6 +65,52 @@ function getRatingWidgetHtml(itemId, title) {
                   </div>`;
 }
 
+const AMAZON_ASSOCIATE_TAG = 'vaibhavson083-21';
+
+function getWatchProvidersHtml(item) {
+  const providers = Array.isArray(item.watch_providers) && item.watch_providers.length > 0 
+    ? item.watch_providers 
+    : ['hotstar', 'prime'];
+
+  const badges = providers.map(p => {
+    switch (p) {
+      case 'hotstar':
+        return `                  <a href="https://www.hotstar.com/in/explore?search_query=${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-hotstar" title="Stream on Disney+ Hotstar">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="white" aria-hidden="true"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z"/></svg>
+                  </a>`;
+      case 'vi':
+        return `                  <a href="https://www.vimoviesandtv.in/search?q=${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-vi" title="Watch on Vi Movies &amp; TV">
+                    <svg viewBox="0 0 32 32" width="22" height="22" fill="white" aria-hidden="true"><text x="7" y="16" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="14" fill="white">V</text><text x="17" y="16" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="14" fill="#fbbf24">i</text><text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="5" fill="white" text-anchor="middle">movies &amp; tv</text></svg>
+                  </a>`;
+      case 'prime':
+        return `                  <a href="https://www.amazon.in/s?k=${encodeURIComponent(item.title)}+${item.type === 'series' ? 'series' : 'movie'}&i=instant-video&tag=${AMAZON_ASSOCIATE_TAG}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-prime" title="Rent / Buy on Amazon Prime Video">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="white" aria-hidden="true"><path d="M21.5 15.5C18.5 18 13.5 19.5 8.5 18.5C5.8 17.9 3.3 16.7 1.2 15C0.8 14.7 1.1 14.2 1.5 14.5C4 16.3 7.2 17.4 10.5 17.4C14.5 17.4 18.5 16 21 13.8C21.6 13.3 22.1 14.9 21.5 15.5Z"/><path d="M22.8 13.5C22.4 13 20.8 13.3 19.8 13.5C19.5 13.6 19.5 13.2 19.7 13C21 11.8 22.9 12.3 23.3 12.8C23.7 13.3 23.1 15.2 21.8 16.3C21.6 16.5 21.3 16.4 21.4 16.1C21.8 15.2 23.2 14.1 22.8 13.5Z"/><text x="4" y="10" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="9" fill="white">prime</text></svg>
+                  </a>`;
+      case 'netflix':
+        return `                  <a href="https://www.netflix.com/search?q=${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-netflix" title="Watch on Netflix">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="#b81d24" d="M4 2v20l5.5-2.5V2H4z"/><path fill="#e50914" d="M14.5 2v20L20 19.5V2h-5.5z"/><path fill="#e50914" d="M4 2h5.5l6 17.5h.5V2h4v20h-5.5L8 4.5H7.5V22H4V2z"/></svg>
+                  </a>`;
+      case 'sonyliv':
+        return `                  <a href="https://www.sonyliv.com/search?q=${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-sonyliv" title="Watch on Sony LIV">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="white" aria-hidden="true"><rect x="2" y="5" width="3" height="14" fill="#f59e0b" rx="1"/><rect x="7" y="5" width="3" height="14" fill="#3b82f6" rx="1"/><text x="12" y="16" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="8" fill="white">LIV</text></svg>
+                  </a>`;
+      case 'jiocinema':
+        return `                  <a href="https://www.jiocinema.com/search/${encodeURIComponent(item.title)}" target="_blank" rel="noopener noreferrer" class="provider-badge provider-jiocinema" title="Watch on JioCinema">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="white" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.15)"/><polygon points="9.5 7.5 16.5 12 9.5 16.5 9.5 7.5" fill="white"/></svg>
+                  </a>`;
+      default:
+        return '';
+    }
+  }).filter(Boolean).join('\n');
+
+  return `              <div class="card-watch-on">
+                <span class="watch-on-label">WATCH ON</span>
+                <div class="watch-provider-icons">
+${badges}
+                </div>
+              </div>`;
+}
+
 // 3. Generate HTML for all 121 title cards
 const cardsHtml = items.map((item, index) => {
   const sideClass = (index % 2 === 0) ? 'side-left' : 'side-right';
@@ -143,6 +189,8 @@ const cardsHtml = items.map((item, index) => {
                 </div>
 ${ratingWidget}
               </div>
+
+${getWatchProvidersHtml(item)}
 
               <div class="card-actions">
                 <button type="button" class="btn-card btn-watched" data-id="${item.id}" title="Toggle watched status">
@@ -375,7 +423,7 @@ if (html.includes('<section class="faq-section"')) {
 if (!html.includes('class="footer-disclaimer"')) {
   html = html.replace(
     /<div class="footer-links">/,
-    `<p class="footer-disclaimer">Unofficial fan-created roadmap. All Marvel characters, posters, logos, and related media are © & ™ Marvel Studios, Disney, Sony, and 20th Century Studios. This site is not affiliated with or endorsed by Marvel or Disney.</p>\n        <div class="footer-links">`
+    `<p class="footer-disclaimer">Unofficial fan-created roadmap. All Marvel characters, posters, logos, and related media are © & ™ Marvel Studios, Disney, Sony, and 20th Century Studios. This site is not affiliated with or endorsed by Marvel or Disney. We participate in the Amazon Associates program; as an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>\n        <div class="footer-links">`
   );
 }
 

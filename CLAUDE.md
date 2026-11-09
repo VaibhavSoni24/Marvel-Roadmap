@@ -23,6 +23,7 @@ npm start         # Local development server at http://localhost:3000
 2. **Dataset Synchronization**:
    - `data/data.json` and `data/data.js` must remain 100% synchronized.
    - Always run `npm test` after editing dataset files to rebuild `index.html`.
+   - Every title includes `watch_providers` array and Amazon Associates tag `vaibhavson083-21`.
 
 3. **Clean URLs & Routing**:
    - Never use `.html` extensions in internal links. Use `/`, `/support`, `/supporters`, and `/privacy-policy`.

@@ -32,6 +32,10 @@
 - **📺 Series vs. Movie Specific Metrics**:
   - **Movies**: Displays total watch time (e.g. `2h 00m`).
   - **Series**: Displays **Total Time**, **Average Time per Episode**, and **Total Episodes** (e.g. `11h 42m | 54m/ep | 13 eps`).
+- **📺 "Where to Watch" Streaming Affiliates**:
+  - Direct deep-links with branded badges for **Disney+ Hotstar, Amazon Prime Video, Netflix, Sony LIV, JioCinema, and Vi Movies & TV**.
+  - One-click redirection to official stream, buy, or rent pages.
+  - Powered by our Amazon Associates program partner integration (`vaibhavson083-21`).
 - **⭐ Official & Personal Ratings**:
   - Includes critical IMDb ratings.
   - Interactive **Your Rating** popover widget (1-10 stars) with smooth micro-animations and instant local persistence.
@@ -222,6 +226,7 @@ This project is an **unofficial, non-commercial open-source fan project** create
 
 - **Software Code License**: The custom application code, build and validation scripts, stylesheets, and documentation created for this repository are licensed under the [MIT License](LICENSE).
 - **Trademarks & Copyrights**: Marvel, the Marvel Cinematic Universe (MCU), The Avengers, Spider-Man, X-Men, Fantastic Four, Daredevil, Blade, and all associated characters, logos, titles, poster artworks, backdrops, and video trailers are registered trademarks and copyrights of **Marvel Studios, The Walt Disney Company, Sony Pictures Entertainment, 20th Century Studios**, and their respective affiliates.
+- **Affiliate Disclosure**: We participate in the Amazon Associates program. When you click an Amazon Prime Video link and choose to rent, buy, or subscribe, we earn an affiliate commission at no extra cost to you.
 - **Asset Usage**: No ownership of any third-party character names, trademarks, promotional posters, or backdrops is claimed or granted by the open-source software license. All promotional posters, thumbnails, and backdrops are used strictly under fair use principles for identification, educational, and commentary purposes.
 
 ---
