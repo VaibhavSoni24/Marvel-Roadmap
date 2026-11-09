@@ -4,31 +4,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hall of Supporters | Marvel Multiverse Roadmap Wall of Fame</title>
+  <title>Hall of Supporters & Contributors | Marvel Multiverse Roadmap</title>
   <meta name="description"
-    content="Recognizing the dedicated Marvel community members and patrons whose direct support keeps the Marvel Multiverse Roadmap 100% free, ad-free, and updated." />
+    content="Recognizing the dedicated community patrons and open-source contributors powering the Marvel Multiverse Roadmap leading to Avengers: Doomsday." />
   <meta name="keywords"
     content="Marvel Roadmap supporters, wall of fame, buy me a coffee supporters, open source contributors, Vaibhav Soni" />
   <meta name="author" content="Vaibhav Soni" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://marvel-multiverse-roadmap.vercel.app/supporters.html" />
+  <link rel="canonical" href="https://marvel-multiverse-roadmap.vercel.app/supporters" />
   <meta name="theme-color" content="#e50914" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://marvel-multiverse-roadmap.vercel.app/supporters.html" />
-  <meta property="og:title" content="Hall of Supporters | Marvel Multiverse Roadmap" />
+  <meta property="og:url" content="https://marvel-multiverse-roadmap.vercel.app/supporters" />
+  <meta property="og:title" content="Hall of Supporters & Contributors | Marvel Multiverse Roadmap" />
   <meta property="og:description"
-    content="Celebrating the community members and supporters powering the Marvel Multiverse Roadmap." />
+    content="Celebrating the community members, patrons, and open-source contributors powering the Marvel Multiverse Roadmap." />
   <meta property="og:image" content="https://marvel-multiverse-roadmap.vercel.app/og-image.jpg" />
   <meta property="og:site_name" content="Marvel Multiverse Roadmap" />
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://marvel-multiverse-roadmap.vercel.app/supporters.html" />
-  <meta name="twitter:title" content="Hall of Supporters | Marvel Multiverse Roadmap" />
+  <meta name="twitter:url" content="https://marvel-multiverse-roadmap.vercel.app/supporters" />
+  <meta name="twitter:title" content="Hall of Supporters & Contributors | Marvel Multiverse Roadmap" />
   <meta name="twitter:description"
-    content="Celebrating the community members and supporters powering the Marvel Multiverse Roadmap." />
+    content="Celebrating the community members, patrons, and open-source contributors powering the Marvel Multiverse Roadmap." />
   <meta name="twitter:image" content="https://marvel-multiverse-roadmap.vercel.app/og-image.jpg" />
 
   <!-- Favicon -->
@@ -48,14 +48,15 @@
 <body>
   <!-- Atmospheric Landscape Backdrop -->
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-bg-layer active" style="background-image: url('poster/landscape/121.webp'); filter: brightness(0.2) blur(6px);"></div>
+    <div class="hero-bg-layer active"
+      style="background-image: url('poster/landscape/121.webp'); filter: brightness(0.2) blur(6px);"></div>
     <div class="hero-veil"></div>
   </div>
 
   <div class="site-container">
     <!-- Navigation Bar -->
     <nav class="page-header-nav" aria-label="Page navigation">
-      <a href="index.html" class="journey-back-btn" title="Return to Marvel Multiverse Roadmap">
+      <a href="/" class="journey-back-btn" title="Return to Marvel Multiverse Roadmap">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
@@ -63,8 +64,14 @@
       </a>
 
       <div class="header-links-group">
-        <a href="support.html" class="btn-action btn-coffee" title="Support the project / Buy Me a Coffee">
-          <span style="margin-right: 4px;">☕</span>
+        <a href="/support" class="btn-action btn-coffee" title="Support the project / Buy Me a Coffee">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
           <span>Buy Me a Coffee</span>
         </a>
       </div>
@@ -72,104 +79,176 @@
 
     <!-- Hero Header -->
     <header class="page-hero">
-      <span class="page-kicker">COMMUNITY WALL OF FAME</span>
-      <h1 class="brand-title">HALL OF SUPPORTERS 🏆</h1>
-      <p class="brand-sub">Honoring the Marvel Champions Keeping This Project Independent & 100% Ad-Free</p>
+      <span class="page-kicker">COMMUNITY RECOGNITION</span>
+      <h1 class="brand-title">HALL OF SUPPORTERS</h1>
+      <p class="brand-sub">Honoring the Champions and Open Source Contributors Powering This Roadmap</p>
 
       <div class="page-intro-box">
         <p>
           Welcome to the <strong>Hall of Supporters</strong>! Building, validating, and curating 121 Marvel titles—complete with runtime stats, ratings, trailers, and release-order chronology leading to <em>Avengers: Doomsday</em>—is an ongoing labor of love.
         </p>
         <p>
-          This wall recognizes every patron, contributor, and coffee benefactor who helps cover our hosting costs and ongoing development. Thank you for assembling behind this project!
+          This space honors both the generous patrons whose direct contributions cover domain and infrastructure upkeep, as well as the open-source contributors who submit pull requests to make the project better for every fan.
         </p>
       </div>
     </header>
 
-    <!-- Stats Ticker -->
-    <section class="supporters-stats-ticker" aria-label="Community project statistics">
-      <div class="supporter-stat-card">
-        <div class="supporter-stat-num">100%</div>
-        <div class="supporter-stat-label">Ad-Free & Open Source</div>
+    <!-- Switchable Section Tabs -->
+    <div class="tab-switcher-wrapper">
+      <div class="tab-switcher" role="tablist" aria-label="Supporters and Contributors Tabs">
+        <button type="button" class="tab-btn active" id="tabBtnSupporters" role="tab" aria-selected="true" aria-controls="tabPanelSupporters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M6 2h12v7a6 6 0 0 1-12 0V2z"></path>
+          </svg>
+          <span>Supporters</span>
+        </button>
+        <button type="button" class="tab-btn" id="tabBtnContributors" role="tab" aria-selected="false" aria-controls="tabPanelContributors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Contributors</span>
+        </button>
       </div>
-      <div class="supporter-stat-card">
-        <div class="supporter-stat-num">121</div>
-        <div class="supporter-stat-label">Multiverse Titles Tracked</div>
+    </div>
+
+    <!-- Panel 1: Supporters (Active by default) -->
+    <section class="tab-panel active" id="tabPanelSupporters" role="tabpanel" aria-labelledby="tabBtnSupporters">
+      <!-- Top 3 Podium Cards -->
+      <div class="podium-grid" aria-label="Top 3 Supporters Podium">
+        <!-- Rank 2 (Silver) -->
+        <article class="podium-card rank-2">
+          <div class="podium-rank-badge">2</div>
+          <div class="podium-avatar-wrapper">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="podium-name">Awaiting Supporter</div>
+          <div class="podium-amount">Second Place</div>
+          <div class="podium-date">Spot Available</div>
+        </article>
+
+        <!-- Rank 1 (Gold / Elevated) -->
+        <article class="podium-card rank-1">
+          <div class="podium-rank-badge">1</div>
+          <div class="podium-avatar-wrapper">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="podium-name">Awaiting Champion</div>
+          <div class="podium-amount">Top Supporter</div>
+          <div class="podium-date">Claim #1 Spot</div>
+        </article>
+
+        <!-- Rank 3 (Bronze) -->
+        <article class="podium-card rank-3">
+          <div class="podium-rank-badge">3</div>
+          <div class="podium-avatar-wrapper">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="podium-name">Awaiting Supporter</div>
+          <div class="podium-amount">Third Place</div>
+          <div class="podium-date">Spot Available</div>
+        </article>
       </div>
-      <div class="supporter-stat-card">
-        <div class="supporter-stat-num">Monthly</div>
-        <div class="supporter-stat-label">Verified Wall Updates</div>
+
+      <!-- Supporters Leaderboard Table -->
+      <div class="supporters-table-wrapper">
+        <table class="supporters-table">
+          <thead>
+            <tr>
+              <th style="width: 80px;">Rank</th>
+              <th>Supporter</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4" class="empty-supporters-row">
+                <div class="empty-supporters-msg">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--text-dim);">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                  <p class="empty-supporters-text">
+                    No public supporters recorded yet — be the first to buy a coffee and claim your rank on the leaderboard!
+                  </p>
+                  <a href="/support" class="btn-action btn-coffee" style="margin-top: 6px;" title="Support the Project">
+                    <span>Become the First Supporter</span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="supporter-stat-card">
-        <div class="supporter-stat-num">0%</div>
-        <div class="supporter-stat-label">Platform Fee Cuts</div>
-      </div>
+
+      <!-- Monthly Update Notice -->
+      <section class="monthly-notice-box" aria-label="Monthly update information">
+        <strong>Monthly Leaderboard Refresh:</strong> The Supporters list is updated manually at the start of each month by the maintainer. If you supported this month, please email your transaction reference or receipt along with your preferred display name to <strong><a href="mailto:vaibhavsoni280506@gmail.com">vaibhavsoni280506@gmail.com</a></strong> to ensure your feature in the upcoming update!
+      </section>
     </section>
 
-    <!-- Supporters Wall Grid -->
-    <main class="supporters-grid" aria-label="Wall of Supporters">
-      <!-- Founder / Creator Card -->
-      <article class="supporter-card">
-        <div>
-          <div class="supporter-card-top">
-            <div class="supporter-avatar-circle founder">VS</div>
-            <div class="supporter-info-block">
-              <div class="supporter-name-row">
-                <span>Vaibhav Soni</span>
-                <span class="supporter-role-badge" style="border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">Project Lead</span>
-              </div>
-              <div style="font-size: 0.78rem; color: var(--text-dim);">Founder & Maintainer</div>
-            </div>
-          </div>
-          <p class="supporter-message">
-            "Created the complete Marvel Multiverse Roadmap to give fans the ultimate release-order countdown to Avengers: Doomsday (2026)."
-          </p>
-        </div>
-        <div class="supporter-footer-meta">
-          <span>👑 Founding Maintainer</span>
-          <span>Since Oct 2026</span>
-        </div>
-      </article>
-
-      <!-- Code Contributor Card -->
-      <article class="supporter-card">
-        <div>
-          <div class="supporter-card-top">
-            <div class="supporter-avatar-circle champion">SS</div>
-            <div class="supporter-info-block">
-              <div class="supporter-name-row">
+    <!-- Panel 2: Contributors (Switchable) -->
+    <section class="tab-panel" id="tabPanelContributors" role="tabpanel" aria-labelledby="tabBtnContributors">
+      <div class="contributors-list">
+        <!-- Saumya Soni Contributor Card -->
+        <article class="contributor-item-card">
+          <div class="contributor-item-left">
+            <div class="contributor-avatar-pill">SS</div>
+            <div>
+              <div class="contributor-meta-name">
                 <span>Saumya Soni</span>
-                <span class="supporter-role-badge" style="border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">Contributor</span>
+                <span class="supporter-role-badge" style="border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">Code Contributor</span>
               </div>
-              <div style="font-size: 0.78rem; color: var(--text-dim);">Open Source Contributor</div>
+              <p class="contributor-meta-summary">
+                Fixed the Incredible Hulk official trailer embed integration (PR #3) and implemented the quick "Go to Bottom" milestone navigation button (PR #4).
+              </p>
             </div>
           </div>
-          <p class="supporter-message">
-            "Contributed trailer fixes and navigation UX enhancements for Marvel fans navigating across the multiverse."
+          <div>
+            <a href="https://github.com/Saumya-Soni" target="_blank" rel="noopener noreferrer" class="contributor-link-btn" title="View Saumya Soni on GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub Profile</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Open Invitation for Contributors -->
+        <article class="supporter-join-card" style="margin-top: 10px;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-red);">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+          <h2 class="supporter-join-title">Want to Contribute Code or Data?</h2>
+          <p class="supporter-join-sub">
+            Whether fixing media links, refining chronological accuracy, or optimizing the timeline, PRs are always welcome.
           </p>
-        </div>
-        <div class="supporter-footer-meta">
-          <span>⭐ Verified PR Contributor</span>
-          <span>Nov 2026</span>
-        </div>
-      </article>
-
-      <!-- Open Supporter Invitation Card -->
-      <article class="supporter-join-card">
-        <div style="font-size: 2.2rem;">☕</div>
-        <h2 class="supporter-join-title">Claim Your Spot Here!</h2>
-        <p class="supporter-join-sub">
-          Buy a coffee or support directly via UPI or Bank Transfer to have your name, avatar, and message featured on this wall.
-        </p>
-        <a href="support.html" class="btn-action btn-coffee" style="margin-top: 4px;" title="Support the Project">
-          <span>Become a Supporter →</span>
-        </a>
-      </article>
-    </main>
-
-    <!-- Monthly Update Info Box -->
-    <section class="monthly-notice-box" aria-label="Monthly update information">
-      <strong>📌 Monthly Wall Refresh:</strong> The Supporters Wall is updated manually at the start of each month by Vaibhav Soni. If you supported this month, please email your transaction reference or receipt along with your preferred display name and message to <strong><a href="mailto:vaibhavsoni280506@gmail.com">vaibhavsoni280506@gmail.com</a></strong> to ensure your feature in the upcoming update!
+          <a href="https://github.com/VaibhavSoni24/Marvel-Roadmap/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="btn-action btn-danger" style="margin-top: 4px;" title="View Contributing Guide">
+            <span>View Contributing Guide</span>
+          </a>
+        </article>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -202,13 +281,69 @@
         </div>
         <p class="footer-disclaimer">Unofficial fan-created roadmap. All Marvel characters, posters, logos, and related media are © & ™ Marvel Studios, Disney, Sony, and 20th Century Studios. This site is not affiliated with or endorsed by Marvel or Disney.</p>
         <div class="footer-links">
-          <a href="index.html" class="footer-link-btn">← Back to Roadmap</a>
-          <a href="support.html" class="footer-link-btn highlight-coffee">☕ Buy Me a Coffee</a>
-          <a href="https://github.com/VaibhavSoni24/Marvel-Roadmap/wiki" target="_blank" rel="noopener noreferrer" class="footer-link-btn">📖 Project Wiki</a>
+          <a href="/" class="footer-link-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back to Roadmap</span>
+          </a>
+          <a href="/support" class="footer-link-btn highlight-coffee">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+            <span>Buy Me a Coffee</span>
+          </a>
+          <a href="https://github.com/VaibhavSoni24/Marvel-Roadmap/wiki" target="_blank" rel="noopener noreferrer" class="footer-link-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Project Wiki</span>
+          </a>
         </div>
       </div>
     </footer>
   </div>
+
+  <!-- Tab Switching Script -->
+  <script>
+    (function () {
+      const tabBtnSupporters = document.getElementById('tabBtnSupporters');
+      const tabBtnContributors = document.getElementById('tabBtnContributors');
+      const tabPanelSupporters = document.getElementById('tabPanelSupporters');
+      const tabPanelContributors = document.getElementById('tabPanelContributors');
+
+      function switchTab(target) {
+        if (target === 'contributors') {
+          tabBtnContributors.classList.add('active');
+          tabBtnContributors.setAttribute('aria-selected', 'true');
+          tabBtnSupporters.classList.remove('active');
+          tabBtnSupporters.setAttribute('aria-selected', 'false');
+
+          tabPanelContributors.classList.add('active');
+          tabPanelSupporters.classList.remove('active');
+        } else {
+          tabBtnSupporters.classList.add('active');
+          tabBtnSupporters.setAttribute('aria-selected', 'true');
+          tabBtnContributors.classList.remove('active');
+          tabBtnContributors.setAttribute('aria-selected', 'false');
+
+          tabPanelSupporters.classList.add('active');
+          tabPanelContributors.classList.remove('active');
+        }
+      }
+
+      tabBtnSupporters.addEventListener('click', () => switchTab('supporters'));
+      tabBtnContributors.addEventListener('click', () => switchTab('contributors'));
+
+      // Check URL hash
+      if (window.location.hash === '#contributors') {
+        switchTab('contributors');
+      }
+    })();
+  </script>
 </body>
 
 </html>

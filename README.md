@@ -185,10 +185,10 @@ For detailed contribution breakdowns, PR links, and milestones, please see [CONT
 
 If this roadmap helped you conquer the Marvel Multiverse, you can support its hosting and ongoing maintenance:
 
-- **☕ Buy Me a Coffee & Direct Transfer**: [https://marvel-multiverse-roadmap.vercel.app/support.html](https://marvel-multiverse-roadmap.vercel.app/support.html)
+- **☕ Buy Me a Coffee & Direct Transfer**: [https://marvel-multiverse-roadmap.vercel.app/support](https://marvel-multiverse-roadmap.vercel.app/support.html)
   - **UPI & QR Code (India - 0% Fee)**: Instant peer-to-peer support via PhonePe, Google Pay, Paytm, or BHIM (`6350366202-r52f@axl`).
   - **Direct Bank Transfer (India & International)**: Direct wire via NEFT/IMPS/RTGS or foreign SWIFT transfer.
-- **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters.html](https://marvel-multiverse-roadmap.vercel.app/supporters.html)
+- **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters](https://marvel-multiverse-roadmap.vercel.app/supporters.html)
   - Every supporter is recognized on our monthly community Wall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
 
 ---

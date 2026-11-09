@@ -548,22 +548,20 @@
     const prevLayer = (activeHeroLayer === 'A') ? heroBgA : heroBgB;
     const nextLayerName = (activeHeroLayer === 'A') ? 'B' : 'A';
 
-    // Preload image so fade is instantaneous without glitching or stale cache
+    // Preload image so crossfade transition is smooth without flashes
     const img = new Image();
-    img.onload = () => {
+    function applyBg(url) {
       if (currentActiveId !== id) return;
-      nextLayer.style.backgroundImage = `url('${landscapeUrl}')`;
+      nextLayer.style.backgroundImage = `url('${url}')`;
+      nextLayer.style.zIndex = '2';
+      prevLayer.style.zIndex = '1';
       nextLayer.classList.add('active');
       prevLayer.classList.remove('active');
       activeHeroLayer = nextLayerName;
-    };
-    img.onerror = () => {
-      if (currentActiveId !== id) return;
-      nextLayer.style.backgroundImage = `url('${fallbackUrl}')`;
-      nextLayer.classList.add('active');
-      prevLayer.classList.remove('active');
-      activeHeroLayer = nextLayerName;
-    };
+    }
+
+    img.onload = () => applyBg(landscapeUrl);
+    img.onerror = () => applyBg(fallbackUrl);
     img.src = landscapeUrl;
   }
 

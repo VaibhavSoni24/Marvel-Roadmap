@@ -193,7 +193,14 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes('bottomBtn'), 'app.js missing bottomBtn reference');
 }
 
-// 9. Validate Support & Supporters Pages and Assets
+// 9. Validate Support & Supporters Pages, Clean URLs, and Assets
+const vercelJsonPath = path.resolve(__dirname, '../vercel.json');
+check(fs.existsSync(vercelJsonPath), 'vercel.json must exist');
+if (fs.existsSync(vercelJsonPath)) {
+  const vcfg = JSON.parse(fs.readFileSync(vercelJsonPath, 'utf8'));
+  check(vcfg.cleanUrls === true, 'vercel.json must have cleanUrls: true enabled');
+}
+
 const supportPath = path.resolve(__dirname, '../support.html');
 check(fs.existsSync(supportPath), 'support.html must exist');
 if (fs.existsSync(supportPath)) {
@@ -203,18 +210,21 @@ if (fs.existsSync(supportPath)) {
   check(supportHtml.includes('SBIN0015336'), 'support.html missing IFSC Code');
   check(supportHtml.includes('SBININBB'), 'support.html missing SWIFT Code');
   check(supportHtml.includes('assets/upi-qr.jpg'), 'support.html missing QR image path');
-  check(supportHtml.includes('supporters.html'), 'support.html missing link to supporters.html');
-  check(supportHtml.includes('index.html'), 'support.html missing link to index.html');
+  check(supportHtml.includes('href="/supporters"'), 'support.html missing clean link to /supporters');
+  check(supportHtml.includes('href="/"'), 'support.html missing clean link to / (base roadmap)');
 }
 
 const supportersPath = path.resolve(__dirname, '../supporters.html');
 check(fs.existsSync(supportersPath), 'supporters.html must exist');
 if (fs.existsSync(supportersPath)) {
   const supportersHtml = fs.readFileSync(supportersPath, 'utf8');
-  check(supportersHtml.includes('Vaibhav Soni'), 'supporters.html missing Vaibhav Soni');
   check(supportersHtml.includes('Saumya Soni'), 'supporters.html missing Saumya Soni');
-  check(supportersHtml.includes('support.html'), 'supporters.html missing link to support.html');
-  check(supportersHtml.includes('index.html'), 'supporters.html missing link to index.html');
+  check(supportersHtml.includes('href="/support"'), 'supporters.html missing clean link to /support');
+  check(supportersHtml.includes('href="/"'), 'supporters.html missing clean link to / (base roadmap)');
+  check(supportersHtml.includes('id="tabBtnSupporters"'), 'supporters.html missing tab switcher');
+  check(supportersHtml.includes('podium-grid'), 'supporters.html missing podium ranking grid');
+  check(supportersHtml.includes('supporters-table'), 'supporters.html missing supporters table');
+  check(supportersHtml.includes('contributors-list'), 'supporters.html missing contributors list');
 }
 
 const qrImgPath = path.resolve(__dirname, '../assets/upi-qr.jpg');
@@ -224,8 +234,8 @@ if (fs.existsSync(qrImgPath)) {
   check(stats.size > 1000, 'assets/upi-qr.jpg must be a valid non-empty image file');
 }
 
-check(indexHtml.includes('href="support.html"'), 'index.html missing link to support.html');
-check(indexHtml.includes('href="supporters.html"'), 'index.html missing link to supporters.html');
+check(indexHtml.includes('href="/support"'), 'index.html missing clean link to /support');
+check(indexHtml.includes('href="/supporters"'), 'index.html missing clean link to /supporters');
 
 // Report
 console.log('');
