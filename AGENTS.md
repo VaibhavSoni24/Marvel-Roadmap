@@ -39,7 +39,8 @@ Marvel Roadmap/
 │       └── ci-cd.yml          # GitHub Actions automated CI/CD pipeline
 ├── api/
 │   └── presence.js            # Vercel serverless live presence heartbeat endpoint
-├── assets/                    # Static branding and payment assets (UPI QR code)
+├── assets/                    # Static branding, vector icons, provider badges & payment assets
+│   └── providers/             # High-resolution vector badges for streaming platforms
 ├── data/
 │   ├── data.js                # JavaScript dataset of all 121 Marvel titles
 │   └── data.json              # JSON export of the complete roadmap dataset

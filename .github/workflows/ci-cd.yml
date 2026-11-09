@@ -120,6 +120,10 @@ jobs:
             echo "::error::Production homepage missing Amazon Associate tag vaibhavson083-21!"
             exit 1
           }
+          echo "$PROD_HTML" | grep -F '/assets/providers/hotstar.svg' > /dev/null || {
+            echo "::error::Production homepage missing Disney+ Hotstar provider badge icon!"
+            exit 1
+          }
 
           echo "🧪 2. Testing Google Site Verification HTML File..."
           GSC_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)

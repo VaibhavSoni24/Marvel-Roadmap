@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <defs>
+    <linearGradient id="prime-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00182c"/>
+      <stop offset="100%" stop-color="#00a8e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="9" fill="url(#prime-grad)"/>
+  <!-- Prime text -->
+  <text x="20" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="-0.3">prime</text>
+  <!-- Amazon Smile Arrow -->
+  <path d="M 10 24.5 C 15 27.5 24 27.5 29 24.5" fill="none" stroke="#00a8e1" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 28 23 L 30 25.5 L 26.5 26" fill="#00a8e1"/>
+</svg>

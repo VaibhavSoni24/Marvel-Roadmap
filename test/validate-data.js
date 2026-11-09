@@ -124,6 +124,8 @@ check(indexHtml.includes('class="faq-item"'), 'index.html missing visible FAQ it
 check(indexHtml.includes('class="footer-disclaimer"'), 'index.html missing footer legal disclaimer');
 check(indexHtml.includes('class="card-watch-on"'), 'index.html missing pre-rendered card-watch-on section');
 check(indexHtml.includes('vaibhavson083-21'), 'index.html missing Amazon Associate tracking tag vaibhavson083-21');
+check(indexHtml.includes('/assets/providers/hotstar.svg'), 'index.html missing Disney+ Hotstar provider badge icon');
+check(indexHtml.includes('/assets/providers/prime.svg'), 'index.html missing Amazon Prime Video provider badge icon');
 
 // 5. Validate JSON-LD contains all 121 items and matching anchor links
 const jsonLdMatch = indexHtml.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/);
@@ -284,6 +286,12 @@ if (fs.existsSync(qrImgPath)) {
   const stats = fs.statSync(qrImgPath);
   check(stats.size > 1000, 'assets/upi-qr.jpg must be a valid non-empty image file');
 }
+
+const providerLogos = ['hotstar.svg', 'vi.svg', 'prime.svg', 'netflix.svg', 'sonyliv.svg', 'jiocinema.svg'];
+providerLogos.forEach(logo => {
+  const logoPath = path.resolve(__dirname, '../assets/providers', logo);
+  check(fs.existsSync(logoPath), `assets/providers/${logo} must exist`);
+});
 
 check(indexHtml.includes('href="/support"'), 'index.html missing clean link to /support');
 check(indexHtml.includes('href="/supporters"'), 'index.html missing clean link to /supporters');
