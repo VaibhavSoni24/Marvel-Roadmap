@@ -71,7 +71,7 @@ Marvel Roadmap/
 ├── pages/
 │   ├── privacy-policy.html # Dedicated zero-tracking privacy and data policy
 │   ├── support.html     # Dedicated Buy Me a Coffee & direct transfer page
-│   └── supporters.html  # Community Hall of Supporters & Contributors wall of fame
+│   └── supporters.html  # Community Hall of Supporters & Contributors hall of fame
 ├── scripts/
 │   ├── app.js           # Application state, HUD calculations & interactivity
 │   ├── prerender.js     # Automated SSR generator for cards, SEO & schema
@@ -206,7 +206,7 @@ If this roadmap helped you conquer the Marvel Multiverse, you can support its ho
   - **UPI & QR Code (India - 0% Fee)**: Instant peer-to-peer support via PhonePe, Google Pay, Paytm, or BHIM (`6350366202-r52f@axl`).
   - **Direct Bank Transfer (India & International)**: Direct wire via NEFT/IMPS/RTGS or foreign SWIFT transfer.
 - **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters](https://marvel-multiverse-roadmap.vercel.app/supporters)
-  - Every supporter is recognized on our monthly community Wall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
+  - Every supporter is recognized on our monthly community Hall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
 - **🔒 Privacy Policy**: [https://marvel-multiverse-roadmap.vercel.app/privacy-policy](https://marvel-multiverse-roadmap.vercel.app/privacy-policy)
   - Zero analytics, zero third-party cookies, and strictly client-side localStorage.
 

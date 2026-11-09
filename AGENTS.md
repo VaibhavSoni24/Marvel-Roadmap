@@ -47,7 +47,7 @@ Marvel Roadmap/
 ├── pages/
 │   ├── privacy-policy.html    # Zero-tracking privacy and data policy documentation
 │   ├── support.html           # Dedicated Buy Me a Coffee & direct transfer page
-│   └── supporters.html        # Community Hall of Supporters & Contributors wall of fame
+│   └── supporters.html        # Community Hall of Supporters & Contributors hall of fame
 ├── poster/                    # High-resolution media repository
 │   ├── portrait/              # Compressed portrait posters (.webp & .jpg)
 │   └── landscape/             # Compressed landscape backdrops (.webp & .jpg)
