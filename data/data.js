@@ -1,4 +1,4 @@
-const marvelData = [
+const MARVEL_DATA = [
   {
     "id": 1,
     "title": "Blade",
@@ -3079,6 +3079,14 @@ const marvelData = [
   }
 ];
 
+const marvelData = MARVEL_DATA;
+
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = marvelData;
+  module.exports = MARVEL_DATA;
 }
+
+if (typeof window !== "undefined") {
+  window.MARVEL_DATA = MARVEL_DATA;
+  window.marvelData = MARVEL_DATA;
+}
+

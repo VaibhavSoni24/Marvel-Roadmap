@@ -368,8 +368,10 @@ html = html.replace(
   `<p class="brand-sub">Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)</p>`
 );
 
-// Style cache buster
+// Style & Script cache busters
 html = html.replace(/(?:style\/)?style\.css(\?v=\d+)?/, 'style/style.css?v=7');
+html = html.replace(/(?:data\/)?data\.js(\?v=\d+)?/, 'data/data.js?v=5');
+html = html.replace(/(?:scripts\/)?app\.js(\?v=\d+)?/, 'scripts/app.js?v=5');
 
 // Structured data replacement
 const structuredDataJson = JSON.stringify(structuredData, null, 2);

@@ -14,7 +14,13 @@
   const ASSET_VERSION = 'v=20261024_2';
 
   // State
-  let items = typeof MARVEL_DATA !== 'undefined' ? MARVEL_DATA : [];
+  let items = typeof MARVEL_DATA !== 'undefined'
+    ? MARVEL_DATA
+    : (typeof marvelData !== 'undefined'
+      ? marvelData
+      : (typeof window !== 'undefined' && (window.MARVEL_DATA || window.marvelData)
+        ? (window.MARVEL_DATA || window.marvelData)
+        : []));
   let watchedSet = new Set();
   let skippedSet = new Set();
   let ratingsMap = {}; // { [id]: number }
