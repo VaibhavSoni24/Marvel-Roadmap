@@ -314,7 +314,7 @@ html = html.replace(
 );
 
 // Style cache buster
-html = html.replace(/style\.css(\?v=\d+)?/, 'style.css?v=4');
+html = html.replace(/style\.css(\?v=\d+)?/, 'style.css?v=5');
 
 // Structured data replacement
 const structuredDataJson = JSON.stringify(structuredData, null, 2);

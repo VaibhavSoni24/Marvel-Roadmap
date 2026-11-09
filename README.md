@@ -59,7 +59,10 @@ Marvel Roadmap/
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml    # GitHub Actions automated CI/CD pipeline
+├── assets/              # Static branding and payment assets (UPI QR code)
 ├── index.html           # Semantic HTML5 layout with rich SEO & JSON-LD
+├── support.html         # Dedicated Buy Me a Coffee & direct transfer page
+├── supporters.html      # Community Hall of Supporters wall of fame
 ├── style.css            # Handcrafted modern Vanilla CSS with dark theme
 ├── app.js               # Application state, HUD calculations & interactivity
 ├── data.js              # JavaScript dataset of all 121 Marvel titles
@@ -175,6 +178,18 @@ For detailed contribution breakdowns, PR links, and milestones, please see [CONT
 - **Design**: Modern glassmorphism, responsive alternating timeline rail, CSS Custom Properties
 - **Assets**: Local compressed WebP/JPEG assets with Pillow optimization
 - **APIs & Data**: Curated metadata from TMDB, IMDb, and Doomsday Roadmap
+
+---
+
+## ☕ Support the Project
+
+If this roadmap helped you conquer the Marvel Multiverse, you can support its hosting and ongoing maintenance:
+
+- **☕ Buy Me a Coffee & Direct Transfer**: [https://marvel-multiverse-roadmap.vercel.app/support.html](https://marvel-multiverse-roadmap.vercel.app/support.html)
+  - **UPI & QR Code (India - 0% Fee)**: Instant peer-to-peer support via PhonePe, Google Pay, Paytm, or BHIM (`6350366202-r52f@axl`).
+  - **Direct Bank Transfer (India & International)**: Direct wire via NEFT/IMPS/RTGS or foreign SWIFT transfer.
+- **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters.html](https://marvel-multiverse-roadmap.vercel.app/supporters.html)
+  - Every supporter is recognized on our monthly community Wall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
 
 ---
 

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://marvel-multiverse-roadmap.vercel.app/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -11,5 +11,17 @@
       <image:title>Marvel Multiverse Roadmap to Avengers: Doomsday</image:title>
       <image:caption>Interactive complete release-order watch marathon across 121 Marvel films and series</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://marvel-multiverse-roadmap.vercel.app/support.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marvel-multiverse-roadmap.vercel.app/supporters.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

@@ -193,6 +193,40 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes('bottomBtn'), 'app.js missing bottomBtn reference');
 }
 
+// 9. Validate Support & Supporters Pages and Assets
+const supportPath = path.resolve(__dirname, '../support.html');
+check(fs.existsSync(supportPath), 'support.html must exist');
+if (fs.existsSync(supportPath)) {
+  const supportHtml = fs.readFileSync(supportPath, 'utf8');
+  check(supportHtml.includes('6350366202-r52f@axl'), 'support.html missing UPI ID');
+  check(supportHtml.includes('43330823145'), 'support.html missing Account Number');
+  check(supportHtml.includes('SBIN0015336'), 'support.html missing IFSC Code');
+  check(supportHtml.includes('SBININBB'), 'support.html missing SWIFT Code');
+  check(supportHtml.includes('assets/upi-qr.jpg'), 'support.html missing QR image path');
+  check(supportHtml.includes('supporters.html'), 'support.html missing link to supporters.html');
+  check(supportHtml.includes('index.html'), 'support.html missing link to index.html');
+}
+
+const supportersPath = path.resolve(__dirname, '../supporters.html');
+check(fs.existsSync(supportersPath), 'supporters.html must exist');
+if (fs.existsSync(supportersPath)) {
+  const supportersHtml = fs.readFileSync(supportersPath, 'utf8');
+  check(supportersHtml.includes('Vaibhav Soni'), 'supporters.html missing Vaibhav Soni');
+  check(supportersHtml.includes('Saumya Soni'), 'supporters.html missing Saumya Soni');
+  check(supportersHtml.includes('support.html'), 'supporters.html missing link to support.html');
+  check(supportersHtml.includes('index.html'), 'supporters.html missing link to index.html');
+}
+
+const qrImgPath = path.resolve(__dirname, '../assets/upi-qr.jpg');
+check(fs.existsSync(qrImgPath), 'assets/upi-qr.jpg must exist');
+if (fs.existsSync(qrImgPath)) {
+  const stats = fs.statSync(qrImgPath);
+  check(stats.size > 1000, 'assets/upi-qr.jpg must be a valid non-empty image file');
+}
+
+check(indexHtml.includes('href="support.html"'), 'index.html missing link to support.html');
+check(indexHtml.includes('href="supporters.html"'), 'index.html missing link to supporters.html');
+
 // Report
 console.log('');
 if (errors.length > 0) {
