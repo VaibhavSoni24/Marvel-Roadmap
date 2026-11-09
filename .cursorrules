@@ -1,0 +1,13 @@
+# Marvel Multiverse Roadmap - Cursor Rules
+
+# Project Architecture
+- Zero-dependency Vanilla HTML5, CSS3, and modern ES6+ JavaScript.
+- No React, Next.js, Vue, or Tailwind frameworks.
+- Static pre-rendering powered by `scripts/prerender.js`.
+
+# Non-Negotiable Rules
+1. Zero Prohibited Dashes: Never use unicode em-dashes (U+2014) or en-dashes (U+2013). Always use standard ASCII hyphens (-) or commas (, ).
+2. Dataset Sync: Keep `data/data.json` and `data/data.js` 100% identical. After any edit, run `npm test`.
+3. Clean URLs: Use clean paths (`/`, `/support`, `/supporters`) without `.html` in internal hrefs.
+4. Contributor Protocol: Maintainer Vaibhav Soni is Project Owner. External contributors appear on `pages/supporters.html` with dynamic GitHub avatars (`https://github.com/<username>.png?size=96`).
+5. Quality Checks: Always ensure `npm run lint` and `npm test` pass before committing.

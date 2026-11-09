@@ -54,6 +54,15 @@ npm run lint
 npm test
 ```
 
+---
+
+## 🤖 AI-Assisted Contributions (Agents & Copilots)
+
+If you use AI coding assistants (such as Claude Code, Cursor, Antigravity, GitHub Copilot, or Gemini) to contribute:
+- Please review [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) for strict architectural rules, dataset synchronization protocols, and our zero-prohibited-dash policy.
+- Configuration for Cursor is available in [.cursorrules](.cursorrules).
+- Ensure all automated checks (`npm run lint` and `npm test`) pass cleanly before submitting your pull request.
+
 The validation suite checks:
 - JSON structure and sequential ID order (1 to 121).
 - Existence of portrait posters (`poster/portrait/*.webp`) and landscape backdrops (`poster/landscape/*.webp`).

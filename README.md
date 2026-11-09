@@ -85,6 +85,9 @@ Marvel Roadmap/
 ├── manifest.json        # Web App Manifest for PWA and discoverability
 ├── og-image.jpg         # High-resolution social media sharing preview card
 ├── package.json         # NPM scripts, test commands, and project metadata
+├── AGENTS.md            # Comprehensive guidelines for AI coding assistants
+├── CLAUDE.md            # Anthropic Claude Code contributor instructions
+├── .cursorrules         # Cursor AI editor developer rules
 ├── CONTRIBUTING.md      # Guidelines for contributors and PR submission
 ├── CONTRIBUTORS.md      # Recognition of project authors and contributors
 ├── CODE_OF_CONDUCT.md   # Community behavior standards and pledge

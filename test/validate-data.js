@@ -67,6 +67,12 @@ check(fs.existsSync(ogImagePath), 'og-image.jpg must exist');
 const manifestPath = path.resolve(__dirname, '../manifest.json');
 check(fs.existsSync(manifestPath), 'manifest.json must exist');
 
+const agentsPath = path.resolve(__dirname, '../AGENTS.md');
+check(fs.existsSync(agentsPath), 'AGENTS.md must exist');
+
+const claudePath = path.resolve(__dirname, '../CLAUDE.md');
+check(fs.existsSync(claudePath), 'CLAUDE.md must exist');
+
 const contributingPath = path.resolve(__dirname, '../CONTRIBUTING.md');
 check(fs.existsSync(contributingPath), 'CONTRIBUTING.md must exist');
 
@@ -289,7 +295,9 @@ const filesToCheckNoDashes = [
   'scripts/support.js',
   'scripts/supporters.js',
   'scripts/prerender.js',
-  '.github/workflows/ci-cd.yml'
+  '.github/workflows/ci-cd.yml',
+  'AGENTS.md',
+  'CLAUDE.md'
 ];
 
 filesToCheckNoDashes.forEach(relPath => {
