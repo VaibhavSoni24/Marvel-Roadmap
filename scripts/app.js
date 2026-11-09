@@ -949,7 +949,7 @@
       embedUrl = `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&rel=0`;
     }
 
-    trailerModalTitle.textContent = `${title} — Official Trailer`;
+    trailerModalTitle.textContent = `${title} - Official Trailer`;
     trailerIframe.src = embedUrl;
     openExternalTrailerBtn.href = url;
     trailerModal.classList.add('open');

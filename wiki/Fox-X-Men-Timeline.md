@@ -8,12 +8,12 @@ The 20th Century Fox X-Men universe spans 18 films from 2000 to 2024. Because of
 
 ### Timeline A: The Original Tragic Timeline
 1. **X-Men: First Class (1962)**: Charles Xavier and Erik Lehnsherr form the first mutant team.
-2. **X-Men Origins: Wolverine (1979–1981)**: Logan receives his adamantium skeleton.
+2. **X-Men Origins: Wolverine (1979-1981)**: Logan receives his adamantium skeleton.
 3. **X-Men (2000)**: Rogue meets Logan; Magneto attempts to mutate world leaders at Ellis Island.
 4. **X2: X-Men United (2003)**: William Stryker attacks the mansion; Jean Grey sacrifices herself at Alkali Lake.
 5. **X-Men: The Last Stand (2006)**: The Mutant Cure is discovered; Jean returns as the Dark Phoenix and is killed by Logan.
 6. **The Wolverine (2013)**: Logan travels to Japan; post-credits scene reveals Charles and Erik recruiting Logan for an impending apocalyptic war.
-7. **X-Men: Days of Future Past — Dystopian Future (2023)**: Sentinels have wiped out most of mutantkind. Kitty Pryde sends Wolverine's consciousness back to 1973.
+7. **X-Men: Days of Future Past - Dystopian Future (2023)**: Sentinels have wiped out most of mutantkind. Kitty Pryde sends Wolverine's consciousness back to 1973.
 
 ---
 
@@ -23,7 +23,7 @@ By preventing Mystique from assassinating Bolivar Trask in 1973, Wolverine, Char
 ---
 
 ### Timeline B: The Revised Timeline
-1. **X-Men: Days of Future Past — Past Events (1973)**: The Sentinel program is canceled; history is changed.
+1. **X-Men: Days of Future Past - Past Events (1973)**: The Sentinel program is canceled; history is changed.
 2. **X-Men: Apocalypse (1983)**: En Sabah Nur awakens; Jean Grey unleashes the Phoenix Force early.
 3. **X-Men: Dark Phoenix (1992)**: Cosmic flare unleashes the alien Phoenix power.
 4. **Deadpool (2016)**: Wade Wilson becomes Deadpool in a self-aware, post-reset world.

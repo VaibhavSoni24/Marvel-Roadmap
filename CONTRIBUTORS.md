@@ -31,7 +31,7 @@ This project is built and maintained by open-source contributors who dedicate th
 - **UI & UX Engineering**:
   - Engineered the alternating chronological timeline with central gradient rail, numbered milestone nodes, and dark glassmorphic styling.
   - Designed and built the **Sticky HUD Progress Rail** with live remaining watch time (`LEFT`), daily watch pace calculator (`PACE` targeting December 18, 2026), skipped duration tracking (`SKIPPED`), and live percentage progress bar (`DONE`).
-  - Implemented the interactive **1–10 star personal rating widget** with micro-animations, local storage persistence, rating lock enforcement (unlocked only after marking watched), and auto-removal fallbacks on unmark/skip.
+  - Implemented the interactive **1-10 star personal rating widget** with micro-animations, local storage persistence, rating lock enforcement (unlocked only after marking watched), and auto-removal fallbacks on unmark/skip.
   - Implemented **Mark as Watched** and **Skip** milestones with instant LocalStorage synchronization.
   - Created dynamic ambient landscape backdrop crossfading synchronized with viewport scroll proximity and active card detection.
   - Implemented multi-dimensional filtering (Universe chips with live item counts, Watch Status chips) and real-time instant search across titles, characters, years, and descriptions.
@@ -52,10 +52,10 @@ This project is built and maintained by open-source contributors who dedicate th
 - **Role**: Open-Source Contributor
 
 #### Contributions Overview
-- **PR #3 — The Incredible Hulk Official Trailer Link Fix** ([#3](https://github.com/VaibhavSoni24/Marvel-Roadmap/pull/3), Commit `3dff954`):
+- **PR #3 - The Incredible Hulk Official Trailer Link Fix** ([#3](https://github.com/VaibhavSoni24/Marvel-Roadmap/pull/3), Commit `3dff954`):
   - Identified and corrected the official trailer URL for *The Incredible Hulk* (#18) to the authentic high-definition official YouTube trailer.
   - Updated the trailer link consistently across `data.json`, `data.js`, and the pre-rendered `index.html`.
-- **PR #4 — Header Quick Navigation "Go to Bottom" Button** ([#4](https://github.com/VaibhavSoni24/Marvel-Roadmap/pull/4), Commit `db4ebac`):
+- **PR #4 - Header Quick Navigation "Go to Bottom" Button** ([#4](https://github.com/VaibhavSoni24/Marvel-Roadmap/pull/4), Commit `db4ebac`):
   - Designed, developed, and integrated the header "Go to Bottom" quick-jump pill button (`#bottomBtn` / `.bottom-pill-btn`), enabling users to smoothly navigate directly to the final multiverse milestone card (*Avengers: Doomsday* #121) with a single click.
   - Implemented responsive styling for `.header-continue-wrapper` (flex wrapping, mobile column stacking), ensuring both Continue and Go to Bottom buttons display cleanly across desktop and mobile screens.
   - Integrated click listener, dynamic target title binding, and smooth scrolling in `app.js`.

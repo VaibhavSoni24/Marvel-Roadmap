@@ -6,7 +6,7 @@
   "scripts": {
     "prerender": "node scripts/prerender.js",
     "test": "node scripts/prerender.js && node test/validate-data.js",
-    "lint": "node --check app.js api/presence.js data.js test/validate-data.js scripts/prerender.js scripts/sync-wiki.js",
+    "lint": "node --check scripts/app.js api/presence.js data/data.js test/validate-data.js scripts/prerender.js scripts/sync-wiki.js",
     "wiki:sync": "node scripts/sync-wiki.js",
     "dev": "npx -y serve . -l 3000",
     "start": "npx -y serve . -l 3000",

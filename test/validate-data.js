@@ -18,7 +18,9 @@ function check(condition, message) {
 console.log('🧪 Starting Marvel Multiverse Roadmap automated verification...\n');
 
 // 1. Validate data.json
-const dataJsonPath = path.resolve(__dirname, '../data.json');
+const dataJsonPath = path.resolve(__dirname, '../data/data.json');
+const dataJsPath = path.resolve(__dirname, '../data/data.js');
+check(fs.existsSync(dataJsPath), 'data/data.js must exist');
 check(fs.existsSync(dataJsonPath), 'data.json must exist');
 
 let data = [];
@@ -98,10 +100,10 @@ const indexHtmlPath = path.resolve(__dirname, '../index.html');
 check(fs.existsSync(indexHtmlPath), 'index.html must exist');
 const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-check(indexHtml.includes('<title>Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)</title>'), 'index.html missing targeted consistent SEO <title>');
+check(indexHtml.includes('<title>Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)</title>'), 'index.html missing targeted consistent SEO <title>');
 check(indexHtml.includes('name="description"'), 'index.html missing meta description');
-check(indexHtml.includes('property="og:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)"'), 'index.html missing consistent OpenGraph title');
-check(indexHtml.includes('name="twitter:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)"'), 'index.html missing consistent Twitter title');
+check(indexHtml.includes('property="og:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)"'), 'index.html missing consistent OpenGraph title');
+check(indexHtml.includes('name="twitter:title" content="Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)"'), 'index.html missing consistent Twitter title');
 check(indexHtml.includes('rel="canonical"'), 'index.html missing canonical URL link');
 check(indexHtml.includes('property="og:image"'), 'index.html missing OpenGraph image tag');
 check(indexHtml.includes('application/ld+json'), 'index.html missing JSON-LD structured data');
@@ -143,7 +145,7 @@ if (jsonLdMatch && jsonLdMatch[1]) {
 }
 
 // 6. Validate Rating Lock & Stacking Hierarchy
-const cssPath = path.resolve(__dirname, '../style.css');
+const cssPath = path.resolve(__dirname, '../style/style.css');
 check(fs.existsSync(cssPath), 'style.css must exist');
 if (fs.existsSync(cssPath)) {
   const css = fs.readFileSync(cssPath, 'utf8');
@@ -156,7 +158,7 @@ if (fs.existsSync(cssPath)) {
 check(indexHtml.includes('class="user-rating-btn is-locked"'), 'index.html missing locked rating button state');
 check(indexHtml.includes('class="rating-lock-icon"'), 'index.html missing rating lock icon');
 
-const appJsPath = path.resolve(__dirname, '../app.js');
+const appJsPath = path.resolve(__dirname, '../scripts/app.js');
 check(fs.existsSync(appJsPath), 'app.js must exist');
 if (fs.existsSync(appJsPath)) {
   const appJs = fs.readFileSync(appJsPath, 'utf8');
@@ -198,12 +200,12 @@ const vercelJsonPath = path.resolve(__dirname, '../vercel.json');
 check(fs.existsSync(vercelJsonPath), 'vercel.json must exist');
 if (fs.existsSync(vercelJsonPath)) {
   const vcfg = JSON.parse(fs.readFileSync(vercelJsonPath, 'utf8'));
-  const hasSupportRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/support' && r.destination === '/support.html');
-  const hasSupportersRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/supporters' && r.destination === '/supporters.html');
+  const hasSupportRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/support' && r.destination === '/pages/support.html');
+  const hasSupportersRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/supporters' && r.destination === '/pages/supporters.html');
   check(hasSupportRewrite && hasSupportersRewrite, 'vercel.json missing clean URL rewrites for /support and /supporters');
 }
 
-const supportPath = path.resolve(__dirname, '../support.html');
+const supportPath = path.resolve(__dirname, '../pages/support.html');
 check(fs.existsSync(supportPath), 'support.html must exist');
 if (fs.existsSync(supportPath)) {
   const supportHtml = fs.readFileSync(supportPath, 'utf8');
@@ -216,7 +218,7 @@ if (fs.existsSync(supportPath)) {
   check(supportHtml.includes('href="/"'), 'support.html missing clean link to / (base roadmap)');
 }
 
-const supportersPath = path.resolve(__dirname, '../supporters.html');
+const supportersPath = path.resolve(__dirname, '../pages/supporters.html');
 check(fs.existsSync(supportersPath), 'supporters.html must exist');
 if (fs.existsSync(supportersPath)) {
   const supportersHtml = fs.readFileSync(supportersPath, 'utf8');

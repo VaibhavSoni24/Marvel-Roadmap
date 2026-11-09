@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.resolve(__dirname, '../data.json');
+const dataPath = path.resolve(__dirname, '../data/data.json');
 const indexHtmlPath = path.resolve(__dirname, '../index.html');
 
 const items = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -186,7 +186,7 @@ const faqs = [
   },
   {
     q: 'Can I track my watch progress and rate Marvel titles on this site?',
-    a: 'Yes. The roadmap includes interactive "Mark Watched" and "Skip" toggles, a live daily watch pace calculator, and a 1–10 star personal rating widget. All your progress and ratings are stored securely and privately in your browser\'s local storage.'
+    a: 'Yes. The roadmap includes interactive "Mark Watched" and "Skip" toggles, a live daily watch pace calculator, and a 1-10 star personal rating widget. All your progress and ratings are stored securely and privately in your browser\'s local storage.'
   },
   {
     q: 'Which universes and franchises are included across the 121 titles?',
@@ -228,7 +228,7 @@ const structuredData = {
     {
       '@type': 'ItemList',
       '@id': 'https://marvel-multiverse-roadmap.vercel.app/#roadmap',
-      'name': 'Marvel Multiverse Release-Order Watch List (1998–2026)',
+      'name': 'Marvel Multiverse Release-Order Watch List (1998-2026)',
       'description': 'Complete release-order marathon of 121 Marvel titles concluding at Avengers: Doomsday.',
       'numberOfItems': 121,
       'itemListOrder': 'https://schema.org/ItemListOrderAscending',
@@ -277,7 +277,7 @@ ${faqs.map((faq, i) => `          <details class="faq-item"${i === 0 ? ' open' :
 let html = fs.readFileSync(indexHtmlPath, 'utf8');
 
 // Title & Meta tags consistency
-const consistentTitle = 'Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)';
+const consistentTitle = 'Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)';
 const consistentDesc = 'Track 121 Marvel movies and series in release order from Blade (1998) to Avengers: Doomsday. Search titles, filter by universe, rate entries and track your watch progress.';
 
 html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${consistentTitle}</title>`);
@@ -310,11 +310,11 @@ html = html.replace(
 // Brand subtitle consistency
 html = html.replace(
   /<p class="brand-sub">[\s\S]*?<\/p>/,
-  `<p class="brand-sub">Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)</p>`
+  `<p class="brand-sub">Complete Release-Order Watch List to Avengers: Doomsday (1998-2026)</p>`
 );
 
 // Style cache buster
-html = html.replace(/style\.css(\?v=\d+)?/, 'style.css?v=5');
+html = html.replace(/(?:style\/)?style\.css(\?v=\d+)?/, 'style/style.css?v=6');
 
 // Structured data replacement
 const structuredDataJson = JSON.stringify(structuredData, null, 2);

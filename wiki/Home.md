@@ -2,7 +2,7 @@
 
 Welcome to the official documentation and reference wiki for the **Marvel Multiverse Roadmap**!
 
-The Marvel Multiverse Roadmap is the definitive interactive release-order marathon guide spanning **121 canonical and multiverse titles** across 28 years (1998–2026), leading up to the historic theatrical premiere of **Avengers: Doomsday** on **December 18, 2026**.
+The Marvel Multiverse Roadmap is the definitive interactive release-order marathon guide spanning **121 canonical and multiverse titles** across 28 years (1998-2026), leading up to the historic theatrical premiere of **Avengers: Doomsday** on **December 18, 2026**.
 
 🌐 **Live Web Application**: [https://marvel-multiverse-roadmap.vercel.app/](https://marvel-multiverse-roadmap.vercel.app/)  
 📂 **Source Code Repository**: [https://github.com/VaibhavSoni24/Marvel-Roadmap](https://github.com/VaibhavSoni24/Marvel-Roadmap)

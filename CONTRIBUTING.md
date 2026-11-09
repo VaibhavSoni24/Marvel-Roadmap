@@ -17,7 +17,7 @@ Thank you for your interest in improving the **Marvel Multiverse Roadmap**! Whet
 
 ## 🌟 How You Can Contribute
 
-1. **Official Trailer Fixes**: If a YouTube trailer is broken, regional-locked, or has a higher-quality official version, update the `trailer` field in `data.json`.
+1. **Official Trailer Fixes**: If a YouTube trailer is broken, regional-locked, or has a higher-quality official version, update the `trailer` field in `data/data.json`.
 2. **Contextual Descriptions**: Make one-line descriptions punchier, more informative, or more accurate to their multiverse relevance.
 3. **New Announcements**: When Marvel Studios, Sony, or Fox releases new release dates or official trailers, submit an issue or PR with the official source.
 4. **UI & Accessibility Enhancements**: Help improve responsive design, keyboard navigation, or performance.
@@ -79,7 +79,7 @@ The validation suite checks:
 
 ## 📊 Data Structure Guidelines
 
-When updating entries in `data.json`:
+When updating entries in `data/data.json`:
 
 ```json
 {
@@ -102,7 +102,7 @@ When updating entries in `data.json`:
 }
 ```
 
-*Note: Whenever `data.json` is modified, make sure `data.js` matches its content.*
+*Note: Whenever `data/data.json` is modified, make sure `data/data.js` matches its content.*
 
 ---
 

@@ -34,7 +34,7 @@
   - **Series**: Displays **Total Time**, **Average Time per Episode**, and **Total Episodes** (e.g. `11h 42m | 54m/ep | 13 eps`).
 - **⭐ Official & Personal Ratings**:
   - Includes critical IMDb ratings.
-  - Interactive **Your Rating** popover widget (1–10 stars) with smooth micro-animations and instant local persistence.
+  - Interactive **Your Rating** popover widget (1-10 stars) with smooth micro-animations and instant local persistence.
 - **💾 100% LocalStorage Persistence**:
   - Tracks **Mark as Watched**, **Skip**, and **Personal Ratings** directly on your device with instant feedback.
   - One-click **Reset All Progress** in footer.
@@ -155,8 +155,8 @@ Contributions, bug reports, and trailer corrections are welcome! Please read the
 
 A huge thank you to everyone who has contributed to the Marvel Multiverse Roadmap:
 
-- **Vaibhav Soni** ([@VaibhavSoni24](https://github.com/VaibhavSoni24)) — Project Creator & Lead Maintainer (Owner)
-- **Saumya Soni** ([@saumyasoni051203-oss](https://github.com/saumyasoni051203-oss)) — Open-Source Contributor (Trailer Corrections & Header Navigation)
+- **Vaibhav Soni** ([@VaibhavSoni24](https://github.com/VaibhavSoni24)) - Project Creator & Lead Maintainer (Owner)
+- **Saumya Soni** ([@saumyasoni051203-oss](https://github.com/saumyasoni051203-oss)) - Open-Source Contributor (Trailer Corrections & Header Navigation)
 
 For detailed contribution breakdowns, PR links, and milestones, please see [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
@@ -165,9 +165,9 @@ For detailed contribution breakdowns, PR links, and milestones, please see [CONT
 ## 📽️ Multiverse Scope (121 Titles)
 
 - **Marvel Cinematic Universe (64 titles)**: Phases 1 through 6, culminating in *Avengers: Doomsday (December 18, 2026)*.
-- **Fox X-Men & Fantastic Four (18 titles)**: *X-Men 1–3, First Class, Days of Future Past, Apocalypse, Logan, Deadpool 1 & 2, Dark Phoenix, The New Mutants, Fantastic Four*.
+- **Fox X-Men & Fantastic Four (18 titles)**: *X-Men 1-3, First Class, Days of Future Past, Apocalypse, Logan, Deadpool 1 & 2, Dark Phoenix, The New Mutants, Fantastic Four*.
 - **Marvel Television Defenders Saga (16 titles)**: *Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher*.
-- **Sony's Spider-Man Universes (13 titles)**: *Sam Raimi Trilogy, The Amazing Spider-Man 1 & 2, Into/Across the Spider-Verse, Venom 1–3, Morbius, Madame Web, Kraven the Hunter*.
+- **Sony's Spider-Man Universes (13 titles)**: *Sam Raimi Trilogy, The Amazing Spider-Man 1 & 2, Into/Across the Spider-Verse, Venom 1-3, Morbius, Madame Web, Kraven the Hunter*.
 - **Legacy Marvel Classics (10 titles)**: *Blade Trilogy, Daredevil (2003), Elektra, Hulk (2003), The Punisher (2004), Punisher: War Zone, Ghost Rider 1 & 2*.
 
 ---

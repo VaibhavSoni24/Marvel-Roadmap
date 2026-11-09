@@ -12,7 +12,7 @@ The **Marvel Multiverse Roadmap** is built intentionally on **pure theatrical & 
 Marvel Studios and its contemporary franchises revolutionized cinema by using **post-credits scenes as serialized narrative bridges**.
 
 If you watch chronologically:
-* Watching *Captain America: The First Avenger (set in 1942–1945)* first drops you straight into a post-credits scene featuring Nick Fury and a teaser trailer for *The Avengers (2012)*, skipping *Iron Man (2008)*, *The Incredible Hulk (2008)*, *Iron Man 2 (2010)*, and *Thor (2011)*.
+* Watching *Captain America: The First Avenger (set in 1942-1945)* first drops you straight into a post-credits scene featuring Nick Fury and a teaser trailer for *The Avengers (2012)*, skipping *Iron Man (2008)*, *The Incredible Hulk (2008)*, *Iron Man 2 (2010)*, and *Thor (2011)*.
 * Watching *Captain Marvel (set in 1995)* early completely ruins the emotional climax of *Avengers: Infinity War (2018)*, because its post-credits scene reveals the aftermath of the Thanos Snap before you even know who Thanos is.
 * Watching *Black Widow (set in 2016)* before *Avengers: Endgame (2019)* reveals Natasha Romanoff's death and Yelena visiting her grave in the post-credits scene, completely ruining *Endgame*.
 
@@ -22,10 +22,10 @@ If you watch chronologically:
 
 ## 2. Multiverse Payoffs & Legacy Crossovers
 
-The ongoing Multiverse Saga (*Phases 4 through 6*) is not just about the MCU—it is a love letter to **28 years of Marvel cinematic history**.
+The ongoing Multiverse Saga (*Phases 4 through 6*) is not just about the MCU - it is a love letter to **28 years of Marvel cinematic history**.
 
 ### *Spider-Man: No Way Home (2021)*
-To feel the profound emotional weight of Tobey Maguire's Peter Parker saving MJ, or Andrew Garfield's redemption arc from Gwen Stacy's death, you must experience their respective films (*Spider-Man 1–3* and *The Amazing Spider-Man 1–2*) as audiences experienced them in theaters.
+To feel the profound emotional weight of Tobey Maguire's Peter Parker saving MJ, or Andrew Garfield's redemption arc from Gwen Stacy's death, you must experience their respective films (*Spider-Man 1-3* and *The Amazing Spider-Man 1-2*) as audiences experienced them in theaters.
 
 ### *Deadpool & Wolverine (2024)*
 The film serves as an emotional elegy to the entire 20th Century Fox era (*X-Men, Blade, Elektra, Fantastic Four*). Watching the Fox universe in release order turns *Deadpool & Wolverine* into a triumphant culmination rather than random cameo appearances.

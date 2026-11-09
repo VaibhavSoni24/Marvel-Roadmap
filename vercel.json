@@ -8,7 +8,17 @@
       "permanent": true
     },
     {
+      "source": "/pages/support.html",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
       "source": "/supporters.html",
+      "destination": "/supporters",
+      "permanent": true
+    },
+    {
+      "source": "/pages/supporters.html",
       "destination": "/supporters",
       "permanent": true
     },
@@ -21,11 +31,11 @@
   "rewrites": [
     {
       "source": "/support",
-      "destination": "/support.html"
+      "destination": "/pages/support.html"
     },
     {
       "source": "/supporters",
-      "destination": "/supporters.html"
+      "destination": "/pages/supporters.html"
     }
   ],
   "headers": [
