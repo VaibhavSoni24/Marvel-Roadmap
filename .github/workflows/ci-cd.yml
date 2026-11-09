@@ -155,6 +155,11 @@ jobs:
             exit 1
           }
 
+          echo "$SUPPORT_HTML" | grep -F 'src="/scripts/support.js"' > /dev/null || {
+            echo "::error::Production /support missing script tag for /scripts/support.js!"
+            exit 1
+          }
+
           SUPPORTERS_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/supporters)
           echo "$SUPPORTERS_HTML" | grep -F "Saumya Soni" > /dev/null || {
             echo "::error::Production /supporters missing Saumya Soni!"
@@ -164,12 +169,25 @@ jobs:
             echo "::error::Production /supporters missing contributor avatar image element!"
             exit 1
           }
-          echo "$SUPPORTERS_HTML" | grep -F "fetchContributorAvatars" > /dev/null || {
-            echo "::error::Production /supporters missing dynamic avatar fetch function!"
+          echo "$SUPPORTERS_HTML" | grep -F 'src="/scripts/supporters.js"' > /dev/null || {
+            echo "::error::Production /supporters missing script tag for /scripts/supporters.js!"
             exit 1
           }
 
-          echo "🧪 5. Testing Permanent 308 Redirects for Legacy URLs..."
+          echo "🧪 5. Testing External Page Scripts..."
+          SUPPORT_JS=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/scripts/support.js)
+          echo "$SUPPORT_JS" | grep -F "copyText" > /dev/null || {
+            echo "::error::Production /scripts/support.js content mismatch!"
+            exit 1
+          }
+
+          SUPPORTERS_JS=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/scripts/supporters.js)
+          echo "$SUPPORTERS_JS" | grep -F "fetchContributorAvatars" > /dev/null || {
+            echo "::error::Production /scripts/supporters.js content mismatch!"
+            exit 1
+          }
+
+          echo "🧪 6. Testing Permanent 308 Redirects for Legacy URLs..."
           REDIRECT_SUPPORT=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/support.html)
           if [ "$REDIRECT_SUPPORT" -ne 308 ]; then
             echo "::error::/support.html returned HTTP $REDIRECT_SUPPORT instead of 308 redirect!"

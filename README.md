@@ -68,7 +68,10 @@ Marvel Roadmap/
 │   └── supporters.html  # Community Hall of Supporters & Contributors wall of fame
 ├── scripts/
 │   ├── app.js           # Application state, HUD calculations & interactivity
-│   └── prerender.js     # Automated SSR generator for cards, SEO & schema
+│   ├── prerender.js     # Automated SSR generator for cards, SEO & schema
+│   ├── support.js       # Toast notifications & one-click clipboard copy
+│   ├── supporters.js    # Tab switching & dynamic GitHub avatar resolution
+│   └── sync-wiki.js     # Project wiki synchronization script
 ├── style/
 │   └── style.css        # Handcrafted modern Vanilla CSS with dark theme
 ├── index.html           # Semantic HTML5 layout with rich SEO & JSON-LD

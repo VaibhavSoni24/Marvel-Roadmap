@@ -205,6 +205,22 @@ if (fs.existsSync(vercelJsonPath)) {
   check(hasSupportRewrite && hasSupportersRewrite, 'vercel.json missing clean URL rewrites for /support and /supporters');
 }
 
+const supportJsPath = path.resolve(__dirname, '../scripts/support.js');
+check(fs.existsSync(supportJsPath), 'scripts/support.js must exist');
+if (fs.existsSync(supportJsPath)) {
+  const supportJs = fs.readFileSync(supportJsPath, 'utf8');
+  check(supportJs.includes('showToast'), 'scripts/support.js missing showToast function');
+  check(supportJs.includes('copyText'), 'scripts/support.js missing copyText function');
+}
+
+const supportersJsPath = path.resolve(__dirname, '../scripts/supporters.js');
+check(fs.existsSync(supportersJsPath), 'scripts/supporters.js must exist');
+if (fs.existsSync(supportersJsPath)) {
+  const supportersJs = fs.readFileSync(supportersJsPath, 'utf8');
+  check(supportersJs.includes('fetchContributorAvatars'), 'scripts/supporters.js missing fetchContributorAvatars function');
+  check(supportersJs.includes('switchTab'), 'scripts/supporters.js missing switchTab function');
+}
+
 const supportPath = path.resolve(__dirname, '../pages/support.html');
 check(fs.existsSync(supportPath), 'support.html must exist');
 if (fs.existsSync(supportPath)) {
@@ -216,6 +232,7 @@ if (fs.existsSync(supportPath)) {
   check(supportHtml.includes('/assets/upi-qr.jpg'), 'support.html missing QR image path');
   check(supportHtml.includes('href="/supporters"'), 'support.html missing clean link to /supporters');
   check(supportHtml.includes('href="/"'), 'support.html missing clean link to / (base roadmap)');
+  check(supportHtml.includes('src="/scripts/support.js"'), 'support.html missing script tag for /scripts/support.js');
   check(supportHtml.includes('application/ld+json'), 'support.html missing JSON-LD structured data');
   check(supportHtml.includes('"@type": "BreadcrumbList"') || supportHtml.includes('"@type":"BreadcrumbList"'), 'support.html missing BreadcrumbList JSON-LD');
 }
@@ -227,7 +244,7 @@ if (fs.existsSync(supportersPath)) {
   check(supportersHtml.includes('Saumya Soni'), 'supporters.html missing Saumya Soni');
   check(supportersHtml.includes('https://github.com/saumyasoni051203-oss'), 'supporters.html missing correct GitHub URL for Saumya Soni');
   check(supportersHtml.includes('contributor-avatar-img'), 'supporters.html missing contributor avatar image');
-  check(supportersHtml.includes('fetchContributorAvatars') || supportersHtml.includes('loadContributorGitHubAvatars'), 'supporters.html missing dynamic GitHub avatar function');
+  check(supportersHtml.includes('src="/scripts/supporters.js"'), 'supporters.html missing script tag for /scripts/supporters.js');
   check(supportersHtml.includes('contributor-avatar-fallback'), 'supporters.html missing contributor avatar fallback logo');
   check(supportersHtml.includes('href="/support"'), 'supporters.html missing clean link to /support');
   check(supportersHtml.includes('href="/"'), 'supporters.html missing clean link to / (base roadmap)');
@@ -269,6 +286,8 @@ const filesToCheckNoDashes = [
   'data/data.json',
   'data/data.js',
   'scripts/app.js',
+  'scripts/support.js',
+  'scripts/supporters.js',
   'scripts/prerender.js',
   '.github/workflows/ci-cd.yml'
 ];
