@@ -9,6 +9,8 @@
 > **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes leading to Avengers: Doomsday.**
 >
 > 🌐 **Live Application**: [https://marvel-multiverse-roadmap.vercel.app/](https://marvel-multiverse-roadmap.vercel.app/)
+>
+> 📚 **Project Wiki & Guides**: [https://github.com/VaibhavSoni24/Marvel-Roadmap/wiki](https://github.com/VaibhavSoni24/Marvel-Roadmap/wiki)
 
 ---
 
@@ -77,6 +79,7 @@ Marvel Roadmap/
 ├── CODE_OF_CONDUCT.md   # Community behavior standards and pledge
 ├── SECURITY.md          # Security policy and vulnerability reporting
 ├── CITATION.cff         # Academic and research citation metadata
+├── wiki/                # Comprehensive documentation guides and reference wiki
 ├── .gitignore           # Git ignore rules
 └── poster/              # High-resolution media repository
     ├── portrait/        # Compressed portrait posters (.webp & .jpg)

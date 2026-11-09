@@ -80,6 +80,12 @@ check(fs.existsSync(securityPath), 'SECURITY.md must exist');
 const citationPath = path.resolve(__dirname, '../CITATION.cff');
 check(fs.existsSync(citationPath), 'CITATION.cff must exist');
 
+const wikiHomePath = path.resolve(__dirname, '../wiki/Home.md');
+check(fs.existsSync(wikiHomePath), 'wiki/Home.md must exist');
+
+const wikiSidebarPath = path.resolve(__dirname, '../wiki/_Sidebar.md');
+check(fs.existsSync(wikiSidebarPath), 'wiki/_Sidebar.md must exist');
+
 const gscFilePath = path.resolve(__dirname, '../google28ae9fc02e0b86f1.html');
 check(fs.existsSync(gscFilePath), 'google28ae9fc02e0b86f1.html must exist');
 if (fs.existsSync(gscFilePath)) {
