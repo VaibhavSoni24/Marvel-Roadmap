@@ -33,7 +33,7 @@
   - **Movies**: Displays total watch time (e.g. `2h 00m`).
   - **Series**: Displays **Total Time**, **Average Time per Episode**, and **Total Episodes** (e.g. `11h 42m | 54m/ep | 13 eps`).
 - **📺 "Where to Watch" Streaming Affiliates**:
-  - Direct deep-links with branded badges for **Disney+ Hotstar, Amazon Prime Video, Netflix, Sony LIV, JioCinema, and Vi Movies & TV**.
+  - Direct deep-links with official high-resolution badges for **Disney+ Hotstar, Amazon Prime Video, and Vi Movies & TV**.
   - One-click redirection to official stream, buy, or rent pages.
   - Powered by our Amazon Associates program partner integration (`vaibhavson083-21`).
 - **⭐ Official & Personal Ratings**:

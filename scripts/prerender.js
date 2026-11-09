@@ -77,53 +77,31 @@ function getWatchProvidersHtml(item) {
       name: 'Disney+ Hotstar',
       title: 'Stream on Disney+ Hotstar',
       url: `https://www.hotstar.com/in/explore?search_query=${encodeURIComponent(item.title)}`,
-      icon: '/assets/providers/hotstar.svg'
+      icon: '/assets/providers/hotstar.webp'
     },
     vi: {
       name: 'Vi Movies & TV',
       title: 'Watch on Vi Movies & TV',
       url: `https://www.vimoviesandtv.in/search?q=${encodeURIComponent(item.title)}`,
-      icon: '/assets/providers/vi.svg'
+      icon: '/assets/providers/vi.webp'
     },
     prime: {
       name: 'Amazon Prime Video',
       title: 'Rent / Buy on Amazon Prime Video',
       url: `https://www.amazon.in/s?k=${encodeURIComponent(item.title)}+${item.type === 'series' ? 'series' : 'movie'}&i=instant-video&tag=${AMAZON_ASSOCIATE_TAG}`,
-      icon: '/assets/providers/prime.svg'
-    },
-    netflix: {
-      name: 'Netflix',
-      title: 'Watch on Netflix',
-      url: `https://www.netflix.com/search?q=${encodeURIComponent(item.title)}`,
-      icon: '/assets/providers/netflix.svg'
-    },
-    sonyliv: {
-      name: 'Sony LIV',
-      title: 'Watch on Sony LIV',
-      url: `https://www.sonyliv.com/search?q=${encodeURIComponent(item.title)}`,
-      icon: '/assets/providers/sonyliv.svg'
-    },
-    jiocinema: {
-      name: 'JioCinema',
-      title: 'Watch on JioCinema',
-      url: `https://www.jiocinema.com/search/${encodeURIComponent(item.title)}`,
-      icon: '/assets/providers/jiocinema.svg'
+      icon: '/assets/providers/prime.webp'
     }
   };
 
   const badges = providers.map(p => {
     const meta = providerMeta[p];
     if (!meta) return '';
-    return `                  <a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="provider-badge" title="${meta.title}">
-                    <img src="${meta.icon}" alt="${meta.name}" width="34" height="34" loading="lazy" />
-                  </a>`;
-  }).filter(Boolean).join('\n');
+    return `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="provider-badge" title="${meta.title}"><img src="${meta.icon}" alt="${meta.name}" width="34" height="34" loading="lazy" /></a>`;
+  }).filter(Boolean).join('');
 
   return `              <div class="card-watch-on">
                 <span class="watch-on-label">WATCH ON</span>
-                <div class="watch-provider-icons">
-${badges}
-                </div>
+                <div class="watch-provider-icons">${badges}</div>
               </div>`;
 }
 
@@ -391,7 +369,7 @@ html = html.replace(
 );
 
 // Style cache buster
-html = html.replace(/(?:style\/)?style\.css(\?v=\d+)?/, 'style/style.css?v=6');
+html = html.replace(/(?:style\/)?style\.css(\?v=\d+)?/, 'style/style.css?v=7');
 
 // Structured data replacement
 const structuredDataJson = JSON.stringify(structuredData, null, 2);

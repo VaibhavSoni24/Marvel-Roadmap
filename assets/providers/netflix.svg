@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-  <rect width="40" height="40" rx="9" fill="#000000" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <!-- Netflix N -->
-  <g transform="translate(10, 6) scale(0.85)">
-    <path fill="#b81d24" d="M0 0v28l7-3.5V0H0z"/>
-    <path fill="#b81d24" d="M16.5 0v28l7-3.5V0h-7z"/>
-    <path fill="#e50914" d="M0 0h7l9.5 24.5h.5V0h6.5v28h-7L7 3.5H6.5V28H0V0z"/>
-  </g>
-</svg>

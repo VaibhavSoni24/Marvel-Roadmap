@@ -124,8 +124,12 @@ check(indexHtml.includes('class="faq-item"'), 'index.html missing visible FAQ it
 check(indexHtml.includes('class="footer-disclaimer"'), 'index.html missing footer legal disclaimer');
 check(indexHtml.includes('class="card-watch-on"'), 'index.html missing pre-rendered card-watch-on section');
 check(indexHtml.includes('vaibhavson083-21'), 'index.html missing Amazon Associate tracking tag vaibhavson083-21');
-check(indexHtml.includes('/assets/providers/hotstar.svg'), 'index.html missing Disney+ Hotstar provider badge icon');
-check(indexHtml.includes('/assets/providers/prime.svg'), 'index.html missing Amazon Prime Video provider badge icon');
+check(indexHtml.includes('/assets/providers/hotstar.webp'), 'index.html missing Disney+ Hotstar provider badge icon');
+check(indexHtml.includes('/assets/providers/prime.webp'), 'index.html missing Amazon Prime Video provider badge icon');
+check(indexHtml.includes('/assets/providers/vi.webp'), 'index.html missing Vi Movies & TV provider badge icon');
+check(!indexHtml.includes('netflix'), 'index.html must not contain obsolete netflix provider');
+check(!indexHtml.includes('sonyliv'), 'index.html must not contain obsolete sonyliv provider');
+check(!indexHtml.includes('jiocinema'), 'index.html must not contain obsolete jiocinema provider');
 
 // 5. Validate JSON-LD contains all 121 items and matching anchor links
 const jsonLdMatch = indexHtml.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/);
@@ -287,7 +291,7 @@ if (fs.existsSync(qrImgPath)) {
   check(stats.size > 1000, 'assets/upi-qr.jpg must be a valid non-empty image file');
 }
 
-const providerLogos = ['hotstar.svg', 'vi.svg', 'prime.svg', 'netflix.svg', 'sonyliv.svg', 'jiocinema.svg'];
+const providerLogos = ['hotstar.webp', 'vi.webp', 'prime.webp'];
 providerLogos.forEach(logo => {
   const logoPath = path.resolve(__dirname, '../assets/providers', logo);
   check(fs.existsSync(logoPath), `assets/providers/${logo} must exist`);
@@ -332,10 +336,10 @@ filesToCheckNoDashes.forEach(relPath => {
   const absPath = path.resolve(__dirname, '..', relPath);
   if (fs.existsSync(absPath)) {
     const content = fs.readFileSync(absPath, 'utf8');
-    const hasEmDash = content.includes('—');
-    const hasEnDash = content.includes('–');
-    check(!hasEmDash, `${relPath} contains prohibited em-dash (—)`);
-    check(!hasEnDash, `${relPath} contains prohibited en-dash (–)`);
+    const hasEmDash = content.includes('\u2014');
+    const hasEnDash = content.includes('\u2013');
+    check(!hasEmDash, `${relPath} contains prohibited em-dash (U+2014)`);
+    check(!hasEnDash, `${relPath} contains prohibited en-dash (U+2013)`);
   }
 });
 

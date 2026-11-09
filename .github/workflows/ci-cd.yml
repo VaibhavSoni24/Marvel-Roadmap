@@ -120,7 +120,7 @@ jobs:
             echo "::error::Production homepage missing Amazon Associate tag vaibhavson083-21!"
             exit 1
           }
-          echo "$PROD_HTML" | grep -F '/assets/providers/hotstar.svg' > /dev/null || {
+          echo "$PROD_HTML" | grep -F '/assets/providers/hotstar.webp' > /dev/null || {
             echo "::error::Production homepage missing Disney+ Hotstar provider badge icon!"
             exit 1
           }
