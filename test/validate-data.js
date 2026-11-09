@@ -198,7 +198,9 @@ const vercelJsonPath = path.resolve(__dirname, '../vercel.json');
 check(fs.existsSync(vercelJsonPath), 'vercel.json must exist');
 if (fs.existsSync(vercelJsonPath)) {
   const vcfg = JSON.parse(fs.readFileSync(vercelJsonPath, 'utf8'));
-  check(vcfg.cleanUrls === true, 'vercel.json must have cleanUrls: true enabled');
+  const hasSupportRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/support' && r.destination === '/support.html');
+  const hasSupportersRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/supporters' && r.destination === '/supporters.html');
+  check(hasSupportRewrite && hasSupportersRewrite, 'vercel.json missing clean URL rewrites for /support and /supporters');
 }
 
 const supportPath = path.resolve(__dirname, '../support.html');

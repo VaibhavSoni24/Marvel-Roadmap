@@ -1,6 +1,33 @@
 {
   "version": 2,
-  "cleanUrls": true,
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/support.html",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
+      "source": "/supporters.html",
+      "destination": "/supporters",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/support",
+      "destination": "/support.html"
+    },
+    {
+      "source": "/supporters",
+      "destination": "/supporters.html"
+    }
+  ],
   "headers": [
     {
       "source": "/poster/(.*)",

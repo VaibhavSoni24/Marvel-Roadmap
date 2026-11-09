@@ -66,31 +66,31 @@ jobs:
           PROD_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/)
 
           # Check Title
-          echo "$PROD_HTML" | grep -Fq "Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)" || {
+          echo "$PROD_HTML" | grep -F "Marvel Multiverse Roadmap: Complete Release-Order Watch List to Avengers: Doomsday (1998–2026)" > /dev/null || {
             echo "::error::Production homepage title missing or incorrect!"
             exit 1
           }
 
           # Check Card #1 (Blade)
-          echo "$PROD_HTML" | grep -Fq 'id="title-card-1"' || {
+          echo "$PROD_HTML" | grep -F 'id="title-card-1"' > /dev/null || {
             echo "::error::Card #1 (Blade) missing from production HTML!"
             exit 1
           }
 
           # Check Card #121 (Doomsday)
-          echo "$PROD_HTML" | grep -Fq 'id="title-card-121"' || {
+          echo "$PROD_HTML" | grep -F 'id="title-card-121"' > /dev/null || {
             echo "::error::Card #121 (Avengers: Doomsday) missing from production HTML!"
             exit 1
           }
 
           # Check Visible FAQ Section
-          echo "$PROD_HTML" | grep -Fq 'id="faq"' || {
+          echo "$PROD_HTML" | grep -F 'id="faq"' > /dev/null || {
             echo "::error::Visible FAQ section missing from production HTML!"
             exit 1
           }
 
           # Check Google Site Verification Meta Tag
-          echo "$PROD_HTML" | grep -Fq 'name="google-site-verification"' || {
+          echo "$PROD_HTML" | grep -F 'name="google-site-verification"' > /dev/null || {
             echo "::error::Google site verification meta tag missing from production HTML!"
             exit 1
           }
@@ -102,7 +102,7 @@ jobs:
             exit 1
           fi
           GSC_BODY=$(curl -sSL https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)
-          echo "$GSC_BODY" | grep -Fq "google-site-verification: google28ae9fc02e0b86f1.html" || {
+          echo "$GSC_BODY" | grep -F "google-site-verification: google28ae9fc02e0b86f1.html" > /dev/null || {
             echo "::error::google28ae9fc02e0b86f1.html content mismatch!"
             exit 1
           }
@@ -114,6 +114,16 @@ jobs:
           }
           curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/robots.txt > /dev/null || {
             echo "::error::Failed to load production robots.txt!"
+            exit 1
+          }
+
+          echo "🧪 4. Testing Clean URLs for Support and Supporters..."
+          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/support > /dev/null || {
+            echo "::error::Failed to load production /support clean URL!"
+            exit 1
+          }
+          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/supporters > /dev/null || {
+            echo "::error::Failed to load production /supporters clean URL!"
             exit 1
           }
 
