@@ -65,6 +65,12 @@ check(fs.existsSync(ogImagePath), 'og-image.jpg must exist');
 const manifestPath = path.resolve(__dirname, '../manifest.json');
 check(fs.existsSync(manifestPath), 'manifest.json must exist');
 
+const contributingPath = path.resolve(__dirname, '../CONTRIBUTING.md');
+check(fs.existsSync(contributingPath), 'CONTRIBUTING.md must exist');
+
+const contributorsPath = path.resolve(__dirname, '../CONTRIBUTORS.md');
+check(fs.existsSync(contributorsPath), 'CONTRIBUTORS.md must exist');
+
 const gscFilePath = path.resolve(__dirname, '../google28ae9fc02e0b86f1.html');
 check(fs.existsSync(gscFilePath), 'google28ae9fc02e0b86f1.html must exist');
 if (fs.existsSync(gscFilePath)) {

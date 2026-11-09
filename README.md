@@ -72,6 +72,7 @@ Marvel Roadmap/
 ├── og-image.jpg         # High-resolution social media sharing preview card
 ├── package.json         # NPM scripts, test commands, and project metadata
 ├── CONTRIBUTING.md      # Guidelines for contributors and PR submission
+├── CONTRIBUTORS.md      # Recognition of project authors and contributors
 ├── .gitignore           # Git ignore rules
 └── poster/              # High-resolution media repository
     ├── portrait/        # Compressed portrait posters (.webp & .jpg)
@@ -140,6 +141,17 @@ Contributions, bug reports, and trailer corrections are welcome! Please read the
 
 ---
 
+## 👥 Contributors
+
+A huge thank you to everyone who has contributed to the Marvel Multiverse Roadmap:
+
+- **Vaibhav Soni** ([@VaibhavSoni24](https://github.com/VaibhavSoni24)) — Project Creator & Lead Maintainer (Owner)
+- **Saumya Soni** ([@saumyasoni051203-oss](https://github.com/saumyasoni051203-oss)) — Open-Source Contributor (Trailer Corrections & Header Navigation)
+
+For detailed contribution breakdowns, PR links, and milestones, please see [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
+---
+
 ## 📽️ Multiverse Scope (121 Titles)
 
 - **Marvel Cinematic Universe (64 titles)**: Phases 1 through 6, culminating in *Avengers: Doomsday (December 18, 2026)*.
@@ -159,7 +171,7 @@ Contributions, bug reports, and trailer corrections are welcome! Please read the
 
 ---
 
-## 👤 Author
+## 👤 Author & Project Owner
 
 **Vaibhav Soni**
 - **GitHub**: [VaibhavSoni24 (Vaibhav Soni)](https://github.com/VaibhavSoni24)
