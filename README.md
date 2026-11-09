@@ -3,6 +3,7 @@
 [![CI/CD Pipeline](https://github.com/VaibhavSoni24/Marvel-Roadmap/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/VaibhavSoni24/Marvel-Roadmap/actions/workflows/ci-cd.yml)
 [![Vercel Deployment](https://img.shields.io/badge/Deployment-Live-22c55e?style=flat&logo=vercel)](https://marvel-multiverse-roadmap.vercel.app/)
 [![Roadmap](https://img.shields.io/badge/Roadmap-121%20Titles-e50914?style=flat&logo=marvel)](https://marvel-multiverse-roadmap.vercel.app/)
+[![Contributors](https://img.shields.io/github/contributors/VaibhavSoni24/Marvel-Roadmap?style=flat&logo=github&color=orange)](CONTRIBUTORS.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 > **Complete release-order marathon across MCU, Fox X-Men, Sony Spider-Man, Marvel Television Defenders, and Legacy universes leading to Avengers: Doomsday.**
@@ -73,6 +74,9 @@ Marvel Roadmap/
 ├── package.json         # NPM scripts, test commands, and project metadata
 ├── CONTRIBUTING.md      # Guidelines for contributors and PR submission
 ├── CONTRIBUTORS.md      # Recognition of project authors and contributors
+├── CODE_OF_CONDUCT.md   # Community behavior standards and pledge
+├── SECURITY.md          # Security policy and vulnerability reporting
+├── CITATION.cff         # Academic and research citation metadata
 ├── .gitignore           # Git ignore rules
 └── poster/              # High-resolution media repository
     ├── portrait/        # Compressed portrait posters (.webp & .jpg)

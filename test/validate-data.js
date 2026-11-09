@@ -71,6 +71,15 @@ check(fs.existsSync(contributingPath), 'CONTRIBUTING.md must exist');
 const contributorsPath = path.resolve(__dirname, '../CONTRIBUTORS.md');
 check(fs.existsSync(contributorsPath), 'CONTRIBUTORS.md must exist');
 
+const cocPath = path.resolve(__dirname, '../CODE_OF_CONDUCT.md');
+check(fs.existsSync(cocPath), 'CODE_OF_CONDUCT.md must exist');
+
+const securityPath = path.resolve(__dirname, '../SECURITY.md');
+check(fs.existsSync(securityPath), 'SECURITY.md must exist');
+
+const citationPath = path.resolve(__dirname, '../CITATION.cff');
+check(fs.existsSync(citationPath), 'CITATION.cff must exist');
+
 const gscFilePath = path.resolve(__dirname, '../google28ae9fc02e0b86f1.html');
 check(fs.existsSync(gscFilePath), 'google28ae9fc02e0b86f1.html must exist');
 if (fs.existsSync(gscFilePath)) {

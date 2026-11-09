@@ -11,6 +11,7 @@ Thank you for your interest in improving the **Marvel Multiverse Roadmap**! Whet
 - [Submitting a Pull Request](#-submitting-a-pull-request)
 - [Data Structure Guidelines](#-data-structure-guidelines)
 - [Recognition of Contributors](#-recognition-of-contributors)
+- [Code of Conduct](#-code-of-conduct)
 
 ---
 
@@ -108,6 +109,12 @@ When updating entries in `data.json`:
 ## 👥 Recognition of Contributors
 
 All accepted contributions, bug fixes, feature implementations, and trailer updates are recognized in our [CONTRIBUTORS.md](CONTRIBUTORS.md) document. Thank you for helping make this community roadmap better!
+
+---
+
+## 📜 Code of Conduct
+
+This project and everyone participating in it is governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By contributing, you are expected to uphold this code. Please report any unacceptable behavior to **vaibhavsoni280506@gmail.com**.
 
 ---
 
