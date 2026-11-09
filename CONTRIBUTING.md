@@ -108,7 +108,7 @@ When updating entries in `data/data.json`:
 
 ## 👥 Recognition of Contributors
 
-All accepted contributions, bug fixes, feature implementations, and trailer updates are recognized in our [CONTRIBUTORS.md](CONTRIBUTORS.md) document. Thank you for helping make this community roadmap better!
+All accepted contributions, bug fixes, feature implementations, and trailer updates are recognized in our [CONTRIBUTORS.md](https://github.com/VaibhavSoni24/Marvel-Roadmap/blob/main/CONTRIBUTORS.md) document as well as on our live [Hall of Supporters & Contributors](https://marvel-multiverse-roadmap.vercel.app/supporters#contributors) page. Thank you for helping make this community roadmap better!
 
 ---
 

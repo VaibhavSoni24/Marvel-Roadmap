@@ -43,13 +43,58 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="/style/style.css?v=6" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://marvel-multiverse-roadmap.vercel.app/support#webpage",
+        "url": "https://marvel-multiverse-roadmap.vercel.app/support",
+        "name": "Support the Project & Buy Me a Coffee | Marvel Multiverse Roadmap",
+        "description": "Support the Marvel Multiverse Roadmap project. Direct peer-to-peer 0% fee support via UPI (India) and Direct Bank Transfer (India & International) to keep the project ad-free.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://marvel-multiverse-roadmap.vercel.app/#website",
+          "url": "https://marvel-multiverse-roadmap.vercel.app/",
+          "name": "Marvel Multiverse Roadmap"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Vaibhav Soni",
+          "url": "https://github.com/VaibhavSoni24"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://marvel-multiverse-roadmap.vercel.app/support#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Roadmap Home",
+            "item": "https://marvel-multiverse-roadmap.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Support & Buy Me a Coffee",
+            "item": "https://marvel-multiverse-roadmap.vercel.app/support"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <!-- Atmospheric Landscape Backdrop -->
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-bg-layer active"
-      style="background-image: url('poster/landscape/1.webp'); filter: brightness(0.22) blur(6px);"></div>
+      style="background-image: url('/poster/landscape/1.webp'); filter: brightness(0.22) blur(6px);"></div>
     <div class="hero-veil"></div>
   </div>
 

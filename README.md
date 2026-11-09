@@ -60,13 +60,18 @@ Marvel Roadmap/
 │   └── workflows/
 │       └── ci-cd.yml    # GitHub Actions automated CI/CD pipeline
 ├── assets/              # Static branding and payment assets (UPI QR code)
+├── data/
+│   ├── data.js          # JavaScript dataset of all 121 Marvel titles
+│   └── data.json        # JSON export of the complete roadmap dataset
+├── pages/
+│   ├── support.html     # Dedicated Buy Me a Coffee & direct transfer page
+│   └── supporters.html  # Community Hall of Supporters & Contributors wall of fame
+├── scripts/
+│   ├── app.js           # Application state, HUD calculations & interactivity
+│   └── prerender.js     # Automated SSR generator for cards, SEO & schema
+├── style/
+│   └── style.css        # Handcrafted modern Vanilla CSS with dark theme
 ├── index.html           # Semantic HTML5 layout with rich SEO & JSON-LD
-├── support.html         # Dedicated Buy Me a Coffee & direct transfer page
-├── supporters.html      # Community Hall of Supporters wall of fame
-├── style.css            # Handcrafted modern Vanilla CSS with dark theme
-├── app.js               # Application state, HUD calculations & interactivity
-├── data.js              # JavaScript dataset of all 121 Marvel titles
-├── data.json            # JSON export of the complete roadmap dataset
 ├── api/
 │   └── presence.js      # Vercel serverless live presence heartbeat endpoint
 ├── test/
@@ -158,7 +163,7 @@ A huge thank you to everyone who has contributed to the Marvel Multiverse Roadma
 - **Vaibhav Soni** ([@VaibhavSoni24](https://github.com/VaibhavSoni24)) - Project Creator & Lead Maintainer (Owner)
 - **Saumya Soni** ([@saumyasoni051203-oss](https://github.com/saumyasoni051203-oss)) - Open-Source Contributor (Trailer Corrections & Header Navigation)
 
-For detailed contribution breakdowns, PR links, and milestones, please see [CONTRIBUTORS.md](CONTRIBUTORS.md).
+For detailed contribution breakdowns, PR links, and milestones, please see [CONTRIBUTORS.md](CONTRIBUTORS.md) as well as our live [Hall of Supporters & Contributors](https://marvel-multiverse-roadmap.vercel.app/supporters#contributors) page.
 
 ---
 
@@ -185,10 +190,10 @@ For detailed contribution breakdowns, PR links, and milestones, please see [CONT
 
 If this roadmap helped you conquer the Marvel Multiverse, you can support its hosting and ongoing maintenance:
 
-- **☕ Buy Me a Coffee & Direct Transfer**: [https://marvel-multiverse-roadmap.vercel.app/support](https://marvel-multiverse-roadmap.vercel.app/support.html)
+- **☕ Buy Me a Coffee & Direct Transfer**: [https://marvel-multiverse-roadmap.vercel.app/support](https://marvel-multiverse-roadmap.vercel.app/support)
   - **UPI & QR Code (India - 0% Fee)**: Instant peer-to-peer support via PhonePe, Google Pay, Paytm, or BHIM (`6350366202-r52f@axl`).
   - **Direct Bank Transfer (India & International)**: Direct wire via NEFT/IMPS/RTGS or foreign SWIFT transfer.
-- **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters](https://marvel-multiverse-roadmap.vercel.app/supporters.html)
+- **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters](https://marvel-multiverse-roadmap.vercel.app/supporters)
   - Every supporter is recognized on our monthly community Wall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
 
 ---

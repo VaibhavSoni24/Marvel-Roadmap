@@ -195,7 +195,7 @@ if (fs.existsSync(appJsPath)) {
   check(appJs.includes('bottomBtn'), 'app.js missing bottomBtn reference');
 }
 
-// 9. Validate Support & Supporters Pages, Clean URLs, and Assets
+// 9. Validate Support & Supporters Pages, Clean URLs, Avatars, and Assets
 const vercelJsonPath = path.resolve(__dirname, '../vercel.json');
 check(fs.existsSync(vercelJsonPath), 'vercel.json must exist');
 if (fs.existsSync(vercelJsonPath)) {
@@ -213,9 +213,11 @@ if (fs.existsSync(supportPath)) {
   check(supportHtml.includes('43330823145'), 'support.html missing Account Number');
   check(supportHtml.includes('SBIN0015336'), 'support.html missing IFSC Code');
   check(supportHtml.includes('SBININBB'), 'support.html missing SWIFT Code');
-  check(supportHtml.includes('assets/upi-qr.jpg'), 'support.html missing QR image path');
+  check(supportHtml.includes('/assets/upi-qr.jpg'), 'support.html missing QR image path');
   check(supportHtml.includes('href="/supporters"'), 'support.html missing clean link to /supporters');
   check(supportHtml.includes('href="/"'), 'support.html missing clean link to / (base roadmap)');
+  check(supportHtml.includes('application/ld+json'), 'support.html missing JSON-LD structured data');
+  check(supportHtml.includes('"@type": "BreadcrumbList"') || supportHtml.includes('"@type":"BreadcrumbList"'), 'support.html missing BreadcrumbList JSON-LD');
 }
 
 const supportersPath = path.resolve(__dirname, '../pages/supporters.html');
@@ -223,12 +225,18 @@ check(fs.existsSync(supportersPath), 'supporters.html must exist');
 if (fs.existsSync(supportersPath)) {
   const supportersHtml = fs.readFileSync(supportersPath, 'utf8');
   check(supportersHtml.includes('Saumya Soni'), 'supporters.html missing Saumya Soni');
+  check(supportersHtml.includes('https://github.com/saumyasoni051203-oss'), 'supporters.html missing correct GitHub URL for Saumya Soni');
+  check(supportersHtml.includes('contributor-avatar-img'), 'supporters.html missing contributor avatar image');
+  check(supportersHtml.includes('fetchContributorAvatars') || supportersHtml.includes('loadContributorGitHubAvatars'), 'supporters.html missing dynamic GitHub avatar function');
+  check(supportersHtml.includes('contributor-avatar-fallback'), 'supporters.html missing contributor avatar fallback logo');
   check(supportersHtml.includes('href="/support"'), 'supporters.html missing clean link to /support');
   check(supportersHtml.includes('href="/"'), 'supporters.html missing clean link to / (base roadmap)');
   check(supportersHtml.includes('id="tabBtnSupporters"'), 'supporters.html missing tab switcher');
   check(supportersHtml.includes('podium-grid'), 'supporters.html missing podium ranking grid');
   check(supportersHtml.includes('supporters-table'), 'supporters.html missing supporters table');
   check(supportersHtml.includes('contributors-list'), 'supporters.html missing contributors list');
+  check(supportersHtml.includes('application/ld+json'), 'supporters.html missing JSON-LD structured data');
+  check(supportersHtml.includes('"@type": "BreadcrumbList"') || supportersHtml.includes('"@type":"BreadcrumbList"'), 'supporters.html missing BreadcrumbList JSON-LD');
 }
 
 const qrImgPath = path.resolve(__dirname, '../assets/upi-qr.jpg');
@@ -240,6 +248,61 @@ if (fs.existsSync(qrImgPath)) {
 
 check(indexHtml.includes('href="/support"'), 'index.html missing clean link to /support');
 check(indexHtml.includes('href="/supporters"'), 'index.html missing clean link to /supporters');
+
+// 10. Validate Contributor Recognition in Docs
+if (fs.existsSync(contributingPath)) {
+  const contribDoc = fs.readFileSync(contributingPath, 'utf8');
+  check(contribDoc.includes('CONTRIBUTORS.md'), 'CONTRIBUTING.md missing link to CONTRIBUTORS.md');
+  check(contribDoc.includes('https://marvel-multiverse-roadmap.vercel.app/supporters#contributors'), 'CONTRIBUTING.md missing live Supporters page recognition link');
+}
+
+if (fs.existsSync(contributorsPath)) {
+  const contribsDoc = fs.readFileSync(contributorsPath, 'utf8');
+  check(contribsDoc.includes('https://marvel-multiverse-roadmap.vercel.app/supporters#contributors'), 'CONTRIBUTORS.md missing live Supporters page link');
+}
+
+// 11. Zero Em-Dash & En-Dash Policy Verification
+const filesToCheckNoDashes = [
+  'index.html',
+  'pages/support.html',
+  'pages/supporters.html',
+  'data/data.json',
+  'data/data.js',
+  'scripts/app.js',
+  'scripts/prerender.js',
+  '.github/workflows/ci-cd.yml'
+];
+
+filesToCheckNoDashes.forEach(relPath => {
+  const absPath = path.resolve(__dirname, '..', relPath);
+  if (fs.existsSync(absPath)) {
+    const content = fs.readFileSync(absPath, 'utf8');
+    const hasEmDash = content.includes('—');
+    const hasEnDash = content.includes('–');
+    check(!hasEmDash, `${relPath} contains prohibited em-dash (—)`);
+    check(!hasEnDash, `${relPath} contains prohibited en-dash (–)`);
+  }
+});
+
+// 12. Complete SEO Audit Checks
+// Verify Sitemap URLs
+const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/</loc>'), 'sitemap.xml missing root URL');
+check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/support</loc>'), 'sitemap.xml missing /support URL');
+check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/supporters</loc>'), 'sitemap.xml missing /supporters URL');
+check(!sitemapContent.includes('.html</loc>'), 'sitemap.xml should not contain legacy .html URLs');
+
+// Verify Image Alt Attributes Across All HTML Pages
+[
+  { file: 'index.html', content: indexHtml },
+  { file: 'pages/support.html', content: fs.existsSync(supportPath) ? fs.readFileSync(supportPath, 'utf8') : '' },
+  { file: 'pages/supporters.html', content: fs.existsSync(supportersPath) ? fs.readFileSync(supportersPath, 'utf8') : '' }
+].forEach(({ file, content }) => {
+  const imgMatches = content.match(/<img[^>]*>/g) || [];
+  imgMatches.forEach(imgTag => {
+    check(imgTag.includes('alt="') && !imgTag.includes('alt=""'), `${file} contains <img> without descriptive alt attribute: ${imgTag.substring(0, 50)}...`);
+  });
+});
 
 // Report
 console.log('');

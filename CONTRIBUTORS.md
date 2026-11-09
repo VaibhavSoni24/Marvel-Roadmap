@@ -4,6 +4,8 @@ Thank you to everyone who has contributed to making the **Marvel Multiverse Road
 
 This project is built and maintained by open-source contributors who dedicate their time to curating data, building features, fixing bugs, and improving the fan marathon experience.
 
+All accepted contributors are recognized in this document as well as on our live [Hall of Supporters & Contributors](https://marvel-multiverse-roadmap.vercel.app/supporters#contributors) page.
+
 ---
 
 ## 👥 Contributors Table

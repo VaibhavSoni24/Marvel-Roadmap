@@ -198,6 +198,19 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'WebSite',
+      '@id': 'https://marvel-multiverse-roadmap.vercel.app/#website',
+      'url': 'https://marvel-multiverse-roadmap.vercel.app/',
+      'name': 'Marvel Multiverse Roadmap',
+      'description': 'The definitive chronological release-order marathon guide across 121 Marvel films and television series leading to Avengers: Doomsday (2026).',
+      'inLanguage': 'en-US',
+      'publisher': {
+        '@type': 'Person',
+        'name': 'Vaibhav Soni',
+        'url': 'https://github.com/VaibhavSoni24'
+      }
+    },
+    {
       '@type': 'WebApplication',
       '@id': 'https://marvel-multiverse-roadmap.vercel.app/#app',
       'name': 'Marvel Multiverse Roadmap',

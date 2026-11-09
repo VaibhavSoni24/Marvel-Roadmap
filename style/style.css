@@ -2660,11 +2660,24 @@ body {
   min-width: 0;
 }
 
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .contributor-avatar-pill {
   width: 50px;
   height: 50px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
   display: flex;
   align-items: center;
@@ -2673,6 +2686,29 @@ body {
   font-size: 1.15rem;
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.contributor-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  display: block;
+  transition: transform var(--transition-fast);
+}
+
+.contributor-item-card:hover .contributor-avatar-img {
+  transform: scale(1.08);
+}
+
+.contributor-avatar-fallback {
+  width: 28px;
+  height: 28px;
+  fill: #f3f4f6;
+  opacity: 0.9;
 }
 
 .contributor-meta-name {

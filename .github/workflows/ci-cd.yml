@@ -23,8 +23,16 @@ jobs:
       - name: 🔍 Lint JavaScript Syntax
         run: npm run lint
 
-      - name: 🛡️ Validate Dataset, Media & SEO Integrity
+      - name: 🛡️ Validate Dataset, Media, Clean URLs & SEO Integrity
         run: npm run test
+
+      - name: 🔒 Verify Clean Repository Tree
+        run: |
+          set -euo pipefail
+          git diff --exit-code || {
+            echo "::error::Uncommitted pre-rendered or data changes detected! Run 'npm test' and commit all changes before pushing."
+            exit 1
+          }
 
   deploy-to-vercel:
     name: 🚀 Deploy to Vercel Production
@@ -49,6 +57,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
+          set -euo pipefail
           if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
             echo "::error::Deployment secrets missing! Please verify VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID are configured in repository secrets."
             exit 1
@@ -59,8 +68,9 @@ jobs:
 
       - name: 🔍 Post-Deployment Production Smoke Test
         run: |
-          echo "Waiting 6 seconds for global edge cache update..."
-          sleep 6
+          set -euo pipefail
+          echo "Waiting 8 seconds for global edge cache propagation..."
+          sleep 8
 
           echo "🧪 1. Testing Production Homepage..."
           PROD_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/)
@@ -95,6 +105,12 @@ jobs:
             exit 1
           }
 
+          # Check Canonical Link
+          echo "$PROD_HTML" | grep -F 'rel="canonical" href="https://marvel-multiverse-roadmap.vercel.app/"' > /dev/null || {
+            echo "::error::Production canonical URL missing or incorrect!"
+            exit 1
+          }
+
           echo "🧪 2. Testing Google Site Verification HTML File..."
           GSC_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/google28ae9fc02e0b86f1.html)
           if [ "$GSC_STATUS" -ne 200 ]; then
@@ -108,23 +124,68 @@ jobs:
           }
 
           echo "🧪 3. Testing Sitemap & Robots.txt..."
-          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/sitemap.xml > /dev/null || {
-            echo "::error::Failed to load production sitemap.xml!"
+          SITEMAP_BODY=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/sitemap.xml)
+          echo "$SITEMAP_BODY" | grep -F "<loc>https://marvel-multiverse-roadmap.vercel.app/support</loc>" > /dev/null || {
+            echo "::error::sitemap.xml missing /support entry!"
             exit 1
           }
-          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/robots.txt > /dev/null || {
-            echo "::error::Failed to load production robots.txt!"
+          echo "$SITEMAP_BODY" | grep -F "<loc>https://marvel-multiverse-roadmap.vercel.app/supporters</loc>" > /dev/null || {
+            echo "::error::sitemap.xml missing /supporters entry!"
+            exit 1
+          }
+
+          ROBOTS_BODY=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/robots.txt)
+          echo "$ROBOTS_BODY" | grep -F "Sitemap: https://marvel-multiverse-roadmap.vercel.app/sitemap.xml" > /dev/null || {
+            echo "::error::robots.txt missing sitemap link!"
             exit 1
           }
 
           echo "🧪 4. Testing Clean URLs for Support and Supporters..."
-          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/support > /dev/null || {
-            echo "::error::Failed to load production /support clean URL!"
+          SUPPORT_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/support)
+          echo "$SUPPORT_HTML" | grep -F "6350366202-r52f@axl" > /dev/null || {
+            echo "::error::Production /support missing UPI ID!"
             exit 1
           }
-          curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/supporters > /dev/null || {
-            echo "::error::Failed to load production /supporters clean URL!"
+          echo "$SUPPORT_HTML" | grep -F "43330823145" > /dev/null || {
+            echo "::error::Production /support missing Bank Account Number!"
+            exit 1
+          }
+          echo "$SUPPORT_HTML" | grep -F "SBIN0015336" > /dev/null || {
+            echo "::error::Production /support missing IFSC Code!"
             exit 1
           }
 
-          echo "🎉 All post-deployment smoke tests passed! Live production verified."
+          SUPPORTERS_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/supporters)
+          echo "$SUPPORTERS_HTML" | grep -F "Saumya Soni" > /dev/null || {
+            echo "::error::Production /supporters missing Saumya Soni!"
+            exit 1
+          }
+          echo "$SUPPORTERS_HTML" | grep -F "contributor-avatar-img" > /dev/null || {
+            echo "::error::Production /supporters missing contributor avatar image element!"
+            exit 1
+          }
+          echo "$SUPPORTERS_HTML" | grep -F "fetchContributorAvatars" > /dev/null || {
+            echo "::error::Production /supporters missing dynamic avatar fetch function!"
+            exit 1
+          }
+
+          echo "🧪 5. Testing Permanent 308 Redirects for Legacy URLs..."
+          REDIRECT_SUPPORT=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/support.html)
+          if [ "$REDIRECT_SUPPORT" -ne 308 ]; then
+            echo "::error::/support.html returned HTTP $REDIRECT_SUPPORT instead of 308 redirect!"
+            exit 1
+          fi
+
+          REDIRECT_SUPPORTERS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/supporters.html)
+          if [ "$REDIRECT_SUPPORTERS" -ne 308 ]; then
+            echo "::error::/supporters.html returned HTTP $REDIRECT_SUPPORTERS instead of 308 redirect!"
+            exit 1
+          fi
+
+          REDIRECT_INDEX=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/index.html)
+          if [ "$REDIRECT_INDEX" -ne 308 ]; then
+            echo "::error::/index.html returned HTTP $REDIRECT_INDEX instead of 308 redirect!"
+            exit 1
+          fi
+
+          echo "🎉 All post-deployment smoke tests passed! Live production verified end-to-end."
