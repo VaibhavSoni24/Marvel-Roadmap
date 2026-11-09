@@ -2754,6 +2754,15 @@ body {
   transform: translateY(-1px);
 }
 
+/* Privacy Policy Layout */
+.privacy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 14px;
+  margin-bottom: 40px;
+}
+
 @media (max-width: 768px) {
   .podium-grid {
     grid-template-columns: 1fr;
@@ -2772,5 +2781,9 @@ body {
   .contributor-item-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .privacy-grid {
+    gap: 18px;
+    margin-bottom: 30px;
   }
 }
