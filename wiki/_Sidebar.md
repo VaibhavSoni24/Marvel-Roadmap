@@ -22,6 +22,9 @@
 
 #### 🔗 Quick Links
 * 🌐 [Live Web App](https://marvel-multiverse-roadmap.vercel.app/)
+* ☕ [Buy Me a Coffee](https://marvel-multiverse-roadmap.vercel.app/support)
+* 🏆 [Hall of Supporters](https://marvel-multiverse-roadmap.vercel.app/supporters)
+* 🔒 [Privacy Policy](https://marvel-multiverse-roadmap.vercel.app/privacy-policy)
 * 📂 [GitHub Repository](https://github.com/VaibhavSoni24/Marvel-Roadmap)
 * 👥 [Contributors](https://github.com/VaibhavSoni24/Marvel-Roadmap/blob/main/CONTRIBUTORS.md)
 * 📜 [Code of Conduct](https://github.com/VaibhavSoni24/Marvel-Roadmap/blob/main/CODE_OF_CONDUCT.md)

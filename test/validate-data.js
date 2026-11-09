@@ -208,7 +208,8 @@ if (fs.existsSync(vercelJsonPath)) {
   const vcfg = JSON.parse(fs.readFileSync(vercelJsonPath, 'utf8'));
   const hasSupportRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/support' && r.destination === '/pages/support.html');
   const hasSupportersRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/supporters' && r.destination === '/pages/supporters.html');
-  check(hasSupportRewrite && hasSupportersRewrite, 'vercel.json missing clean URL rewrites for /support and /supporters');
+  const hasPrivacyRewrite = Array.isArray(vcfg.rewrites) && vcfg.rewrites.some(r => r.source === '/privacy-policy' && r.destination === '/pages/privacy-policy.html');
+  check(hasSupportRewrite && hasSupportersRewrite && hasPrivacyRewrite, 'vercel.json missing clean URL rewrites for /support, /supporters, or /privacy-policy');
 }
 
 const supportJsPath = path.resolve(__dirname, '../scripts/support.js');
@@ -262,6 +263,18 @@ if (fs.existsSync(supportersPath)) {
   check(supportersHtml.includes('"@type": "BreadcrumbList"') || supportersHtml.includes('"@type":"BreadcrumbList"'), 'supporters.html missing BreadcrumbList JSON-LD');
 }
 
+const privacyPolicyPath = path.resolve(__dirname, '../pages/privacy-policy.html');
+check(fs.existsSync(privacyPolicyPath), 'pages/privacy-policy.html must exist');
+if (fs.existsSync(privacyPolicyPath)) {
+  const privacyHtml = fs.readFileSync(privacyPolicyPath, 'utf8');
+  check(privacyHtml.includes('href="/privacy-policy"'), 'privacy-policy.html missing canonical/nav self link');
+  check(privacyHtml.includes('href="/support"'), 'privacy-policy.html missing clean link to /support');
+  check(privacyHtml.includes('href="/supporters"'), 'privacy-policy.html missing clean link to /supporters');
+  check(privacyHtml.includes('href="/"'), 'privacy-policy.html missing clean link to /');
+  check(privacyHtml.includes('application/ld+json'), 'privacy-policy.html missing JSON-LD structured data');
+  check(privacyHtml.includes('"@type": "BreadcrumbList"') || privacyHtml.includes('"@type":"BreadcrumbList"'), 'privacy-policy.html missing BreadcrumbList JSON-LD');
+}
+
 const qrImgPath = path.resolve(__dirname, '../assets/upi-qr.jpg');
 check(fs.existsSync(qrImgPath), 'assets/upi-qr.jpg must exist');
 if (fs.existsSync(qrImgPath)) {
@@ -271,6 +284,7 @@ if (fs.existsSync(qrImgPath)) {
 
 check(indexHtml.includes('href="/support"'), 'index.html missing clean link to /support');
 check(indexHtml.includes('href="/supporters"'), 'index.html missing clean link to /supporters');
+check(indexHtml.includes('href="/privacy-policy"'), 'index.html missing clean link to /privacy-policy');
 
 // 10. Validate Contributor Recognition in Docs
 if (fs.existsSync(contributingPath)) {
@@ -289,6 +303,7 @@ const filesToCheckNoDashes = [
   'index.html',
   'pages/support.html',
   'pages/supporters.html',
+  'pages/privacy-policy.html',
   'data/data.json',
   'data/data.js',
   'scripts/app.js',
@@ -297,7 +312,9 @@ const filesToCheckNoDashes = [
   'scripts/prerender.js',
   '.github/workflows/ci-cd.yml',
   'AGENTS.md',
-  'CLAUDE.md'
+  'CLAUDE.md',
+  '.cursorrules',
+  'README.md'
 ];
 
 filesToCheckNoDashes.forEach(relPath => {
@@ -317,13 +334,15 @@ const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/</loc>'), 'sitemap.xml missing root URL');
 check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/support</loc>'), 'sitemap.xml missing /support URL');
 check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/supporters</loc>'), 'sitemap.xml missing /supporters URL');
+check(sitemapContent.includes('<loc>https://marvel-multiverse-roadmap.vercel.app/privacy-policy</loc>'), 'sitemap.xml missing /privacy-policy URL');
 check(!sitemapContent.includes('.html</loc>'), 'sitemap.xml should not contain legacy .html URLs');
 
 // Verify Image Alt Attributes Across All HTML Pages
 [
   { file: 'index.html', content: indexHtml },
   { file: 'pages/support.html', content: fs.existsSync(supportPath) ? fs.readFileSync(supportPath, 'utf8') : '' },
-  { file: 'pages/supporters.html', content: fs.existsSync(supportersPath) ? fs.readFileSync(supportersPath, 'utf8') : '' }
+  { file: 'pages/supporters.html', content: fs.existsSync(supportersPath) ? fs.readFileSync(supportersPath, 'utf8') : '' },
+  { file: 'pages/privacy-policy.html', content: fs.existsSync(privacyPolicyPath) ? fs.readFileSync(privacyPolicyPath, 'utf8') : '' }
 ].forEach(({ file, content }) => {
   const imgMatches = content.match(/<img[^>]*>/g) || [];
   imgMatches.forEach(imgTag => {

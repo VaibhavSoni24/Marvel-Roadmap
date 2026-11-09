@@ -44,6 +44,7 @@ Marvel Roadmap/
 │   ├── data.js                # JavaScript dataset of all 121 Marvel titles
 │   └── data.json              # JSON export of the complete roadmap dataset
 ├── pages/
+│   ├── privacy-policy.html    # Zero-tracking privacy and data policy documentation
 │   ├── support.html           # Dedicated Buy Me a Coffee & direct transfer page
 │   └── supporters.html        # Community Hall of Supporters & Contributors wall of fame
 ├── poster/                    # High-resolution media repository
@@ -116,6 +117,7 @@ npm start
   - Homepage: `/`
   - Support: `/support`
   - Supporters: `/supporters`
+  - Privacy Policy: `/privacy-policy`
 - The Google Site Verification file (`google28ae9fc02e0b86f1.html`) must remain accessible directly at its root path with an HTTP 200 status.
 - Legacy `.html` extensions are redirected with HTTP 308 permanent redirects in `vercel.json`.
 

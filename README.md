@@ -64,6 +64,7 @@ Marvel Roadmap/
 │   ├── data.js          # JavaScript dataset of all 121 Marvel titles
 │   └── data.json        # JSON export of the complete roadmap dataset
 ├── pages/
+│   ├── privacy-policy.html # Dedicated zero-tracking privacy and data policy
 │   ├── support.html     # Dedicated Buy Me a Coffee & direct transfer page
 │   └── supporters.html  # Community Hall of Supporters & Contributors wall of fame
 ├── scripts/
@@ -201,6 +202,8 @@ If this roadmap helped you conquer the Marvel Multiverse, you can support its ho
   - **Direct Bank Transfer (India & International)**: Direct wire via NEFT/IMPS/RTGS or foreign SWIFT transfer.
 - **🏆 Hall of Supporters**: [https://marvel-multiverse-roadmap.vercel.app/supporters](https://marvel-multiverse-roadmap.vercel.app/supporters)
   - Every supporter is recognized on our monthly community Wall of Fame! Email your payment confirmation or transaction ID to `vaibhavsoni280506@gmail.com` to be featured.
+- **🔒 Privacy Policy**: [https://marvel-multiverse-roadmap.vercel.app/privacy-policy](https://marvel-multiverse-roadmap.vercel.app/privacy-policy)
+  - Zero analytics, zero third-party cookies, and strictly client-side localStorage.
 
 ---
 

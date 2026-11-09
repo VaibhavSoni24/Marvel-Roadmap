@@ -73,7 +73,7 @@
   function init() {
     loadStorage();
     setupEventListeners();
-    renderTimeline();
+    hydrateInitialTimeline();
     updateStats();
     updateContinueButton();
     startOnlinePresence();
@@ -368,6 +368,51 @@
   }
 
   // -------------------------------------------------------------------------
+  // In-Place Hydration for Pre-Rendered Cards (Instant First Paint)
+  // -------------------------------------------------------------------------
+  function hydrateInitialTimeline() {
+    const existingCards = timelineList.querySelectorAll('.timeline-item');
+    if (existingCards.length !== items.length) {
+      renderTimeline();
+      return;
+    }
+
+    existingCards.forEach(card => {
+      const id = parseInt(card.dataset.id, 10);
+      if (!id) return;
+      const isWatched = watchedSet.has(id);
+      const isSkipped = skippedSet.has(id);
+      const userRating = ratingsMap[id] || null;
+
+      const btnWatched = card.querySelector('.btn-watched');
+      if (btnWatched) {
+        if (isWatched) {
+          btnWatched.classList.add('is-active');
+          btnWatched.textContent = '✓ Watched';
+        } else {
+          btnWatched.classList.remove('is-active');
+          btnWatched.textContent = 'Mark watched';
+        }
+      }
+
+      const btnSkip = card.querySelector('.btn-skip');
+      if (btnSkip) {
+        if (isSkipped) {
+          btnSkip.classList.add('is-active');
+          btnSkip.textContent = 'Skipped';
+        } else {
+          btnSkip.classList.remove('is-active');
+          btnSkip.textContent = 'Skip';
+        }
+      }
+
+      updateSingleRatingWidget(id, isWatched, userRating);
+    });
+
+    updateFloatingNavButtons();
+  }
+
+  // -------------------------------------------------------------------------
   // Render Timeline
   // -------------------------------------------------------------------------
   function renderTimeline() {
@@ -609,17 +654,6 @@
     });
 
     document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
-
-    // Secondary fallback for fast momentum scrolling
-    window.addEventListener('scroll', () => {
-      if (!scrollTicking) {
-        window.requestAnimationFrame(() => {
-          updateActiveCardFromScroll();
-          scrollTicking = false;
-        });
-        scrollTicking = true;
-      }
-    }, { passive: true });
   }
 
   // -------------------------------------------------------------------------
@@ -743,14 +777,27 @@
       }
     });
 
-    // Search Input
+    // Delegated mouseover for card ambient background updates
+    timelineList.addEventListener('mouseover', (e) => {
+      const card = e.target.closest('.timeline-item');
+      if (card && card.dataset.id) {
+        setBackground(parseInt(card.dataset.id, 10));
+      }
+    });
+
+    // Search Input with 150ms debounce
+    let searchDebounceTimer = null;
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.trim();
       clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
-      renderTimeline();
+      if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        renderTimeline();
+      }, 150);
     });
 
     clearSearchBtn.addEventListener('click', () => {
+      if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
       searchInput.value = '';
       searchQuery = '';
       clearSearchBtn.style.display = 'none';
@@ -806,13 +853,59 @@
       }
     }, { passive: true });
 
-    // Keyboard ESC to close modals & popovers
+    // Modal Tab Focus Trap
+    trailerModal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const focusable = trailerModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    // Keyboard navigation (ESC + Arrow keys for rating popovers)
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeTrailer();
         closeAllRatingPopovers();
+        return;
+      }
+
+      // Arrow navigation inside open star rating grid
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        const active = document.activeElement;
+        if (active && active.classList.contains('rating-num-btn')) {
+          e.preventDefault();
+          const next = active.nextElementSibling || active.parentElement.firstElementChild;
+          if (next) next.focus();
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        const active = document.activeElement;
+        if (active && active.classList.contains('rating-num-btn')) {
+          e.preventDefault();
+          const prev = active.previousElementSibling || active.parentElement.lastElementChild;
+          if (prev) prev.focus();
+        }
       }
     });
+
+    // Passive window scroll handler for active card detection & floating navigation
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          updateActiveCardFromScroll();
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
 
     // Floating Back to Top Button
     if (backToTopBtn) {
@@ -936,11 +1029,15 @@
   // -------------------------------------------------------------------------
   // Trailer Modal
   // -------------------------------------------------------------------------
+  let lastActiveElement = null;
+
   function openTrailer(url, title) {
     if (!url) {
       showToast('Trailer unavailable');
       return;
     }
+
+    lastActiveElement = document.activeElement;
 
     let embedUrl = url;
     // Extract YouTube Video ID
@@ -954,12 +1051,23 @@
     openExternalTrailerBtn.href = url;
     trailerModal.classList.add('open');
     trailerModal.setAttribute('aria-hidden', 'false');
+
+    // Accessibility: shift focus to close button
+    setTimeout(() => {
+      if (closeTrailerBtn) closeTrailerBtn.focus();
+    }, 50);
   }
 
   function closeTrailer() {
     trailerIframe.src = '';
     trailerModal.classList.remove('open');
     trailerModal.setAttribute('aria-hidden', 'true');
+
+    // Accessibility: restore focus to triggering element
+    if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+      lastActiveElement.focus();
+      lastActiveElement = null;
+    }
   }
 
   // -------------------------------------------------------------------------

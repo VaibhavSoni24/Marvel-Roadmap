@@ -25,7 +25,7 @@ npm start         # Local development server at http://localhost:3000
    - Always run `npm test` after editing dataset files to rebuild `index.html`.
 
 3. **Clean URLs & Routing**:
-   - Never use `.html` extensions in internal links. Use `/`, `/support`, and `/supporters`.
+   - Never use `.html` extensions in internal links. Use `/`, `/support`, `/supporters`, and `/privacy-policy`.
    - Legacy `.html` routes must redirect via HTTP 308 in `vercel.json`.
    - Google verification file (`google28ae9fc02e0b86f1.html`) must return HTTP 200 directly.
 
@@ -33,6 +33,7 @@ npm start         # Local development server at http://localhost:3000
    - Zero external frontend frameworks (no React, Next.js, Vue, or Tailwind).
    - Core files:
      - `index.html`: Pre-rendered roadmap layout with SSR cards and JSON-LD graph.
+     - `pages/privacy-policy.html`: Zero-tracking privacy and data policy.
      - `pages/support.html`: Buy Me a Coffee direct transfer page.
      - `pages/supporters.html`: Hall of Supporters & Contributors directory.
      - `scripts/app.js`: Main roadmap state, HUD pace calculator, filtering, modals.

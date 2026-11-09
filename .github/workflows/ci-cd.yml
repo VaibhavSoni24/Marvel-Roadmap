@@ -133,6 +133,10 @@ jobs:
             echo "::error::sitemap.xml missing /supporters entry!"
             exit 1
           }
+          echo "$SITEMAP_BODY" | grep -F "<loc>https://marvel-multiverse-roadmap.vercel.app/privacy-policy</loc>" > /dev/null || {
+            echo "::error::sitemap.xml missing /privacy-policy entry!"
+            exit 1
+          }
 
           ROBOTS_BODY=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/robots.txt)
           echo "$ROBOTS_BODY" | grep -F "Sitemap: https://marvel-multiverse-roadmap.vercel.app/sitemap.xml" > /dev/null || {
@@ -140,7 +144,7 @@ jobs:
             exit 1
           }
 
-          echo "🧪 4. Testing Clean URLs for Support and Supporters..."
+          echo "🧪 4. Testing Clean URLs for Support, Supporters, and Privacy Policy..."
           SUPPORT_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/support)
           echo "$SUPPORT_HTML" | grep -F "6350366202-r52f@axl" > /dev/null || {
             echo "::error::Production /support missing UPI ID!"
@@ -174,6 +178,20 @@ jobs:
             exit 1
           }
 
+          PRIVACY_HTML=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/privacy-policy)
+          echo "$PRIVACY_HTML" | grep -F "PRIVACY POLICY" > /dev/null || {
+            echo "::error::Production /privacy-policy missing PRIVACY POLICY heading!"
+            exit 1
+          }
+          echo "$PRIVACY_HTML" | grep -F "localStorage" > /dev/null || {
+            echo "::error::Production /privacy-policy missing localStorage mention!"
+            exit 1
+          }
+          echo "$PRIVACY_HTML" | grep -F "Vaibhav Soni" > /dev/null || {
+            echo "::error::Production /privacy-policy missing maintainer attribution!"
+            exit 1
+          }
+
           echo "🧪 5. Testing External Page Scripts..."
           SUPPORT_JS=$(curl -sSL --fail https://marvel-multiverse-roadmap.vercel.app/scripts/support.js)
           echo "$SUPPORT_JS" | grep -F "copyText" > /dev/null || {
@@ -197,6 +215,12 @@ jobs:
           REDIRECT_SUPPORTERS=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/supporters.html)
           if [ "$REDIRECT_SUPPORTERS" -ne 308 ]; then
             echo "::error::/supporters.html returned HTTP $REDIRECT_SUPPORTERS instead of 308 redirect!"
+            exit 1
+          fi
+
+          REDIRECT_PRIVACY=$(curl -s -o /dev/null -w "%{http_code}" https://marvel-multiverse-roadmap.vercel.app/privacy-policy.html)
+          if [ "$REDIRECT_PRIVACY" -ne 308 ]; then
+            echo "::error::/privacy-policy.html returned HTTP $REDIRECT_PRIVACY instead of 308 redirect!"
             exit 1
           fi
 
