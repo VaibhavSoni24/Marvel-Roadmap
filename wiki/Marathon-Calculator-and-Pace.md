@@ -47,9 +47,9 @@ $$\text{Completion Percentage} = \text{round}\left( \frac{|\text{Watched}|}{121}
 ## 💾 LocalStorage Persistence
 
 Every toggle and rating is stored privately in your browser's local storage under:
-* `marvel_roadmap_watched_v3`: Set of watched title IDs.
-* `marvel_roadmap_skipped_v3`: Set of skipped title IDs.
-* `marvel_roadmap_ratings_v3`: Map of personal star ratings (`{ [id]: rating }`).
+* `marvel_roadmap_watched_v1`: Set of watched title IDs.
+* `marvel_roadmap_skipped_v1`: Set of skipped title IDs.
+* `marvel_roadmap_ratings_v1`: Map of personal star ratings (`{ [id]: rating }`).
 
 ### One-Click Reset
 If you want to start fresh or wipe test progress, click **Reset All Progress** in the website footer.

@@ -53,6 +53,9 @@
   - Status filters: **All**, **Remaining**, **Watched**, and **Skipped**.
 - **🚀 One-Click "Continue" & "Go to Bottom" Navigation**:
   - Instant navigation to either your next unwatched milestone or directly to the final multiverse milestone (*Avengers: Doomsday*).
+- **📱 Responsive Multi-Device Architecture**:
+  - Engineered for clean presentation across all screen sizes: ultra-compact phones (320px-360px), modern iOS & Android devices (375px-430px), tablets (768px-1024px), up to 4K desktop screens.
+  - Features zero horizontal overflow, touch-friendly 33px uniform action buttons, iOS safe-area insets, and aspect-ratio constrained tablet cards.
 
 ---
 
@@ -81,6 +84,7 @@ Marvel Roadmap/
 ├── style/
 │   └── style.css        # Handcrafted modern Vanilla CSS with dark theme
 ├── index.html           # Semantic HTML5 layout with rich SEO & JSON-LD
+├── google28ae9fc02e0b86f1.html # Google Search Console ownership verification token
 ├── api/
 │   └── presence.js      # Vercel serverless live presence heartbeat endpoint
 ├── test/

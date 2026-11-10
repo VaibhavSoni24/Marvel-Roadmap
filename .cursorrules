@@ -11,3 +11,4 @@
 3. Clean URLs: Use clean paths (`/`, `/support`, `/supporters`, `/privacy-policy`) without `.html` in internal hrefs.
 4. Contributor Protocol: Maintainer Vaibhav Soni is Project Owner. External contributors appear on `pages/supporters.html` with dynamic GitHub avatars (`https://github.com/<username>.png?size=96`).
 5. Quality Checks: Always ensure `npm run lint` and `npm test` pass before committing.
+6. Responsive Standards: Keep desktop layout (> 1024px) untouched; place mobile/tablet enhancements strictly inside media queries and ensure zero horizontal scroll.

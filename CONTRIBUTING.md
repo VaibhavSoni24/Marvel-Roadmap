@@ -107,11 +107,12 @@ When updating entries in `data/data.json`:
   "is_tv": false,
   "poster_portrait": "poster/portrait/17.webp",
   "poster_landscape": "poster/landscape/17.webp",
-  "description": "Introduces Robert Downey Jr. as Tony Stark and officially launches the Marvel Cinematic Universe."
+  "description": "Introduces Robert Downey Jr. as Tony Stark and officially launches the Marvel Cinematic Universe.",
+  "watch_providers": ["hotstar", "prime"]
 }
 ```
 
-*Note: Whenever `data/data.json` is modified, make sure `data/data.js` matches its content.*
+*Note: Whenever `data/data.json` is modified, make sure `data/data.js` matches its content identically.*
 
 ---
 

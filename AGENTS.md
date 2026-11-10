@@ -68,6 +68,7 @@ Marvel Roadmap/
 ├── CODE_OF_CONDUCT.md         # Community behavior standards and pledge
 ├── CONTRIBUTING.md            # Guidelines for contributors and PR submission
 ├── CONTRIBUTORS.md            # Recognition of project authors and contributors
+├── google28ae9fc02e0b86f1.html # Google Search Console verification token
 ├── index.html                 # Semantic HTML5 layout with rich SEO & JSON-LD
 ├── LICENSE                    # MIT License
 ├── manifest.json              # Web App Manifest for PWA and discoverability
@@ -131,6 +132,11 @@ npm start
 ### 5. Windows Shell & Git Execution
 - On Windows operating systems, execute git write operations (`git add`, `git commit`, `git push`, `git checkout`) with unsandboxed/elevated permissions (`BypassSandbox: true`).
 - In PowerShell, avoid shell command substitutions like `&&` across different commands; prefer sequential `;` execution or separate tool calls.
+
+### 6. Desktop UI Preservation & Responsive Standards
+- **Desktop Layout (> 1024px) is Final**: Never alter the desktop timeline structure, alternating left/right layout, 520px card widths, or 600px centered rail.
+- **Responsive Rules in Media Queries**: All tablet and mobile styling must reside strictly in `@media (max-width: 1024px)`, `@media (max-width: 680px)`, `@media (max-width: 480px)`, and `@media (max-width: 360px)`.
+- Always verify that `scrollWidth <= innerWidth` (zero horizontal scroll) across all tested viewports (320px, 360px, 390px, 768px, 1024px).
 
 ---
 

@@ -49,3 +49,8 @@ npm start         # Local development server at http://localhost:3000
 
 6. **Windows Git Execution**:
    - When executing git write operations (`commit`, `push`, `checkout`) on Windows, use elevated/unsandboxed execution (`BypassSandbox: true`).
+
+7. **Responsive & Multi-Device Standards**:
+   - Desktop layout (> 1024px) is complete and must not be modified.
+   - All mobile and tablet styling must reside strictly within media queries (`max-width: 1024px`, `max-width: 680px`, `max-width: 480px`, `max-width: 360px`).
+   - Ensure zero horizontal scroll (`scrollWidth <= innerWidth`) across all viewports.

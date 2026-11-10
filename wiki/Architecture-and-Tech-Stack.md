@@ -51,7 +51,19 @@ To ensure search engines (Googlebot, Bing) and non-JavaScript clients can immedi
 
 ---
 
-## 3. Stacking Context & Z-Index Hierarchy
+## 3. Responsive Multi-Device Architecture
+
+The interface adapts seamlessly across all display form factors without layout distortion or horizontal overflow:
+
+* **Desktop (> 1024px)**: Dual alternating timeline with central 600px gradient rail, 520px cards, and spacious ambient hero canvas.
+* **Tablets (681px - 1024px)**: Single rail layout with cards constrained to `max-width: 580px` to maintain cinematic aspect ratio.
+* **Mobile (≤ 680px)**: Header actions switch to symmetric touch-friendly rows, cards convert to vertical column banners with top-rounded media (`border-radius: var(--radius-lg) var(--radius-lg) 0 0`), and floating buttons integrate iOS safe-area insets (`env(safe-area-inset-bottom)`).
+* **Compact Mobile (≤ 480px)**: Timeline rail shifts inward to `20px` and node to `28px`, saving `20px+` of width; all three action buttons (**Mark watched**, **Skip**, **Trailer**) lock to equal widths and a uniform `33px` height.
+* **Ultra-Small Displays (≤ 360px)**: Timeline rail compacts to `15px`, and card action buttons wrap gracefully (full-width **Mark watched** top row, side-by-side **Skip** and **Trailer** bottom row).
+
+---
+
+## 4. Stacking Context & Z-Index Hierarchy
 
 The application maintains a strict z-index stacking model to prevent card overlap while scrolling past sticky navigation:
 
@@ -69,7 +81,7 @@ The application maintains a strict z-index stacking model to prevent card overla
 
 ---
 
-## 4. Live Telemetry (`/api/presence`)
+## 5. Live Telemetry (`/api/presence`)
 
 The online presence indicator at the top right displays active visitors without requiring continuous WebSockets:
 * A lightweight Vercel Serverless Function tracks active sessions via ephemeral memory with expiration timestamps.
@@ -78,7 +90,7 @@ The online presence indicator at the top right displays active visitors without 
 
 ---
 
-## 5. Automated CI/CD & Testing Suite
+## 6. Automated CI/CD & Testing Suite
 
 Every pull request and push to `main` executes GitHub Actions (`.github/workflows/ci-cd.yml`):
 * `npm run lint`: Verifies syntax across all JS files via `node --check`.
