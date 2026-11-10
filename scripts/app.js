@@ -386,9 +386,12 @@
     existingCards.forEach(card => {
       const id = parseInt(card.dataset.id, 10);
       if (!id) return;
-      const isWatched = watchedSet.has(id);
+      const isWatched = watchedSet.has(id) && !skippedSet.has(id);
       const isSkipped = skippedSet.has(id);
       const userRating = ratingsMap[id] || null;
+
+      card.classList.toggle('is-watched', isWatched);
+      card.classList.toggle('is-skipped', isSkipped);
 
       const btnWatched = card.querySelector('.btn-watched');
       if (btnWatched) {

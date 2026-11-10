@@ -297,6 +297,11 @@ providerLogos.forEach(logo => {
   check(fs.existsSync(logoPath), `assets/providers/${logo} must exist`);
 });
 
+// Validate card hydration synchronizes is-skipped and is-watched classes
+const appJsCode = fs.readFileSync(appJsPath, 'utf8');
+check(appJsCode.includes("card.classList.toggle('is-watched', isWatched)"), 'scripts/app.js missing card is-watched sync in hydrateInitialTimeline');
+check(appJsCode.includes("card.classList.toggle('is-skipped', isSkipped)"), 'scripts/app.js missing card is-skipped sync in hydrateInitialTimeline');
+
 check(indexHtml.includes('href="/support"'), 'index.html missing clean link to /support');
 check(indexHtml.includes('href="/supporters"'), 'index.html missing clean link to /supporters');
 check(indexHtml.includes('href="/privacy-policy"'), 'index.html missing clean link to /privacy-policy');
